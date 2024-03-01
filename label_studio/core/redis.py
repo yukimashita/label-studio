@@ -96,13 +96,14 @@ def start_job_async_or_sync(job, *args, in_seconds=0, **kwargs):
     if 'job_timeout' in kwargs:
         job_timeout = kwargs['job_timeout']
         del kwargs['job_timeout']
+    job_id = kwargs.pop('job_id', None)
     if redis:
         logger.info(f'Start async job {job.__name__} on queue {queue_name}.')
         queue = django_rq.get_queue(queue_name)
         enqueue_method = queue.enqueue
         if in_seconds > 0:
             enqueue_method = partial(queue.enqueue_in, timedelta(seconds=in_seconds))
-        job = enqueue_method(job, *args, **kwargs, job_timeout=job_timeout)
+        job = enqueue_method(job, *args, **kwargs, job_timeout=job_timeout, job_id=job_id)
         return job
     else:
         on_failure = kwargs.pop('on_failure', None)

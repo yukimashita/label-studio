@@ -142,3 +142,9 @@ class ModelRun(models.Model):
     @property
     def output_file_name(self):
         return f'{self.project.id}_{self.model_version.pk}_{self.pk}/output_tasks.csv'
+
+    # TODO should this be a CharField in case Adala changes its job ID format?
+    job_id = models.UUIDField(editable=False, null=True)
+
+    # TODO should this be an enum? what other states are possible?
+    job_results_are_enqueued = models.BooleanField(editable=True, default=False)
