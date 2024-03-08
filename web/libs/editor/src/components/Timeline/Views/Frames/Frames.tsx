@@ -50,6 +50,8 @@ export const Frames: FC<TimelineViewProps> = ({
     return length * step;
   }, [length, step]);
 
+  const viewHeight = 170;
+
   const framesInView = useMemo(() => toSteps(roundToStep((scrollable.current?.clientWidth ?? 0) - timelineStartOffset, step), step), [
     scrollable.current, step, timelineStartOffset,
   ]);
@@ -310,8 +312,28 @@ export const Frames: FC<TimelineViewProps> = ({
   const styles = {
     '--frame-size': `${step}px`,
     '--view-size': `${viewWidth}px`,
+    '--view-height': `${viewHeight}px`,
     '--offset': `${timelineStartOffset}px`,
   };
+
+  // The selected regions are displayed in the timeline.
+  // If more than one is selected, the first one is used.
+  useEffect(() => {
+    const index = regions.findIndex(r => r.selected);
+    if (index === -1)
+      return;
+
+    // .lsf-keypoints:height == 24px
+    const height = 24;
+    const regionTop = index * height;
+    const scrollTop = offsetY + height;
+    const scrollBottom = offsetY + viewHeight - height;
+
+    // Scroll when out of drawing range.
+    if (!_.inRange(regionTop, scrollTop, scrollBottom)) {
+      setScroll({ top: regionTop });
+    }
+  }, [regions]);
 
   return (
     <Block name="timeline-frames" style={styles as any}>
