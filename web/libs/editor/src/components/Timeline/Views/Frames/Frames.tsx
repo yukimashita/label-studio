@@ -316,24 +316,45 @@ export const Frames: FC<TimelineViewProps> = ({
     '--offset': `${timelineStartOffset}px`,
   };
 
+  const [selectedRegion, setSelectedRegion] = useState(null);
+  const selectedRegionIndex = useMemo(() => {
+    return regions.findIndex(r => r.id === selectedRegion?.id);
+  }, [selectedRegion]);
+
+  useEffect(() => {
+    const index = regions.findIndex(r => r.selected);
+    if (index === -1) {
+      if (selectedRegion)
+        setSelectedRegion(null);
+      return;
+    }
+
+    const region = regions[index];
+    if (region.id !== selectedRegion?.id)
+      setSelectedRegion(region);
+  }, [regions]);
+
   // The selected regions are displayed in the timeline.
   // If more than one is selected, the first one is used.
   useEffect(() => {
-    const index = regions.findIndex(r => r.selected);
-    if (index === -1)
+    if (selectedRegionIndex === -1)
       return;
 
     // .lsf-keypoints:height == 24px
     const height = 24;
-    const regionTop = index * height;
+    const regionTop = selectedRegionIndex * height;
     const scrollTop = offsetY + height;
     const scrollBottom = offsetY + viewHeight - height;
 
     // Scroll when out of drawing range.
-    if (!_.inRange(regionTop, scrollTop, scrollBottom)) {
+    if (!_.inRange(regionTop, scrollTop, scrollBottom))
       setScroll({ top: regionTop });
-    }
-  }, [regions]);
+  }, [selectedRegionIndex]);
+
+  useEffect(() => {
+    if (selectedRegion)
+      handlers.onPositionChange?.(selectedRegion.sequence[0].frame);
+  }, [selectedRegion]);
 
   return (
     <Block name="timeline-frames" style={styles as any}>

@@ -106,6 +106,14 @@
     "key": "alt+.",
     "description": "Cycle through regions"
   },
+  "region:select-next": {
+    "key": "ctrl+alt+.",
+    "description": "Select next region"
+  },
+  "region:select-previous": {
+    "key": "ctrl+alt+shift+.",
+    "description": "Select previous region"
+  },
   "region:duplicate": {
     "key": "ctrl+d",
     "mac": "command+d",

@@ -554,6 +554,20 @@ export default types.model('RegionStore', {
       next && self.annotation.selectArea(next);
     }
   },
+  selectPrevious() {
+    const { regions } = self;
+    const idx = self.regions.findIndex(r => r.selected);
+
+    if (idx < 0) {
+      const region = regions[regions.length - 1];
+
+      region && self.annotation.selectArea(region);
+    } else {
+      const previous = isDefined(regions[idx - 1]) ? regions[idx - 1] : regions[regions.length - 1];
+
+      previous && self.annotation.selectArea(previous);
+    }
+  },
 
   toggleVisibility() {
     const shouldBeHidden = !self.isAllHidden;

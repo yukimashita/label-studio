@@ -450,6 +450,18 @@ export default types
         c && c.regionStore.selectNext();
       });
 
+      hotkeys.addNamed('region:select-next', () => {
+        const c = self.annotationStore.selected;
+
+        c && c.regionStore.selectNext();
+      });
+
+      hotkeys.addNamed('region:select-previous', () => {
+        const c = self.annotationStore.selected;
+
+        c && c.regionStore.selectPrevious();
+      });
+
       // duplicate selected regions
       hotkeys.addNamed('region:duplicate', (e) => {
         const { selected } = self.annotationStore;
