@@ -10,15 +10,42 @@ export const Minimap: FC<any> = () => {
   const root = useRef<HTMLDivElement>();
   const [step, setStep] = useState(0);
 
+  const minimapEntries = 16; // # of display regions in Minimap
+  const [selectedRegion, setSelectedRegion] = useState(null);
+  const selectedRegionIndex = useMemo(() => {
+    if (!selectedRegion)
+      return 0;
+    return Math.max(regions.findIndex(r => r.id === selectedRegion.id), 0);
+  }, [selectedRegion]);
+
+  useEffect(() => {
+    const index = regions.findIndex(r => r.selected);
+    if (index === -1) {
+      if (selectedRegion)
+        setSelectedRegion(null);
+      return;
+    }
+
+    const region = regions[index];
+    if (region.id !== selectedRegion?.id)
+      setSelectedRegion(region);
+  }, [regions]);
+
   const visualization = useMemo(() => {
-    return regions.map(({ id, color, sequence }) => {
-      return {
-        id,
-        color,
-        lifespans: visualizeLifespans(sequence, step),
-      };
-    });
-  }, [step, regions]);
+    let top = Math.max(selectedRegionIndex - 1, 0);
+    const n = regions.length - top;
+    if (n < minimapEntries)
+      top = Math.max(regions.length - minimapEntries, 0);
+    return regions
+      .slice(top, top + minimapEntries)
+      .map(({ id, color, sequence }) => {
+        return {
+          id,
+          color,
+          lifespans: visualizeLifespans(sequence, step),
+        };
+      });
+  }, [step, regions, selectedRegionIndex]);
 
   useEffect(() => {
     if (isDefined(root.current) && length > 0) {
@@ -28,7 +55,7 @@ export const Minimap: FC<any> = () => {
 
   return (
     <Block ref={root} name="minimap">
-      {visualization.slice(0, 5).map(({ id, color, lifespans }) => {
+      {visualization.map(({ id, color, lifespans }) => {
         return (
           <Elem key={id} name="region" style={{ '--color': color }}>
             {lifespans.map((connection, i) => {
