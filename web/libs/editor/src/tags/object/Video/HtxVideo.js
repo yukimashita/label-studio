@@ -413,6 +413,8 @@ const HtxVideoView = ({ item, store }) => {
       frame: s.frame,
       enabled: s.enabled,
     }));
+    const isInLifespan = reg.isInLifespan;
+    const getShape = reg.getShape;
 
     return {
       id: reg.cleanId,
@@ -421,6 +423,8 @@ const HtxVideoView = ({ item, store }) => {
       visible: !reg.hidden,
       selected: reg.selected || reg.inSelection,
       sequence,
+      isInLifespan,
+      getShape
     };
   });
 

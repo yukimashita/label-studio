@@ -352,8 +352,15 @@ export const Frames: FC<TimelineViewProps> = ({
   }, [selectedRegionIndex]);
 
   useEffect(() => {
-    if (selectedRegion)
-      handlers.onPositionChange?.(selectedRegion.sequence[0].frame);
+    if (!selectedRegion)
+      return;
+
+    const isInLifespan = selectedRegion.isInLifespan(position);
+    const shape = selectedRegion.getShape(position);
+    if (isInLifespan && shape)
+      return;
+    // If region is not shown, move to the first frame.
+    handlers.onPositionChange?.(selectedRegion.sequence[0].frame);
   }, [selectedRegion]);
 
   return (
