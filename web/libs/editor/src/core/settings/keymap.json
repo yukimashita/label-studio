@@ -114,6 +114,14 @@
     "key": "ctrl+alt+shift+.",
     "description": "Select previous region"
   },
+  "region:select-next-in-frame": {
+    "key": "ctrl+alt+,",
+    "description": "Select next region in frame"
+  },
+  "region:select-previous-in-frame": {
+    "key": "ctrl+alt+shift+,",
+    "description": "Select previous region in frame"
+  },
   "region:duplicate": {
     "key": "ctrl+d",
     "mac": "command+d",

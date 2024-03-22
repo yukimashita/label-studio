@@ -462,6 +462,18 @@ export default types
         c && c.regionStore.selectPrevious();
       });
 
+      hotkeys.addNamed('region:select-next-in-frame', () => {
+        const c = self.annotationStore.selected;
+
+        c && c.regionStore.selectNextInFrame();
+      });
+
+      hotkeys.addNamed('region:select-previous-in-frame', () => {
+        const c = self.annotationStore.selected;
+
+        c && c.regionStore.selectPreviousInFrame();
+      });
+
       // duplicate selected regions
       hotkeys.addNamed('region:duplicate', (e) => {
         const { selected } = self.annotationStore;

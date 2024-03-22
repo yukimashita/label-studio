@@ -153,6 +153,7 @@ export default types.model('RegionStore', {
     window.localStorage.getItem(localStorageKeys.view) ?? 'regions',
   ),
   selection: types.optional(SelectionMap, {}),
+  position: types.optional(types.integer, 1)
 }).views(self => {
   let lastClickedItem;
   const getShiftClickSelectedRange = (item, tree) => {
@@ -554,6 +555,7 @@ export default types.model('RegionStore', {
       next && self.annotation.selectArea(next);
     }
   },
+
   selectPrevious() {
     const { regions } = self;
     const idx = self.regions.findIndex(r => r.selected);
@@ -567,6 +569,35 @@ export default types.model('RegionStore', {
 
       previous && self.annotation.selectArea(previous);
     }
+  },
+
+  selectNextInFrame() {
+    const regions = self.regions
+          .filter(r => {
+            return r.isInLifespan(self.position) && r.getShape(self.position);
+          });
+    if (regions.length === 0)
+      return;
+    const selected = self.regions.find(r => r.selected);
+    const idx = (regions.findIndex(r => r.id === selected?.id) + 1) % regions.length;
+    const region = regions[idx];
+
+    region && self.annotation.selectArea(region);
+  },
+
+  selectPreviousInFrame() {
+    const regions = self.regions
+          .filter(r => {
+            return r.isInLifespan(self.position) && r.getShape(self.position);
+          })
+          .reverse();
+    if (regions.length === 0)
+      return;
+    const selected = self.regions.find(r => r.selected);
+    const idx = (regions.findIndex(r => r.id === selected?.id) + 1) % regions.length;
+    const region = regions[idx];
+
+    region && self.annotation.selectArea(region);
   },
 
   toggleVisibility() {
@@ -624,4 +655,7 @@ export default types.model('RegionStore', {
     }
   },
 
+  setPosition(position) {
+    self.position = position;
+  }
 }));

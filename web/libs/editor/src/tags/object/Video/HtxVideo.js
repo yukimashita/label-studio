@@ -102,6 +102,7 @@ function useZoom(videoDimensions, canvasDimentions, shouldClampPan) {
 const HtxVideoView = ({ item, store }) => {
   if (!item._value) return null;
 
+  const regionStore = store.annotationStore.selected.regionStore;
   const limitCanvasDrawingBoundaries = !store.settings.videoDrawOutside;
   const videoBlockRef = useRef();
   const stageRef = useRef();
@@ -134,6 +135,7 @@ const HtxVideoView = ({ item, store }) => {
       const nextPosition = clamp(value, 1, videoLength);
 
       _setPosition(nextPosition);
+      regionStore.setPosition(nextPosition);
     }
   }, [position, videoLength]);
 
