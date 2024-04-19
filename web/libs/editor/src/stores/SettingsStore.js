@@ -48,7 +48,7 @@ const SettingsModel = types
 
     enableAutoSave: types.optional(types.boolean, false),
 
-    showLabels: types.optional(types.boolean, false),
+    showLabels: types.optional(types.boolean, true),
 
     showLineNumbers: false,
 
