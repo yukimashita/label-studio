@@ -572,10 +572,21 @@ export default types.model('RegionStore', {
   },
 
   selectNextInFrame() {
+    const between = (min, current, max) => {
+      if (current < min)
+        return false;
+      if (max < current)
+        return false;
+      return true;
+    };
+    const showInFrame = r => {
+      const seq = r.sequence;
+      const firstFrame = seq[0].frame
+      const lastFrame = seq[seq.length - 1].frame;
+      return between(firstFrame, self.position, lastFrame) && r.getShape();
+    };
     const regions = self.regions
-          .filter(r => {
-            return r.isInLifespan(self.position) && r.getShape(self.position);
-          });
+          .filter(showInFrame);
     if (regions.length === 0)
       return;
     const selected = self.regions.find(r => r.selected);
@@ -586,10 +597,21 @@ export default types.model('RegionStore', {
   },
 
   selectPreviousInFrame() {
+    const between = (min, current, max) => {
+      if (current < min)
+        return false;
+      if (max < current)
+        return false;
+      return true;
+    };
+    const showInFrame = r => {
+      const seq = r.sequence;
+      const firstFrame = seq[0].frame
+      const lastFrame = seq[seq.length - 1].frame;
+      return between(firstFrame, self.position, lastFrame) && r.getShape();
+    };
     const regions = self.regions
-          .filter(r => {
-            return r.isInLifespan(self.position) && r.getShape(self.position);
-          })
+          .filter(showInFrame)
           .reverse();
     if (regions.length === 0)
       return;

@@ -355,9 +355,20 @@ export const Frames: FC<TimelineViewProps> = ({
     if (!selectedRegion)
       return;
 
-    const isInLifespan = selectedRegion.isInLifespan(position);
-    const shape = selectedRegion.getShape(position);
-    if (isInLifespan && shape)
+    const between = (min, current, max) => {
+      if (current < min)
+        return false;
+      if (max < current)
+        return false;
+      return true;
+    };
+    const showInFrame = r => {
+      const seq = r.sequence;
+      const firstFrame = seq[0].frame
+      const lastFrame = seq[seq.length - 1].frame;
+      return between(firstFrame, position, lastFrame) && r.getShape();
+    };
+    if (showInFrame(selectedRegion))
       return;
     // If region is not shown, move to the first frame.
     handlers.onPositionChange?.(selectedRegion.sequence[0].frame);
