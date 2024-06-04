@@ -33,6 +33,12 @@ const VideoRegionsPure = ({
   pan = { x: 0, y: 0 },
   stageRef,
 }) => {
+  if (window.LabelStudioHook === undefined)
+    window.LabelStudioHook = {};
+  window.LabelStudioHook.VideoRegions = {
+    regions: regions.slice()
+  };
+
   const [newRegion, setNewRegion] = useState();
   const [isDrawing, setDrawingMode] = useState(false);
 

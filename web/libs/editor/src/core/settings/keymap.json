@@ -114,7 +114,7 @@
     "description": "Delete selected region"
   },
   "media:playpause": {
-    "key": "alt+space",
+    "key": "ctrl+space",
     "description": "Play/pause"
   },
   "media:step-backward": {

@@ -41,7 +41,14 @@ export const Frames: FC<TimelineViewProps> = ({
   const lastOffsetX = useRef(offsetX);
   const [offsetY, setOffsetY] = useState(0);
   const [regionSelectionDisabled, setRegionSelectionDisabled] = useState(false);
-
+  if (window.LabelStudioHook === undefined)
+    window.LabelStudioHook = {};
+  window.LabelStudioHook.Frames = {
+    setSelectedRegionIndex: index => {
+      const height = 24;
+      setOffsetY(index * height);
+    }
+  };
   // Ensure offsetX is not stale in the main useEffect that syncs position updates with the offsetX, without triggering
   // near infinite loops.
   lastOffsetX.current = offsetX;

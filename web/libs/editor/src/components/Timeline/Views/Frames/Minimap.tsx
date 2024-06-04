@@ -9,16 +9,30 @@ export const Minimap: FC<any> = () => {
   const { regions, length } = useContext(TimelineContext);
   const root = useRef<HTMLDivElement>();
   const [step, setStep] = useState(0);
+  const [displayEntries, setDisplayEntries] = useState(7);
+
+  if (window.LabelStudioHook === undefined)
+    window.LabelStudioHook = {};
+  window.LabelStudioHook.Minimap = {
+    displayEntries,
+    setDisplayEntries
+  };
 
   const visualization = useMemo(() => {
-    return regions.map(({ id, color, sequence }) => {
+    const selectedIndex = regions.findIndex(r => r.selected);
+    const top = Math.max(selectedIndex - 1, 0); // 選択リージョンを2番目に表示
+    //const top = Math.max(selectedIndex - displayEntries / 2, 0); // 選択リージョンを中央に表示
+    const bottom = Math.min(top + displayEntries, regions.length - 1);
+    return regions
+      .slice(top, bottom)
+      .map(({ id, color, sequence }) => {
       return {
         id,
         color,
         lifespans: visualizeLifespans(sequence, step),
       };
     });
-  }, [step, regions]);
+  }, [step, regions, displayEntries]);
 
   useEffect(() => {
     if (isDefined(root.current) && length > 0) {
@@ -28,7 +42,7 @@ export const Minimap: FC<any> = () => {
 
   return (
     <Block ref={root} name="minimap">
-      {visualization.slice(0, 5).map(({ id, color, lifespans }) => {
+      {visualization.map(({ id, color, lifespans }) => {
         return (
           <Elem key={id} name="region" style={{ "--color": color }}>
             {lifespans.map((connection, i) => {
