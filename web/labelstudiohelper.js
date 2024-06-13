@@ -26,6 +26,8 @@
   GM_addStyle(`.${toastrPositionClass} { top: 50%; left: 50%; margin:0 0 0 -150px; }`);
   toastr.options.positionClass = toastrPositionClass;
 
+  GM_addStyle('.lsf-tree-treenode-selected { font-weight: bolder; border-left: 3px solid red; }');
+
   const isTaskPage = () => {
     const params = new URLSearchParams(location.search);
     return params.get('task');
@@ -81,7 +83,11 @@
   const isSelectedRegion = r => r.selected || r.inSelection;
   const getSelectedRegion = () => getRegions().find(isSelectedRegion);
 
-  const getNextRegion = (currentRegion, regions=getRegions()) => {
+  const getNextRegion = ({
+    currentRegion=getSlectedRegion(),
+    regions=getRegions(),
+    cyclicSelect=true
+  }) => {
     if (!currentRegion) {
       console.error('>>> getNextRegion');
       console.error('!currentRegion');
@@ -93,30 +99,50 @@
       console.error('>>> getNextRegion');
       console.error('i === -1');
       console.error(`regions.length: ${regions.length}`);
+      console.error(`getRegions().length: ${getRegions().length}`);
       console.error(regions);
       return null;
     }
-    return regions[(i + 1) % regions.length];
+    const n = i + 1;
+    if (n < regions.length)
+      return regions[n];
+    if (cyclicSelect)
+      return regions[0];
+    return null;
   };
 
   const selectRegion = region => {
     if (!region || !region.hasOwnProperty('onClickRegion'))
-      return;
+      return null;
     if (!region.selected)
       region.onClickRegion(getEvent());
     setPosition(region.sequence[0].frame);
     setSelectedRegion(region);
+    return region;
   };
 
-  const selectNextRegion = (regions=getRegions()) => {
-    const r = getSelectedRegion() || regions[0];
-    if (!r)
-      return;
-    selectRegion(getNextRegion(r, regions));
+  const selectNextRegion = ({
+    regions=getRegions(),
+    cyclicSelect=true
+  }) => {
+    const currentRegion = getSelectedRegion() || regions[0];
+    if (!currentRegion)
+      return null;
+    return selectRegion(getNextRegion({
+      currentRegion,
+      regions,
+      cyclicSelect
+    }));
   };
 
-  const selectPreviousRegion = (regions=getRegions()) => {
-    return selectNextRegion(regions.toReversed());
+  const selectPreviousRegion = ({
+    regions=getRegions(),
+    cyclicSelect=true
+  }) => {
+    return selectNextRegion({
+      regions: regions.toReversed(),
+      cyclicSelect
+    });
   };
 
   const getTrackingID = region => {
@@ -149,6 +175,58 @@
     }
 
     return getRegions().filter(f);
+  };
+
+  const getLabelCount = region => {
+    if (!region)
+      return -1;
+    return region.labels.length;
+  };
+
+  const getEmptyLabelRegions = () => {
+    return getRegions()
+      .filter(r => getLabelCount(r) === 0);
+  };
+
+  const getEmptyLabelRegion = (regions=getRegions()) => {
+    for (const r of regions) {
+      if (getLabelCount(r) === 0)
+        return r;
+    }
+    return null;
+  };
+
+  const selectNextEmptyLabelRegion = (regions=getRegions(), reverse=false) => {
+    const s = getSelectedRegion() || regions[0];
+    if (getLabelCount(s) === 0) {
+      const emptyLabelRegions = reverse?
+            getEmptyLabelRegions().toReversed():
+            getEmptyLabelRegions();
+      if (!selectNextRegion({
+        regions: emptyLabelRegions
+      }))
+      {
+        toastr.info('🎉 ラベルなしはありません');
+      }
+      return;
+    }
+    // 選択中のリージョンはラベルがついてるので
+    // 以降のラベルがついてないリージョンを探す
+    const index = regions
+          .findIndex(r => r.id === s.id);
+    if (index === -1) {
+      console.error('>>> selectNextEmptyLabelRegion');
+      console.error('index === -1');
+      return;
+    }
+    if (selectRegion(getEmptyLabelRegion(regions.slice(index))))
+      return;
+    if (!selectRegion(getEmptyLabelRegion(regions.slice(0, index))))
+      toastr.info('🎉 ラベルなしはありません');
+  };
+
+  const selectPreviousEmptyLabelRegion = (regions=getRegions()) => {
+    selectNextEmptyLabelRegion(regions.toReversed(), true);
   };
 
   async function selectRegions(regions, title, selectedRegion) {
@@ -227,13 +305,13 @@
       break;
     case '.':
       if (e.ctrlKey && e.altKey && !e.shiftKey) {
-        selectNextRegion();
+        selectNextRegion({});
         e.preventDefault();
       }
       break;
     case '>':
       if (e.ctrlKey && e.altKey && e.shiftKey) {
-        selectPreviousRegion();
+        selectPreviousRegion({});
         e.preventDefault();
       }
       break;
@@ -242,14 +320,20 @@
         const r = getSelectedRegion();
         console.log('>>> handle "]" key');
         console.log(r);
-        selectNextRegion(getSameTrackingRegions());
+        selectNextRegion({
+          regions: getSameTrackingRegions(),
+          cyclicSelect: false
+        });
         e.preventDefault();
       }
       break;
     case '[':
       if (!e.ctrlKey && !e.altKey && !e.shiftKey) {
         const r = getSelectedRegion();
-        selectPreviousRegion(getSameTrackingRegions());
+        selectPreviousRegion({
+          regions: getSameTrackingRegions(),
+          cyclicSelect: false
+        });
         e.preventDefault();
       }
       break;
@@ -270,6 +354,12 @@
         selectSameTrackingRegions({ ignoreBeforeRegion: false });
         e.preventDefault();
       }
+      break;
+    case '}':
+      selectNextEmptyLabelRegion();
+      break;
+    case '{':
+      selectPreviousEmptyLabelRegion();
       break;
     case 'a':
       if ((e.ctrlKey || e.metaKey) && !e.altKey && !e.shiftKey) {
