@@ -7,6 +7,7 @@
 // @match        http://0.0.0.0:45547/*
 // @match        http://localhost:45547/*
 // @match        http://127.0.0.1:45547/*
+// @match        http://10.2.0.7:45547/*
 // @resource     toastr.min.css https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css
 // @require      https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js
 // @require      https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js
@@ -24,9 +25,14 @@
   const toastrPositionClass = 'toastr-middle-center';
   GM_addStyle(GM_getResourceText('toastr.min.css'));
   GM_addStyle(`.${toastrPositionClass} { top: 50%; left: 50%; margin:0 0 0 -150px; }`);
-  toastr.options.positionClass = toastrPositionClass;
+  toastr.options = {
+    positionClass: toastrPositionClass,
+    preventDuplicates: true,
+    preventOpenDuplicates: true
+  };
 
-  GM_addStyle('.lsf-tree-treenode-selected { font-weight: bolder; border-left: 3px solid red; }');
+  GM_addStyle('.lsf-tree-treenode-selected { font-weight: bolder; border-left: 10px solid red; }');
+  GM_addStyle('.dm-table__row-wrapper_selected { font-weight: bolder; border-left: 10px solid red; }');
 
   const isTaskPage = () => {
     const params = new URLSearchParams(location.search);
@@ -183,6 +189,22 @@
     return region.labels.length;
   };
 
+  const getPersonLabelCount = region => {
+    if (!region)
+      return -1;
+    return region.labels
+      .filter(l => l.endsWith('さん'))
+      .length;
+  };
+
+  const getActionLabelCount = region => {
+    if (!region)
+      return -1;
+    return region.labels
+      .filter(l => !l.endsWith('さん'))
+      .length;
+  };
+
   const getEmptyLabelRegions = () => {
     return getRegions()
       .filter(r => getLabelCount(r) === 0);
@@ -320,20 +342,26 @@
         const r = getSelectedRegion();
         console.log('>>> handle "]" key');
         console.log(r);
-        selectNextRegion({
+        if (!selectNextRegion({
           regions: getSameTrackingRegions(),
           cyclicSelect: false
-        });
+        }))
+        {
+          toastr.info('これより後はありません', '', { timeOut: 1000 });
+        }
         e.preventDefault();
       }
       break;
     case '[':
       if (!e.ctrlKey && !e.altKey && !e.shiftKey) {
         const r = getSelectedRegion();
-        selectPreviousRegion({
+        if (!selectPreviousRegion({
           regions: getSameTrackingRegions(),
           cyclicSelect: false
-        });
+        }))
+        {
+          toastr.info('これより前はありません', '', { timeOut: 1000 });
+        }
         e.preventDefault();
       }
       break;
@@ -381,6 +409,17 @@
     setTimeout(f, 3000);
     setTimeout(f, 5000);
     setTimeout(f, 7000);
+    setTimeout(f, 9000);
+    setTimeout(f, 11000);
+    setTimeout(f, 13000);
+    setTimeout(f, 15000);
+    setTimeout(f, 17000);
+    setTimeout(f, 19000);
+    setTimeout(f, 21000);
+    setTimeout(f, 23000);
+    setTimeout(f, 25000);
+    setTimeout(f, 27000);
+    setTimeout(f, 29000);
   };
   window.onurlchange = onURLChanged;
   setTimeout(onURLChanged, 100);
