@@ -68,6 +68,7 @@ const Label = ({ label, template, color }) => {
           strokeLinecap="square"
           xmlns="http://www.w3.org/2000/svg"
         >
+          <title>Delete label</title>
           <path d="M2 12L12 2" />
           <path d="M12 12L2 2" />
         </svg>
@@ -458,6 +459,7 @@ const Configurator = ({
   return (
     <div className={configClass}>
       <div className={configClass.elem("container")}>
+        <h1>Labeling Interface</h1>
         <header>
           <button onClick={onBrowse}>Browse Templates</button>
           <ToggleItems items={{ code: "Code", visual: "Visual" }} active={configure} onSelect={onSelect} />

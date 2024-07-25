@@ -26792,6 +26792,59 @@ div.ant-typography-edit-content.ant-typography-rtl {
 .error--r0AIV + .error--r0AIV {
   margin: 0 0 16px;
 }
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-SemiBold.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+body {
+  font-family: 'Figtree', sans-serif !important;
+  --sand_900: #12110d;
+  --sand_800: #262522;
+  --sand_700: #45433e;
+  --sand_600: #6b6860;
+  --sand_500: #a49f95;
+  --sand_400: #cac5b8;
+  --sand_300: #e1ded5;
+  --sand_200: #f0efeb;
+  --sand_100: #f9f8f6;
+  --sand_0: #fdfdfc;
+  --grape_0: #f0f3fe;
+  --grape_100: #d4dbfb;
+  --grape_500: #566fcf;
+  --grape_600: #576cc1;
+  --grape_700: #4c5fa9;
+  --grape_800: #37447a;
+  --kale_0: #f4f9f9;
+  --kale_400: #57b7ab;
+  --plum_500: #cc6fbe;
+  --plum_400: #e37bd3;
+  --plum_100: #f7d6f2;
+  --plum_0: #fbf2fc;
+  --persimmon_300: #ff9f89;
+  --persimmon_400: #ff7557;
+  --canteloupe_0: #fff6ef;
+  --canteloupe_100: #ffe4d0;
+  --canteloupe_400: #ffa663;
+  --canteloupe_500: #e69559;
+  --canteloupe_600: #cc854f;
+  --canteloupe_700: #b37445;
+  --red_1: #fff1f0;
+  --red_3: #ffccc7;
+  --red_7: #cf1322;
+  --red_10: #5c0011;
+  --primary_link: #566fcf;
+  --danger_color: var(--red_7);
+}
 .lsf-image {
   top: 0;
   position: absolute;
@@ -26837,6 +26890,59 @@ div.ant-typography-edit-content.ant-typography-rtl {
 }
 .link--n5k1J:focus {
   color: #1890ff;
+}
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-SemiBold.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+body {
+  font-family: 'Figtree', sans-serif !important;
+  --sand_900: #12110d;
+  --sand_800: #262522;
+  --sand_700: #45433e;
+  --sand_600: #6b6860;
+  --sand_500: #a49f95;
+  --sand_400: #cac5b8;
+  --sand_300: #e1ded5;
+  --sand_200: #f0efeb;
+  --sand_100: #f9f8f6;
+  --sand_0: #fdfdfc;
+  --grape_0: #f0f3fe;
+  --grape_100: #d4dbfb;
+  --grape_500: #566fcf;
+  --grape_600: #576cc1;
+  --grape_700: #4c5fa9;
+  --grape_800: #37447a;
+  --kale_0: #f4f9f9;
+  --kale_400: #57b7ab;
+  --plum_500: #cc6fbe;
+  --plum_400: #e37bd3;
+  --plum_100: #f7d6f2;
+  --plum_0: #fbf2fc;
+  --persimmon_300: #ff9f89;
+  --persimmon_400: #ff7557;
+  --canteloupe_0: #fff6ef;
+  --canteloupe_100: #ffe4d0;
+  --canteloupe_400: #ffa663;
+  --canteloupe_500: #e69559;
+  --canteloupe_600: #cc854f;
+  --canteloupe_700: #b37445;
+  --red_1: #fff1f0;
+  --red_3: #ffccc7;
+  --red_7: #cf1322;
+  --red_10: #5c0011;
+  --primary_link: #566fcf;
+  --danger_color: var(--red_7);
 }
 .lsf-tooltip {
   --animation-duration: 100ms;
@@ -26915,10 +27021,116 @@ div.ant-typography-edit-content.ant-typography-rtl {
   background-color: #fff;
 }
 
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-SemiBold.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+body {
+  font-family: 'Figtree', sans-serif !important;
+  --sand_900: #12110d;
+  --sand_800: #262522;
+  --sand_700: #45433e;
+  --sand_600: #6b6860;
+  --sand_500: #a49f95;
+  --sand_400: #cac5b8;
+  --sand_300: #e1ded5;
+  --sand_200: #f0efeb;
+  --sand_100: #f9f8f6;
+  --sand_0: #fdfdfc;
+  --grape_0: #f0f3fe;
+  --grape_100: #d4dbfb;
+  --grape_500: #566fcf;
+  --grape_600: #576cc1;
+  --grape_700: #4c5fa9;
+  --grape_800: #37447a;
+  --kale_0: #f4f9f9;
+  --kale_400: #57b7ab;
+  --plum_500: #cc6fbe;
+  --plum_400: #e37bd3;
+  --plum_100: #f7d6f2;
+  --plum_0: #fbf2fc;
+  --persimmon_300: #ff9f89;
+  --persimmon_400: #ff7557;
+  --canteloupe_0: #fff6ef;
+  --canteloupe_100: #ffe4d0;
+  --canteloupe_400: #ffa663;
+  --canteloupe_500: #e69559;
+  --canteloupe_600: #cc854f;
+  --canteloupe_700: #b37445;
+  --red_1: #fff1f0;
+  --red_3: #ffccc7;
+  --red_7: #cf1322;
+  --red_10: #5c0011;
+  --primary_link: #566fcf;
+  --danger_color: var(--red_7);
+}
 .lsf-hint {
   font-size: 9px;
 }
 
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-SemiBold.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+body {
+  font-family: 'Figtree', sans-serif !important;
+  --sand_900: #12110d;
+  --sand_800: #262522;
+  --sand_700: #45433e;
+  --sand_600: #6b6860;
+  --sand_500: #a49f95;
+  --sand_400: #cac5b8;
+  --sand_300: #e1ded5;
+  --sand_200: #f0efeb;
+  --sand_100: #f9f8f6;
+  --sand_0: #fdfdfc;
+  --grape_0: #f0f3fe;
+  --grape_100: #d4dbfb;
+  --grape_500: #566fcf;
+  --grape_600: #576cc1;
+  --grape_700: #4c5fa9;
+  --grape_800: #37447a;
+  --kale_0: #f4f9f9;
+  --kale_400: #57b7ab;
+  --plum_500: #cc6fbe;
+  --plum_400: #e37bd3;
+  --plum_100: #f7d6f2;
+  --plum_0: #fbf2fc;
+  --persimmon_300: #ff9f89;
+  --persimmon_400: #ff7557;
+  --canteloupe_0: #fff6ef;
+  --canteloupe_100: #ffe4d0;
+  --canteloupe_400: #ffa663;
+  --canteloupe_500: #e69559;
+  --canteloupe_600: #cc854f;
+  --canteloupe_700: #b37445;
+  --red_1: #fff1f0;
+  --red_3: #ffccc7;
+  --red_7: #cf1322;
+  --red_10: #5c0011;
+  --primary_link: #566fcf;
+  --danger_color: var(--red_7);
+}
 .lsf-button {
   --button-color: #000;
   height: 32px;
@@ -26959,7 +27171,7 @@ div.ant-typography-edit-content.ant-typography-rtl {
 }
 .lsf-button:focus {
   outline: none;
-  box-shadow: 0px 0px 0px 6px rgba(0,153,255,0.2), inset 0px -1px 0px rgba(0,0,0,0.1), inset 0px 0px 0px 1px rgba(0,0,0,0.15), inset 0px 0px 0px 1px rgba(0,153,255,0.2);
+  box-shadow: 0px 0px 0px 6px rgba(86,111,207,0.2), inset 0px -1px 0px rgba(0,0,0,0.1), inset 0px 0px 0px 1px rgba(0,0,0,0.15), inset 0px 0px 0px 1px rgba(86,111,207,0.2);
 }
 .lsf-button__extra {
   font-size: 14px;
@@ -27002,12 +27214,12 @@ div.ant-typography-edit-content.ant-typography-rtl {
 }
 .lsf-button_type_link,
 .lsf-button[href] {
-  --button-color: #09f;
+  --button-color: #566fcf;
   text-decoration: underline;
 }
 .lsf-button_look_primary {
   --button-color: #fff;
-  background-color: #09f;
+  background-color: #566fcf;
   box-shadow: none;
   box-shadow: inset 0px -1px 0px rgba(0,0,0,0.1);
 }
@@ -27017,16 +27229,16 @@ div.ant-typography-edit-content.ant-typography-rtl {
 }
 .lsf-button_look_primary:hover {
   color: var(--button-color);
-  background: linear-gradient(0deg, rgba(255,255,255,0.1), rgba(255,255,255,0.1)), #09f;
-  box-shadow: 0px 2px 4px rgba(0,153,255,0.3), inset 0px -1px 0px rgba(0,0,0,0.1);
+  background: linear-gradient(0deg, rgba(255,255,255,0.1), rgba(255,255,255,0.1)), #566fcf;
+  box-shadow: 0px 2px 4px rgba(86,111,207,0.3), inset 0px -1px 0px rgba(0,0,0,0.1);
 }
 .lsf-button_look_primary:active {
   color: var(--button-color);
-  background: linear-gradient(0deg, rgba(0,0,0,0.04), rgba(0,0,0,0.04)), #09f;
+  background: linear-gradient(0deg, rgba(0,0,0,0.04), rgba(0,0,0,0.04)), #566fcf;
   box-shadow: inset 0px 1px 0px rgba(0,0,0,0.1);
 }
 .lsf-button_look_primary:focus {
-  box-shadow: 0px 0px 0px 6px rgba(0,153,255,0.2), inset 0px -1px 0px rgba(0,0,0,0.1);
+  box-shadow: 0px 0px 0px 6px rgba(86,111,207,0.2), inset 0px -1px 0px rgba(0,0,0,0.1);
 }
 .lsf-button_look_danger {
   --button-color: #cf1322;
@@ -27037,8 +27249,12 @@ div.ant-typography-edit-content.ant-typography-rtl {
 }
 .lsf-button_look_outlined {
   background: none;
-  padding: 21px 54px;
-  font-size: 13px;
+  padding: 1.5rem 2rem;
+  font-size: 0.875rem;
+  border: 1px solid var(--primary_link);
+  outline: none;
+  box-shadow: none;
+  color: var(--grape_700);
 }
 .lsf-button_look_alt {
   --button-color: #000;
@@ -27139,7 +27355,7 @@ div.ant-typography-edit-content.ant-typography-rtl {
 }
 .lsf-button_waiting.lsf-button_look_primary {
   background-image: repeating-linear-gradient(-63.43deg, rgba(255,255,255,0.2) 1px, transparent 2px, transparent 6px, rgba(255,255,255,0.2) 7px, rgba(255,255,255,0.2) 12px);
-  background-color: #09f;
+  background-color: #566fcf;
 }
 .lsf-button_size_small .lsf-button__icon {
   width: 12px;
@@ -27171,6 +27387,59 @@ div.ant-typography-edit-content.ant-typography-rtl {
   }
 }
 
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-SemiBold.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+body {
+  font-family: 'Figtree', sans-serif !important;
+  --sand_900: #12110d;
+  --sand_800: #262522;
+  --sand_700: #45433e;
+  --sand_600: #6b6860;
+  --sand_500: #a49f95;
+  --sand_400: #cac5b8;
+  --sand_300: #e1ded5;
+  --sand_200: #f0efeb;
+  --sand_100: #f9f8f6;
+  --sand_0: #fdfdfc;
+  --grape_0: #f0f3fe;
+  --grape_100: #d4dbfb;
+  --grape_500: #566fcf;
+  --grape_600: #576cc1;
+  --grape_700: #4c5fa9;
+  --grape_800: #37447a;
+  --kale_0: #f4f9f9;
+  --kale_400: #57b7ab;
+  --plum_500: #cc6fbe;
+  --plum_400: #e37bd3;
+  --plum_100: #f7d6f2;
+  --plum_0: #fbf2fc;
+  --persimmon_300: #ff9f89;
+  --persimmon_400: #ff7557;
+  --canteloupe_0: #fff6ef;
+  --canteloupe_100: #ffe4d0;
+  --canteloupe_400: #ffa663;
+  --canteloupe_500: #e69559;
+  --canteloupe_600: #cc854f;
+  --canteloupe_700: #b37445;
+  --red_1: #fff1f0;
+  --red_3: #ffccc7;
+  --red_7: #cf1322;
+  --red_10: #5c0011;
+  --primary_link: #566fcf;
+  --danger_color: var(--red_7);
+}
 .lsf-space {
   display: grid;
   grid-gap: 16px;
@@ -27220,6 +27489,59 @@ div.ant-typography-edit-content.ant-typography-rtl {
   grid-gap: 0;
 }
 
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-SemiBold.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+body {
+  font-family: 'Figtree', sans-serif !important;
+  --sand_900: #12110d;
+  --sand_800: #262522;
+  --sand_700: #45433e;
+  --sand_600: #6b6860;
+  --sand_500: #a49f95;
+  --sand_400: #cac5b8;
+  --sand_300: #e1ded5;
+  --sand_200: #f0efeb;
+  --sand_100: #f9f8f6;
+  --sand_0: #fdfdfc;
+  --grape_0: #f0f3fe;
+  --grape_100: #d4dbfb;
+  --grape_500: #566fcf;
+  --grape_600: #576cc1;
+  --grape_700: #4c5fa9;
+  --grape_800: #37447a;
+  --kale_0: #f4f9f9;
+  --kale_400: #57b7ab;
+  --plum_500: #cc6fbe;
+  --plum_400: #e37bd3;
+  --plum_100: #f7d6f2;
+  --plum_0: #fbf2fc;
+  --persimmon_300: #ff9f89;
+  --persimmon_400: #ff7557;
+  --canteloupe_0: #fff6ef;
+  --canteloupe_100: #ffe4d0;
+  --canteloupe_400: #ffa663;
+  --canteloupe_500: #e69559;
+  --canteloupe_600: #cc854f;
+  --canteloupe_700: #b37445;
+  --red_1: #fff1f0;
+  --red_3: #ffccc7;
+  --red_7: #cf1322;
+  --red_10: #5c0011;
+  --primary_link: #566fcf;
+  --danger_color: var(--red_7);
+}
 .lsf-timeline-controls {
   background: #fff;
 }
@@ -27310,6 +27632,59 @@ div.ant-typography-edit-content.ant-typography-rtl {
   background: rgba(0,0,0,0.05);
 }
 
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-SemiBold.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+body {
+  font-family: 'Figtree', sans-serif !important;
+  --sand_900: #12110d;
+  --sand_800: #262522;
+  --sand_700: #45433e;
+  --sand_600: #6b6860;
+  --sand_500: #a49f95;
+  --sand_400: #cac5b8;
+  --sand_300: #e1ded5;
+  --sand_200: #f0efeb;
+  --sand_100: #f9f8f6;
+  --sand_0: #fdfdfc;
+  --grape_0: #f0f3fe;
+  --grape_100: #d4dbfb;
+  --grape_500: #566fcf;
+  --grape_600: #576cc1;
+  --grape_700: #4c5fa9;
+  --grape_800: #37447a;
+  --kale_0: #f4f9f9;
+  --kale_400: #57b7ab;
+  --plum_500: #cc6fbe;
+  --plum_400: #e37bd3;
+  --plum_100: #f7d6f2;
+  --plum_0: #fbf2fc;
+  --persimmon_300: #ff9f89;
+  --persimmon_400: #ff7557;
+  --canteloupe_0: #fff6ef;
+  --canteloupe_100: #ffe4d0;
+  --canteloupe_400: #ffa663;
+  --canteloupe_500: #e69559;
+  --canteloupe_600: #cc854f;
+  --canteloupe_700: #b37445;
+  --red_1: #fff1f0;
+  --red_3: #ffccc7;
+  --red_7: #cf1322;
+  --red_10: #5c0011;
+  --primary_link: #566fcf;
+  --danger_color: var(--red_7);
+}
 .lsf-frames-control {
   height: 36px;
   min-width: 115px;
@@ -27341,6 +27716,59 @@ div.ant-typography-edit-content.ant-typography-rtl {
   text-align: center;
 }
 
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-SemiBold.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+body {
+  font-family: 'Figtree', sans-serif !important;
+  --sand_900: #12110d;
+  --sand_800: #262522;
+  --sand_700: #45433e;
+  --sand_600: #6b6860;
+  --sand_500: #a49f95;
+  --sand_400: #cac5b8;
+  --sand_300: #e1ded5;
+  --sand_200: #f0efeb;
+  --sand_100: #f9f8f6;
+  --sand_0: #fdfdfc;
+  --grape_0: #f0f3fe;
+  --grape_100: #d4dbfb;
+  --grape_500: #566fcf;
+  --grape_600: #576cc1;
+  --grape_700: #4c5fa9;
+  --grape_800: #37447a;
+  --kale_0: #f4f9f9;
+  --kale_400: #57b7ab;
+  --plum_500: #cc6fbe;
+  --plum_400: #e37bd3;
+  --plum_100: #f7d6f2;
+  --plum_0: #fbf2fc;
+  --persimmon_300: #ff9f89;
+  --persimmon_400: #ff7557;
+  --canteloupe_0: #fff6ef;
+  --canteloupe_100: #ffe4d0;
+  --canteloupe_400: #ffa663;
+  --canteloupe_500: #e69559;
+  --canteloupe_600: #cc854f;
+  --canteloupe_700: #b37445;
+  --red_1: #fff1f0;
+  --red_3: #ffccc7;
+  --red_7: #cf1322;
+  --red_10: #5c0011;
+  --primary_link: #566fcf;
+  --danger_color: var(--red_7);
+}
 .lsf-range {
   --thickness: 6px;
   display: flex;
@@ -27386,7 +27814,7 @@ div.ant-typography-edit-content.ant-typography-rtl {
 .lsf-range__indicator {
   border-radius: 8px;
   position: absolute;
-  background-color: rgba(0,153,255,0.5);
+  background-color: var(--grape_0);
 }
 .lsf-range_align_horizontal .lsf-range__indicator {
   top: 0;
@@ -27406,7 +27834,7 @@ div.ant-typography-edit-content.ant-typography-rtl {
   width: 16px;
   height: 16px;
   position: absolute;
-  background: #09f;
+  background: var(--grape_500);
   border-radius: 100%;
   box-shadow: 0px 5px 10px rgba(0,153,255,0.3), inset 0px -1px 0px rgba(0,0,0,0.1);
   transform: translate3d(-50%, -50%, 0);
@@ -27436,6 +27864,59 @@ div.ant-typography-edit-content.ant-typography-rtl {
   max-height: 100%;
 }
 
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-SemiBold.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+body {
+  font-family: 'Figtree', sans-serif !important;
+  --sand_900: #12110d;
+  --sand_800: #262522;
+  --sand_700: #45433e;
+  --sand_600: #6b6860;
+  --sand_500: #a49f95;
+  --sand_400: #cac5b8;
+  --sand_300: #e1ded5;
+  --sand_200: #f0efeb;
+  --sand_100: #f9f8f6;
+  --sand_0: #fdfdfc;
+  --grape_0: #f0f3fe;
+  --grape_100: #d4dbfb;
+  --grape_500: #566fcf;
+  --grape_600: #576cc1;
+  --grape_700: #4c5fa9;
+  --grape_800: #37447a;
+  --kale_0: #f4f9f9;
+  --kale_400: #57b7ab;
+  --plum_500: #cc6fbe;
+  --plum_400: #e37bd3;
+  --plum_100: #f7d6f2;
+  --plum_0: #fbf2fc;
+  --persimmon_300: #ff9f89;
+  --persimmon_400: #ff7557;
+  --canteloupe_0: #fff6ef;
+  --canteloupe_100: #ffe4d0;
+  --canteloupe_400: #ffa663;
+  --canteloupe_500: #e69559;
+  --canteloupe_600: #cc854f;
+  --canteloupe_700: #b37445;
+  --red_1: #fff1f0;
+  --red_3: #ffccc7;
+  --red_7: #cf1322;
+  --red_10: #5c0011;
+  --primary_link: #566fcf;
+  --danger_color: var(--red_7);
+}
 .lsf-audio-control {
   position: relative;
 }
@@ -27469,9 +27950,62 @@ div.ant-typography-edit-content.ant-typography-rtl {
   background: rgba(0,0,0,0.078);
 }
 
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-SemiBold.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+body {
+  font-family: 'Figtree', sans-serif !important;
+  --sand_900: #12110d;
+  --sand_800: #262522;
+  --sand_700: #45433e;
+  --sand_600: #6b6860;
+  --sand_500: #a49f95;
+  --sand_400: #cac5b8;
+  --sand_300: #e1ded5;
+  --sand_200: #f0efeb;
+  --sand_100: #f9f8f6;
+  --sand_0: #fdfdfc;
+  --grape_0: #f0f3fe;
+  --grape_100: #d4dbfb;
+  --grape_500: #566fcf;
+  --grape_600: #576cc1;
+  --grape_700: #4c5fa9;
+  --grape_800: #37447a;
+  --kale_0: #f4f9f9;
+  --kale_400: #57b7ab;
+  --plum_500: #cc6fbe;
+  --plum_400: #e37bd3;
+  --plum_100: #f7d6f2;
+  --plum_0: #fbf2fc;
+  --persimmon_300: #ff9f89;
+  --persimmon_400: #ff7557;
+  --canteloupe_0: #fff6ef;
+  --canteloupe_100: #ffe4d0;
+  --canteloupe_400: #ffa663;
+  --canteloupe_500: #e69559;
+  --canteloupe_600: #cc854f;
+  --canteloupe_700: #b37445;
+  --red_1: #fff1f0;
+  --red_3: #ffccc7;
+  --red_7: #cf1322;
+  --red_10: #5c0011;
+  --primary_link: #566fcf;
+  --danger_color: var(--red_7);
+}
 .lsf-audio-slider {
   --background-active-color: #bae7ff;
-  --button-color: #09f;
+  --button-color: var(--grape_500);
   position: relative;
 }
 .lsf-audio-slider__range {
@@ -27575,6 +28109,59 @@ div.ant-typography-edit-content.ant-typography-rtl {
   background: transparent;
 }
 
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-SemiBold.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+body {
+  font-family: 'Figtree', sans-serif !important;
+  --sand_900: #12110d;
+  --sand_800: #262522;
+  --sand_700: #45433e;
+  --sand_600: #6b6860;
+  --sand_500: #a49f95;
+  --sand_400: #cac5b8;
+  --sand_300: #e1ded5;
+  --sand_200: #f0efeb;
+  --sand_100: #f9f8f6;
+  --sand_0: #fdfdfc;
+  --grape_0: #f0f3fe;
+  --grape_100: #d4dbfb;
+  --grape_500: #566fcf;
+  --grape_600: #576cc1;
+  --grape_700: #4c5fa9;
+  --grape_800: #37447a;
+  --kale_0: #f4f9f9;
+  --kale_400: #57b7ab;
+  --plum_500: #cc6fbe;
+  --plum_400: #e37bd3;
+  --plum_100: #f7d6f2;
+  --plum_0: #fbf2fc;
+  --persimmon_300: #ff9f89;
+  --persimmon_400: #ff7557;
+  --canteloupe_0: #fff6ef;
+  --canteloupe_100: #ffe4d0;
+  --canteloupe_400: #ffa663;
+  --canteloupe_500: #e69559;
+  --canteloupe_600: #cc854f;
+  --canteloupe_700: #b37445;
+  --red_1: #fff1f0;
+  --red_3: #ffccc7;
+  --red_7: #cf1322;
+  --red_10: #5c0011;
+  --primary_link: #566fcf;
+  --danger_color: var(--red_7);
+}
 .lsf-control-info {
   position: relative;
   margin-left: 7px;
@@ -27602,6 +28189,59 @@ div.ant-typography-edit-content.ant-typography-rtl {
   opacity: 1;
 }
 
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-SemiBold.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+body {
+  font-family: 'Figtree', sans-serif !important;
+  --sand_900: #12110d;
+  --sand_800: #262522;
+  --sand_700: #45433e;
+  --sand_600: #6b6860;
+  --sand_500: #a49f95;
+  --sand_400: #cac5b8;
+  --sand_300: #e1ded5;
+  --sand_200: #f0efeb;
+  --sand_100: #f9f8f6;
+  --sand_0: #fdfdfc;
+  --grape_0: #f0f3fe;
+  --grape_100: #d4dbfb;
+  --grape_500: #566fcf;
+  --grape_600: #576cc1;
+  --grape_700: #4c5fa9;
+  --grape_800: #37447a;
+  --kale_0: #f4f9f9;
+  --kale_400: #57b7ab;
+  --plum_500: #cc6fbe;
+  --plum_400: #e37bd3;
+  --plum_100: #f7d6f2;
+  --plum_0: #fbf2fc;
+  --persimmon_300: #ff9f89;
+  --persimmon_400: #ff7557;
+  --canteloupe_0: #fff6ef;
+  --canteloupe_100: #ffe4d0;
+  --canteloupe_400: #ffa663;
+  --canteloupe_500: #e69559;
+  --canteloupe_600: #cc854f;
+  --canteloupe_700: #b37445;
+  --red_1: #fff1f0;
+  --red_3: #ffccc7;
+  --red_7: #cf1322;
+  --red_10: #5c0011;
+  --primary_link: #566fcf;
+  --danger_color: var(--red_7);
+}
 .lsf-audio-config {
   position: relative;
 }
@@ -27636,10 +28276,116 @@ div.ant-typography-edit-content.ant-typography-rtl {
   background: rgba(0,0,0,0.078);
 }
 
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-SemiBold.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+body {
+  font-family: 'Figtree', sans-serif !important;
+  --sand_900: #12110d;
+  --sand_800: #262522;
+  --sand_700: #45433e;
+  --sand_600: #6b6860;
+  --sand_500: #a49f95;
+  --sand_400: #cac5b8;
+  --sand_300: #e1ded5;
+  --sand_200: #f0efeb;
+  --sand_100: #f9f8f6;
+  --sand_0: #fdfdfc;
+  --grape_0: #f0f3fe;
+  --grape_100: #d4dbfb;
+  --grape_500: #566fcf;
+  --grape_600: #576cc1;
+  --grape_700: #4c5fa9;
+  --grape_800: #37447a;
+  --kale_0: #f4f9f9;
+  --kale_400: #57b7ab;
+  --plum_500: #cc6fbe;
+  --plum_400: #e37bd3;
+  --plum_100: #f7d6f2;
+  --plum_0: #fbf2fc;
+  --persimmon_300: #ff9f89;
+  --persimmon_400: #ff7557;
+  --canteloupe_0: #fff6ef;
+  --canteloupe_100: #ffe4d0;
+  --canteloupe_400: #ffa663;
+  --canteloupe_500: #e69559;
+  --canteloupe_600: #cc854f;
+  --canteloupe_700: #b37445;
+  --red_1: #fff1f0;
+  --red_3: #ffccc7;
+  --red_7: #cf1322;
+  --red_10: #5c0011;
+  --primary_link: #566fcf;
+  --danger_color: var(--red_7);
+}
 .lsf-timer-duration-control {
   display: flex;
 }
 
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-SemiBold.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+body {
+  font-family: 'Figtree', sans-serif !important;
+  --sand_900: #12110d;
+  --sand_800: #262522;
+  --sand_700: #45433e;
+  --sand_600: #6b6860;
+  --sand_500: #a49f95;
+  --sand_400: #cac5b8;
+  --sand_300: #e1ded5;
+  --sand_200: #f0efeb;
+  --sand_100: #f9f8f6;
+  --sand_0: #fdfdfc;
+  --grape_0: #f0f3fe;
+  --grape_100: #d4dbfb;
+  --grape_500: #566fcf;
+  --grape_600: #576cc1;
+  --grape_700: #4c5fa9;
+  --grape_800: #37447a;
+  --kale_0: #f4f9f9;
+  --kale_400: #57b7ab;
+  --plum_500: #cc6fbe;
+  --plum_400: #e37bd3;
+  --plum_100: #f7d6f2;
+  --plum_0: #fbf2fc;
+  --persimmon_300: #ff9f89;
+  --persimmon_400: #ff7557;
+  --canteloupe_0: #fff6ef;
+  --canteloupe_100: #ffe4d0;
+  --canteloupe_400: #ffa663;
+  --canteloupe_500: #e69559;
+  --canteloupe_600: #cc854f;
+  --canteloupe_700: #b37445;
+  --red_1: #fff1f0;
+  --red_3: #ffccc7;
+  --red_7: #cf1322;
+  --red_10: #5c0011;
+  --primary_link: #566fcf;
+  --danger_color: var(--red_7);
+}
 .lsf-time-box {
   width: 100px;
   height: 24px;
@@ -27674,6 +28420,59 @@ div.ant-typography-edit-content.ant-typography-rtl {
   color: #b6b7b6;
 }
 
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-SemiBold.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+body {
+  font-family: 'Figtree', sans-serif !important;
+  --sand_900: #12110d;
+  --sand_800: #262522;
+  --sand_700: #45433e;
+  --sand_600: #6b6860;
+  --sand_500: #a49f95;
+  --sand_400: #cac5b8;
+  --sand_300: #e1ded5;
+  --sand_200: #f0efeb;
+  --sand_100: #f9f8f6;
+  --sand_0: #fdfdfc;
+  --grape_0: #f0f3fe;
+  --grape_100: #d4dbfb;
+  --grape_500: #566fcf;
+  --grape_600: #576cc1;
+  --grape_700: #4c5fa9;
+  --grape_800: #37447a;
+  --kale_0: #f4f9f9;
+  --kale_400: #57b7ab;
+  --plum_500: #cc6fbe;
+  --plum_400: #e37bd3;
+  --plum_100: #f7d6f2;
+  --plum_0: #fbf2fc;
+  --persimmon_300: #ff9f89;
+  --persimmon_400: #ff7557;
+  --canteloupe_0: #fff6ef;
+  --canteloupe_100: #ffe4d0;
+  --canteloupe_400: #ffa663;
+  --canteloupe_500: #e69559;
+  --canteloupe_600: #cc854f;
+  --canteloupe_700: #b37445;
+  --red_1: #fff1f0;
+  --red_3: #ffccc7;
+  --red_7: #cf1322;
+  --red_10: #5c0011;
+  --primary_link: #566fcf;
+  --danger_color: var(--red_7);
+}
 .lsf-seeker {
   width: 100%;
   height: 24px;
@@ -27741,12 +28540,64 @@ div.ant-typography-edit-content.ant-typography-rtl {
   pointer-events: none;
 }
 
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-SemiBold.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+body {
+  font-family: 'Figtree', sans-serif !important;
+  --sand_900: #12110d;
+  --sand_800: #262522;
+  --sand_700: #45433e;
+  --sand_600: #6b6860;
+  --sand_500: #a49f95;
+  --sand_400: #cac5b8;
+  --sand_300: #e1ded5;
+  --sand_200: #f0efeb;
+  --sand_100: #f9f8f6;
+  --sand_0: #fdfdfc;
+  --grape_0: #f0f3fe;
+  --grape_100: #d4dbfb;
+  --grape_500: #566fcf;
+  --grape_600: #576cc1;
+  --grape_700: #4c5fa9;
+  --grape_800: #37447a;
+  --kale_0: #f4f9f9;
+  --kale_400: #57b7ab;
+  --plum_500: #cc6fbe;
+  --plum_400: #e37bd3;
+  --plum_100: #f7d6f2;
+  --plum_0: #fbf2fc;
+  --persimmon_300: #ff9f89;
+  --persimmon_400: #ff7557;
+  --canteloupe_0: #fff6ef;
+  --canteloupe_100: #ffe4d0;
+  --canteloupe_400: #ffa663;
+  --canteloupe_500: #e69559;
+  --canteloupe_600: #cc854f;
+  --canteloupe_700: #b37445;
+  --red_1: #fff1f0;
+  --red_3: #ffccc7;
+  --red_7: #cf1322;
+  --red_10: #5c0011;
+  --primary_link: #566fcf;
+  --danger_color: var(--red_7);
+}
 .lsf-timeline {
   -webkit-user-select: none;
      -moz-user-select: none;
           user-select: none;
   background-color: #fff;
-  font-family: "Roboto Condensed", Roboto, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 .lsf-timeline__topbar {
   min-height: 48px;
@@ -27763,6 +28614,59 @@ div.ant-typography-edit-content.ant-typography-rtl {
   min-width: 425px;
 }
 
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-SemiBold.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+body {
+  font-family: 'Figtree', sans-serif !important;
+  --sand_900: #12110d;
+  --sand_800: #262522;
+  --sand_700: #45433e;
+  --sand_600: #6b6860;
+  --sand_500: #a49f95;
+  --sand_400: #cac5b8;
+  --sand_300: #e1ded5;
+  --sand_200: #f0efeb;
+  --sand_100: #f9f8f6;
+  --sand_0: #fdfdfc;
+  --grape_0: #f0f3fe;
+  --grape_100: #d4dbfb;
+  --grape_500: #566fcf;
+  --grape_600: #576cc1;
+  --grape_700: #4c5fa9;
+  --grape_800: #37447a;
+  --kale_0: #f4f9f9;
+  --kale_400: #57b7ab;
+  --plum_500: #cc6fbe;
+  --plum_400: #e37bd3;
+  --plum_100: #f7d6f2;
+  --plum_0: #fbf2fc;
+  --persimmon_300: #ff9f89;
+  --persimmon_400: #ff7557;
+  --canteloupe_0: #fff6ef;
+  --canteloupe_100: #ffe4d0;
+  --canteloupe_400: #ffa663;
+  --canteloupe_500: #e69559;
+  --canteloupe_600: #cc854f;
+  --canteloupe_700: #b37445;
+  --red_1: #fff1f0;
+  --red_3: #ffccc7;
+  --red_7: #cf1322;
+  --red_10: #5c0011;
+  --primary_link: #566fcf;
+  --danger_color: var(--red_7);
+}
 .lsf-timeline-frames {
   --frame-size: 10px;
   --view-size: 0;
@@ -27881,6 +28785,59 @@ div.ant-typography-edit-content.ant-typography-rtl {
   position: relative;
 }
 
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-SemiBold.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+body {
+  font-family: 'Figtree', sans-serif !important;
+  --sand_900: #12110d;
+  --sand_800: #262522;
+  --sand_700: #45433e;
+  --sand_600: #6b6860;
+  --sand_500: #a49f95;
+  --sand_400: #cac5b8;
+  --sand_300: #e1ded5;
+  --sand_200: #f0efeb;
+  --sand_100: #f9f8f6;
+  --sand_0: #fdfdfc;
+  --grape_0: #f0f3fe;
+  --grape_100: #d4dbfb;
+  --grape_500: #566fcf;
+  --grape_600: #576cc1;
+  --grape_700: #4c5fa9;
+  --grape_800: #37447a;
+  --kale_0: #f4f9f9;
+  --kale_400: #57b7ab;
+  --plum_500: #cc6fbe;
+  --plum_400: #e37bd3;
+  --plum_100: #f7d6f2;
+  --plum_0: #fbf2fc;
+  --persimmon_300: #ff9f89;
+  --persimmon_400: #ff7557;
+  --canteloupe_0: #fff6ef;
+  --canteloupe_100: #ffe4d0;
+  --canteloupe_400: #ffa663;
+  --canteloupe_500: #e69559;
+  --canteloupe_600: #cc854f;
+  --canteloupe_700: #b37445;
+  --red_1: #fff1f0;
+  --red_3: #ffccc7;
+  --red_7: #cf1322;
+  --red_10: #5c0011;
+  --primary_link: #566fcf;
+  --danger_color: var(--red_7);
+}
 .lsf-keypoints {
   --hover: transparent;
   height: 24px;
@@ -27967,9 +28924,62 @@ div.ant-typography-edit-content.ant-typography-rtl {
   height: 18px;
 }
 .lsf-region-action_danger {
-  color: #cf1322;
+  color: var(--danger_color);
 }
 
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-SemiBold.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+body {
+  font-family: 'Figtree', sans-serif !important;
+  --sand_900: #12110d;
+  --sand_800: #262522;
+  --sand_700: #45433e;
+  --sand_600: #6b6860;
+  --sand_500: #a49f95;
+  --sand_400: #cac5b8;
+  --sand_300: #e1ded5;
+  --sand_200: #f0efeb;
+  --sand_100: #f9f8f6;
+  --sand_0: #fdfdfc;
+  --grape_0: #f0f3fe;
+  --grape_100: #d4dbfb;
+  --grape_500: #566fcf;
+  --grape_600: #576cc1;
+  --grape_700: #4c5fa9;
+  --grape_800: #37447a;
+  --kale_0: #f4f9f9;
+  --kale_400: #57b7ab;
+  --plum_500: #cc6fbe;
+  --plum_400: #e37bd3;
+  --plum_100: #f7d6f2;
+  --plum_0: #fbf2fc;
+  --persimmon_300: #ff9f89;
+  --persimmon_400: #ff7557;
+  --canteloupe_0: #fff6ef;
+  --canteloupe_100: #ffe4d0;
+  --canteloupe_400: #ffa663;
+  --canteloupe_500: #e69559;
+  --canteloupe_600: #cc854f;
+  --canteloupe_700: #b37445;
+  --red_1: #fff1f0;
+  --red_3: #ffccc7;
+  --red_7: #cf1322;
+  --red_10: #5c0011;
+  --primary_link: #566fcf;
+  --danger_color: var(--red_7);
+}
 .lsf-minimap {
   width: 100%;
   height: 100%;
@@ -27992,6 +29002,59 @@ div.ant-typography-edit-content.ant-typography-rtl {
   background: var(--color);
 }
 
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-SemiBold.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+body {
+  font-family: 'Figtree', sans-serif !important;
+  --sand_900: #12110d;
+  --sand_800: #262522;
+  --sand_700: #45433e;
+  --sand_600: #6b6860;
+  --sand_500: #a49f95;
+  --sand_400: #cac5b8;
+  --sand_300: #e1ded5;
+  --sand_200: #f0efeb;
+  --sand_100: #f9f8f6;
+  --sand_0: #fdfdfc;
+  --grape_0: #f0f3fe;
+  --grape_100: #d4dbfb;
+  --grape_500: #566fcf;
+  --grape_600: #576cc1;
+  --grape_700: #4c5fa9;
+  --grape_800: #37447a;
+  --kale_0: #f4f9f9;
+  --kale_400: #57b7ab;
+  --plum_500: #cc6fbe;
+  --plum_400: #e37bd3;
+  --plum_100: #f7d6f2;
+  --plum_0: #fbf2fc;
+  --persimmon_300: #ff9f89;
+  --persimmon_400: #ff7557;
+  --canteloupe_0: #fff6ef;
+  --canteloupe_100: #ffe4d0;
+  --canteloupe_400: #ffa663;
+  --canteloupe_500: #e69559;
+  --canteloupe_600: #cc854f;
+  --canteloupe_700: #b37445;
+  --red_1: #fff1f0;
+  --red_3: #ffccc7;
+  --red_7: #cf1322;
+  --red_10: #5c0011;
+  --primary_link: #566fcf;
+  --danger_color: var(--red_7);
+}
 .lsf-wave {
   --container-edge-padding: 24px;
   --border-color: rgba(0,0,0,0.1);
@@ -28016,7 +29079,7 @@ div.ant-typography-edit-content.ant-typography-rtl {
   justify-content: center;
   position: absolute;
   border-radius: 20px;
-  box-shadow: 0 5px 20px rgba(0,153,255,0.2);
+  box-shadow: 0 5px 20px var(--grape_100);
 }
 .lsf-wave__loader span {
   display: block;
@@ -28145,6 +29208,59 @@ div.ant-typography-edit-content.ant-typography-rtl {
   top: 0;
 }
 
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-SemiBold.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+body {
+  font-family: 'Figtree', sans-serif !important;
+  --sand_900: #12110d;
+  --sand_800: #262522;
+  --sand_700: #45433e;
+  --sand_600: #6b6860;
+  --sand_500: #a49f95;
+  --sand_400: #cac5b8;
+  --sand_300: #e1ded5;
+  --sand_200: #f0efeb;
+  --sand_100: #f9f8f6;
+  --sand_0: #fdfdfc;
+  --grape_0: #f0f3fe;
+  --grape_100: #d4dbfb;
+  --grape_500: #566fcf;
+  --grape_600: #576cc1;
+  --grape_700: #4c5fa9;
+  --grape_800: #37447a;
+  --kale_0: #f4f9f9;
+  --kale_400: #57b7ab;
+  --plum_500: #cc6fbe;
+  --plum_400: #e37bd3;
+  --plum_100: #f7d6f2;
+  --plum_0: #fbf2fc;
+  --persimmon_300: #ff9f89;
+  --persimmon_400: #ff7557;
+  --canteloupe_0: #fff6ef;
+  --canteloupe_100: #ffe4d0;
+  --canteloupe_400: #ffa663;
+  --canteloupe_500: #e69559;
+  --canteloupe_600: #cc854f;
+  --canteloupe_700: #b37445;
+  --red_1: #fff1f0;
+  --red_3: #ffccc7;
+  --red_7: #cf1322;
+  --red_10: #5c0011;
+  --primary_link: #566fcf;
+  --danger_color: var(--red_7);
+}
 .lsf-audio-tag {
   width: 100%;
 }
@@ -28316,6 +29432,59 @@ div.ant-typography-edit-content.ant-typography-rtl {
   width: 100%;
   padding-right: 40px;
 }
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-SemiBold.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+body {
+  font-family: 'Figtree', sans-serif !important;
+  --sand_900: #12110d;
+  --sand_800: #262522;
+  --sand_700: #45433e;
+  --sand_600: #6b6860;
+  --sand_500: #a49f95;
+  --sand_400: #cac5b8;
+  --sand_300: #e1ded5;
+  --sand_200: #f0efeb;
+  --sand_100: #f9f8f6;
+  --sand_0: #fdfdfc;
+  --grape_0: #f0f3fe;
+  --grape_100: #d4dbfb;
+  --grape_500: #566fcf;
+  --grape_600: #576cc1;
+  --grape_700: #4c5fa9;
+  --grape_800: #37447a;
+  --kale_0: #f4f9f9;
+  --kale_400: #57b7ab;
+  --plum_500: #cc6fbe;
+  --plum_400: #e37bd3;
+  --plum_100: #f7d6f2;
+  --plum_0: #fbf2fc;
+  --persimmon_300: #ff9f89;
+  --persimmon_400: #ff7557;
+  --canteloupe_0: #fff6ef;
+  --canteloupe_100: #ffe4d0;
+  --canteloupe_400: #ffa663;
+  --canteloupe_500: #e69559;
+  --canteloupe_600: #cc854f;
+  --canteloupe_700: #b37445;
+  --red_1: #fff1f0;
+  --red_3: #ffccc7;
+  --red_7: #cf1322;
+  --red_10: #5c0011;
+  --primary_link: #566fcf;
+  --danger_color: var(--red_7);
+}
 .lsf-toolbar {
   width: 40px;
   background: #fff;
@@ -28343,6 +29512,59 @@ div.ant-typography-edit-content.ant-typography-rtl {
   flex-direction: column;
 }
 
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-SemiBold.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+body {
+  font-family: 'Figtree', sans-serif !important;
+  --sand_900: #12110d;
+  --sand_800: #262522;
+  --sand_700: #45433e;
+  --sand_600: #6b6860;
+  --sand_500: #a49f95;
+  --sand_400: #cac5b8;
+  --sand_300: #e1ded5;
+  --sand_200: #f0efeb;
+  --sand_100: #f9f8f6;
+  --sand_0: #fdfdfc;
+  --grape_0: #f0f3fe;
+  --grape_100: #d4dbfb;
+  --grape_500: #566fcf;
+  --grape_600: #576cc1;
+  --grape_700: #4c5fa9;
+  --grape_800: #37447a;
+  --kale_0: #f4f9f9;
+  --kale_400: #57b7ab;
+  --plum_500: #cc6fbe;
+  --plum_400: #e37bd3;
+  --plum_100: #f7d6f2;
+  --plum_0: #fbf2fc;
+  --persimmon_300: #ff9f89;
+  --persimmon_400: #ff7557;
+  --canteloupe_0: #fff6ef;
+  --canteloupe_100: #ffe4d0;
+  --canteloupe_400: #ffa663;
+  --canteloupe_500: #e69559;
+  --canteloupe_600: #cc854f;
+  --canteloupe_700: #b37445;
+  --red_1: #fff1f0;
+  --red_3: #ffccc7;
+  --red_7: #cf1322;
+  --red_10: #5c0011;
+  --primary_link: #566fcf;
+  --danger_color: var(--red_7);
+}
 .lsf-tool {
   width: 32px;
   height: 32px;
@@ -28482,7 +29704,6 @@ div.ant-typography-edit-content.ant-typography-rtl {
   align-items: center;
   background: #fff;
   border-radius: 2px;
-  font-family: Roboto;
   text-transform: uppercase;
   box-shadow: 0px 0px 0px 1px rgba(0,0,0,0.1), 0px 1px 0px rgba(0,0,0,0.08);
 }
@@ -28536,6 +29757,59 @@ div.ant-typography-edit-content.ant-typography-rtl {
   background-color: rgba(0,0,0,0.06);
 }
 
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-SemiBold.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+body {
+  font-family: 'Figtree', sans-serif !important;
+  --sand_900: #12110d;
+  --sand_800: #262522;
+  --sand_700: #45433e;
+  --sand_600: #6b6860;
+  --sand_500: #a49f95;
+  --sand_400: #cac5b8;
+  --sand_300: #e1ded5;
+  --sand_200: #f0efeb;
+  --sand_100: #f9f8f6;
+  --sand_0: #fdfdfc;
+  --grape_0: #f0f3fe;
+  --grape_100: #d4dbfb;
+  --grape_500: #566fcf;
+  --grape_600: #576cc1;
+  --grape_700: #4c5fa9;
+  --grape_800: #37447a;
+  --kale_0: #f4f9f9;
+  --kale_400: #57b7ab;
+  --plum_500: #cc6fbe;
+  --plum_400: #e37bd3;
+  --plum_100: #f7d6f2;
+  --plum_0: #fbf2fc;
+  --persimmon_300: #ff9f89;
+  --persimmon_400: #ff7557;
+  --canteloupe_0: #fff6ef;
+  --canteloupe_100: #ffe4d0;
+  --canteloupe_400: #ffa663;
+  --canteloupe_500: #e69559;
+  --canteloupe_600: #cc854f;
+  --canteloupe_700: #b37445;
+  --red_1: #fff1f0;
+  --red_3: #ffccc7;
+  --red_7: #cf1322;
+  --red_10: #5c0011;
+  --primary_link: #566fcf;
+  --danger_color: var(--red_7);
+}
 .lsf-flyoutmenu {
   width: 32px;
   height: 32px;
@@ -28685,7 +29959,6 @@ div.ant-typography-edit-content.ant-typography-rtl {
   align-items: center;
   background: #fff;
   border-radius: 2px;
-  font-family: Roboto;
   text-transform: uppercase;
   box-shadow: 0px 0px 0px 1px rgba(0,0,0,0.1), 0px 1px 0px rgba(0,0,0,0.08);
   margin-right: 4px;
@@ -28737,8 +30010,61 @@ div.ant-typography-edit-content.ant-typography-rtl {
   background-color: rgba(0,0,0,0.06);
 }
 
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-SemiBold.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+body {
+  font-family: 'Figtree', sans-serif !important;
+  --sand_900: #12110d;
+  --sand_800: #262522;
+  --sand_700: #45433e;
+  --sand_600: #6b6860;
+  --sand_500: #a49f95;
+  --sand_400: #cac5b8;
+  --sand_300: #e1ded5;
+  --sand_200: #f0efeb;
+  --sand_100: #f9f8f6;
+  --sand_0: #fdfdfc;
+  --grape_0: #f0f3fe;
+  --grape_100: #d4dbfb;
+  --grape_500: #566fcf;
+  --grape_600: #576cc1;
+  --grape_700: #4c5fa9;
+  --grape_800: #37447a;
+  --kale_0: #f4f9f9;
+  --kale_400: #57b7ab;
+  --plum_500: #cc6fbe;
+  --plum_400: #e37bd3;
+  --plum_100: #f7d6f2;
+  --plum_0: #fbf2fc;
+  --persimmon_300: #ff9f89;
+  --persimmon_400: #ff7557;
+  --canteloupe_0: #fff6ef;
+  --canteloupe_100: #ffe4d0;
+  --canteloupe_400: #ffa663;
+  --canteloupe_500: #e69559;
+  --canteloupe_600: #cc854f;
+  --canteloupe_700: #b37445;
+  --red_1: #fff1f0;
+  --red_3: #ffccc7;
+  --red_7: #cf1322;
+  --red_10: #5c0011;
+  --primary_link: #566fcf;
+  --danger_color: var(--red_7);
+}
 .lsf-pagination {
-  --button-color: #09f;
+  --button-color: var(--primary_link);
   --border-radius: 5px;
   --height: 40px;
   --font-size: 16px;
@@ -28923,6 +30249,59 @@ div.ant-typography-edit-content.ant-typography-rtl {
   min-width: 155px;
 }
 
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-SemiBold.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+body {
+  font-family: 'Figtree', sans-serif !important;
+  --sand_900: #12110d;
+  --sand_800: #262522;
+  --sand_700: #45433e;
+  --sand_600: #6b6860;
+  --sand_500: #a49f95;
+  --sand_400: #cac5b8;
+  --sand_300: #e1ded5;
+  --sand_200: #f0efeb;
+  --sand_100: #f9f8f6;
+  --sand_0: #fdfdfc;
+  --grape_0: #f0f3fe;
+  --grape_100: #d4dbfb;
+  --grape_500: #566fcf;
+  --grape_600: #576cc1;
+  --grape_700: #4c5fa9;
+  --grape_800: #37447a;
+  --kale_0: #f4f9f9;
+  --kale_400: #57b7ab;
+  --plum_500: #cc6fbe;
+  --plum_400: #e37bd3;
+  --plum_100: #f7d6f2;
+  --plum_0: #fbf2fc;
+  --persimmon_300: #ff9f89;
+  --persimmon_400: #ff7557;
+  --canteloupe_0: #fff6ef;
+  --canteloupe_100: #ffe4d0;
+  --canteloupe_400: #ffa663;
+  --canteloupe_500: #e69559;
+  --canteloupe_600: #cc854f;
+  --canteloupe_700: #b37445;
+  --red_1: #fff1f0;
+  --red_3: #ffccc7;
+  --red_7: #cf1322;
+  --red_10: #5c0011;
+  --primary_link: #566fcf;
+  --danger_color: var(--red_7);
+}
 .lsf-node {
   flex-basis: 100%;
   color: var(--labelColor, rgba(0,0,0,0.6));
@@ -28963,6 +30342,59 @@ div.ant-typography-edit-content.ant-typography-rtl {
   height: 24px;
 }
 
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-SemiBold.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+body {
+  font-family: 'Figtree', sans-serif !important;
+  --sand_900: #12110d;
+  --sand_800: #262522;
+  --sand_700: #45433e;
+  --sand_600: #6b6860;
+  --sand_500: #a49f95;
+  --sand_400: #cac5b8;
+  --sand_300: #e1ded5;
+  --sand_200: #f0efeb;
+  --sand_100: #f9f8f6;
+  --sand_0: #fdfdfc;
+  --grape_0: #f0f3fe;
+  --grape_100: #d4dbfb;
+  --grape_500: #566fcf;
+  --grape_600: #576cc1;
+  --grape_700: #4c5fa9;
+  --grape_800: #37447a;
+  --kale_0: #f4f9f9;
+  --kale_400: #57b7ab;
+  --plum_500: #cc6fbe;
+  --plum_400: #e37bd3;
+  --plum_100: #f7d6f2;
+  --plum_0: #fbf2fc;
+  --persimmon_300: #ff9f89;
+  --persimmon_400: #ff7557;
+  --canteloupe_0: #fff6ef;
+  --canteloupe_100: #ffe4d0;
+  --canteloupe_400: #ffa663;
+  --canteloupe_500: #e69559;
+  --canteloupe_600: #cc854f;
+  --canteloupe_700: #b37445;
+  --red_1: #fff1f0;
+  --red_3: #ffccc7;
+  --red_7: #cf1322;
+  --red_10: #5c0011;
+  --primary_link: #566fcf;
+  --danger_color: var(--red_7);
+}
 .lsf-label {
   --color: #ccc;
   --background: #e8e8e8;
@@ -29017,6 +30449,59 @@ div.ant-typography-edit-content.ant-typography-rtl {
   margin-left: 12px;
 }
 
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-SemiBold.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+body {
+  font-family: 'Figtree', sans-serif !important;
+  --sand_900: #12110d;
+  --sand_800: #262522;
+  --sand_700: #45433e;
+  --sand_600: #6b6860;
+  --sand_500: #a49f95;
+  --sand_400: #cac5b8;
+  --sand_300: #e1ded5;
+  --sand_200: #f0efeb;
+  --sand_100: #f9f8f6;
+  --sand_0: #fdfdfc;
+  --grape_0: #f0f3fe;
+  --grape_100: #d4dbfb;
+  --grape_500: #566fcf;
+  --grape_600: #576cc1;
+  --grape_700: #4c5fa9;
+  --grape_800: #37447a;
+  --kale_0: #f4f9f9;
+  --kale_400: #57b7ab;
+  --plum_500: #cc6fbe;
+  --plum_400: #e37bd3;
+  --plum_100: #f7d6f2;
+  --plum_0: #fbf2fc;
+  --persimmon_300: #ff9f89;
+  --persimmon_400: #ff7557;
+  --canteloupe_0: #fff6ef;
+  --canteloupe_100: #ffe4d0;
+  --canteloupe_400: #ffa663;
+  --canteloupe_500: #e69559;
+  --canteloupe_600: #cc854f;
+  --canteloupe_700: #b37445;
+  --red_1: #fff1f0;
+  --red_3: #ffccc7;
+  --red_7: #cf1322;
+  --red_10: #5c0011;
+  --primary_link: #566fcf;
+  --danger_color: var(--red_7);
+}
 .lsf-labels {
   margin: 1em 0;
   display: flex;
@@ -29092,6 +30577,59 @@ div.ant-typography-edit-content.ant-typography-rtl {
   margin-top: -1em;
   padding-left: 1em;
   line-height: 1.8em;
+}
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-SemiBold.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+body {
+  font-family: 'Figtree', sans-serif !important;
+  --sand_900: #12110d;
+  --sand_800: #262522;
+  --sand_700: #45433e;
+  --sand_600: #6b6860;
+  --sand_500: #a49f95;
+  --sand_400: #cac5b8;
+  --sand_300: #e1ded5;
+  --sand_200: #f0efeb;
+  --sand_100: #f9f8f6;
+  --sand_0: #fdfdfc;
+  --grape_0: #f0f3fe;
+  --grape_100: #d4dbfb;
+  --grape_500: #566fcf;
+  --grape_600: #576cc1;
+  --grape_700: #4c5fa9;
+  --grape_800: #37447a;
+  --kale_0: #f4f9f9;
+  --kale_400: #57b7ab;
+  --plum_500: #cc6fbe;
+  --plum_400: #e37bd3;
+  --plum_100: #f7d6f2;
+  --plum_0: #fbf2fc;
+  --persimmon_300: #ff9f89;
+  --persimmon_400: #ff7557;
+  --canteloupe_0: #fff6ef;
+  --canteloupe_100: #ffe4d0;
+  --canteloupe_400: #ffa663;
+  --canteloupe_500: #e69559;
+  --canteloupe_600: #cc854f;
+  --canteloupe_700: #b37445;
+  --red_1: #fff1f0;
+  --red_3: #ffccc7;
+  --red_7: #cf1322;
+  --red_10: #5c0011;
+  --primary_link: #566fcf;
+  --danger_color: var(--red_7);
 }
 .lsf-textarea-tag {
   margin-bottom: 12px;
@@ -29187,6 +30725,59 @@ div.ant-typography-edit-content.ant-typography-rtl {
   margin-top: 5px;
 }
 
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-SemiBold.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+body {
+  font-family: 'Figtree', sans-serif !important;
+  --sand_900: #12110d;
+  --sand_800: #262522;
+  --sand_700: #45433e;
+  --sand_600: #6b6860;
+  --sand_500: #a49f95;
+  --sand_400: #cac5b8;
+  --sand_300: #e1ded5;
+  --sand_200: #f0efeb;
+  --sand_100: #f9f8f6;
+  --sand_0: #fdfdfc;
+  --grape_0: #f0f3fe;
+  --grape_100: #d4dbfb;
+  --grape_500: #566fcf;
+  --grape_600: #576cc1;
+  --grape_700: #4c5fa9;
+  --grape_800: #37447a;
+  --kale_0: #f4f9f9;
+  --kale_400: #57b7ab;
+  --plum_500: #cc6fbe;
+  --plum_400: #e37bd3;
+  --plum_100: #f7d6f2;
+  --plum_0: #fbf2fc;
+  --persimmon_300: #ff9f89;
+  --persimmon_400: #ff7557;
+  --canteloupe_0: #fff6ef;
+  --canteloupe_100: #ffe4d0;
+  --canteloupe_400: #ffa663;
+  --canteloupe_500: #e69559;
+  --canteloupe_600: #cc854f;
+  --canteloupe_700: #b37445;
+  --red_1: #fff1f0;
+  --red_3: #ffccc7;
+  --red_7: #cf1322;
+  --red_10: #5c0011;
+  --primary_link: #566fcf;
+  --danger_color: var(--red_7);
+}
 .lsf-choices {
   margin-top: 1em;
   margin-bottom: 1em;
@@ -29195,6 +30786,59 @@ div.ant-typography-edit-content.ant-typography-rtl {
   display: none;
 }
 
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-SemiBold.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+body {
+  font-family: 'Figtree', sans-serif !important;
+  --sand_900: #12110d;
+  --sand_800: #262522;
+  --sand_700: #45433e;
+  --sand_600: #6b6860;
+  --sand_500: #a49f95;
+  --sand_400: #cac5b8;
+  --sand_300: #e1ded5;
+  --sand_200: #f0efeb;
+  --sand_100: #f9f8f6;
+  --sand_0: #fdfdfc;
+  --grape_0: #f0f3fe;
+  --grape_100: #d4dbfb;
+  --grape_500: #566fcf;
+  --grape_600: #576cc1;
+  --grape_700: #4c5fa9;
+  --grape_800: #37447a;
+  --kale_0: #f4f9f9;
+  --kale_400: #57b7ab;
+  --plum_500: #cc6fbe;
+  --plum_400: #e37bd3;
+  --plum_100: #f7d6f2;
+  --plum_0: #fbf2fc;
+  --persimmon_300: #ff9f89;
+  --persimmon_400: #ff7557;
+  --canteloupe_0: #fff6ef;
+  --canteloupe_100: #ffe4d0;
+  --canteloupe_400: #ffa663;
+  --canteloupe_500: #e69559;
+  --canteloupe_600: #cc854f;
+  --canteloupe_700: #b37445;
+  --red_1: #fff1f0;
+  --red_3: #ffccc7;
+  --red_7: #cf1322;
+  --red_10: #5c0011;
+  --primary_link: #566fcf;
+  --danger_color: var(--red_7);
+}
 .lsf-choice_leaf.lsf-choice_layout,
 .lsf-choice {
   line-height: 40px;
@@ -29238,7 +30882,7 @@ div.ant-typography-edit-content.ant-typography-rtl {
 }
 .lsf-choice_leaf.lsf-choice_layout__toggle,
 .lsf-choice__toggle {
-  color: #09f;
+  color: var(--grape_500);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -29250,7 +30894,7 @@ div.ant-typography-edit-content.ant-typography-rtl {
 }
 .lsf-choice_leaf.lsf-choice_layout__toggle:hover,
 .lsf-choice__toggle:hover {
-  color: #09f;
+  color: var(--grape_500);
 }
 .lsf-choice_leaf.lsf-choice_layout__toggle_collapsed,
 .lsf-choice__toggle_collapsed {
@@ -29312,7 +30956,7 @@ div.ant-typography-edit-content.ant-typography-rtl {
   height: 24px;
   padding: 0;
   line-height: 1;
-  font-weight: 500;
+  font-weight: 600;
   font-size: 20px;
   color: #09f;
   margin-left: -8px;
@@ -29680,7 +31324,7 @@ div.ant-typography-edit-content.ant-typography-rtl {
   background: none;
   font-size: 16px;
   font-style: normal;
-  font-weight: 500;
+  font-weight: 600;
   line-height: 24px;
   letter-spacing: 0.15px;
   padding: 0;
@@ -29705,7 +31349,7 @@ div.ant-typography-edit-content.ant-typography-rtl {
 .newUI--BCKyu .titleWrapper--ca7Wc .time--GZwur {
   font-size: 12px;
   font-style: normal;
-  font-weight: 500;
+  font-weight: 600;
   line-height: 16px;
   letter-spacing: 0.5px;
   color: #898098;
@@ -29721,6 +31365,59 @@ div.ant-typography-edit-content.ant-typography-rtl {
   height: 20px;
   pointer-events: none;
 }
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-SemiBold.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+body {
+  font-family: 'Figtree', sans-serif !important;
+  --sand_900: #12110d;
+  --sand_800: #262522;
+  --sand_700: #45433e;
+  --sand_600: #6b6860;
+  --sand_500: #a49f95;
+  --sand_400: #cac5b8;
+  --sand_300: #e1ded5;
+  --sand_200: #f0efeb;
+  --sand_100: #f9f8f6;
+  --sand_0: #fdfdfc;
+  --grape_0: #f0f3fe;
+  --grape_100: #d4dbfb;
+  --grape_500: #566fcf;
+  --grape_600: #576cc1;
+  --grape_700: #4c5fa9;
+  --grape_800: #37447a;
+  --kale_0: #f4f9f9;
+  --kale_400: #57b7ab;
+  --plum_500: #cc6fbe;
+  --plum_400: #e37bd3;
+  --plum_100: #f7d6f2;
+  --plum_0: #fbf2fc;
+  --persimmon_300: #ff9f89;
+  --persimmon_400: #ff7557;
+  --canteloupe_0: #fff6ef;
+  --canteloupe_100: #ffe4d0;
+  --canteloupe_400: #ffa663;
+  --canteloupe_500: #e69559;
+  --canteloupe_600: #cc854f;
+  --canteloupe_700: #b37445;
+  --red_1: #fff1f0;
+  --red_3: #ffccc7;
+  --red_7: #cf1322;
+  --red_10: #5c0011;
+  --primary_link: #566fcf;
+  --danger_color: var(--red_7);
+}
 .lsf-dropdown {
   --menu-animation-duration: 0.15s;
   --menu-animation-curve: cubic-bezier(0.21, 1.04, 0.68, 1);
@@ -29730,7 +31427,7 @@ div.ant-typography-edit-content.ant-typography-rtl {
   display: none;
   position: absolute;
   box-sizing: border-box;
-  background-color: #fff;
+  background-color: var(--sand_0);
   box-shadow: 0 5px 20px rgba(0,0,0,0.2);
   will-change: transform, opacity;
 }
@@ -29772,13 +31469,66 @@ div.ant-typography-edit-content.ant-typography-rtl {
   transform: translate3d(0, var(--menu-animation-start), 0);
 }
 
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-SemiBold.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+body {
+  font-family: 'Figtree', sans-serif !important;
+  --sand_900: #12110d;
+  --sand_800: #262522;
+  --sand_700: #45433e;
+  --sand_600: #6b6860;
+  --sand_500: #a49f95;
+  --sand_400: #cac5b8;
+  --sand_300: #e1ded5;
+  --sand_200: #f0efeb;
+  --sand_100: #f9f8f6;
+  --sand_0: #fdfdfc;
+  --grape_0: #f0f3fe;
+  --grape_100: #d4dbfb;
+  --grape_500: #566fcf;
+  --grape_600: #576cc1;
+  --grape_700: #4c5fa9;
+  --grape_800: #37447a;
+  --kale_0: #f4f9f9;
+  --kale_400: #57b7ab;
+  --plum_500: #cc6fbe;
+  --plum_400: #e37bd3;
+  --plum_100: #f7d6f2;
+  --plum_0: #fbf2fc;
+  --persimmon_300: #ff9f89;
+  --persimmon_400: #ff7557;
+  --canteloupe_0: #fff6ef;
+  --canteloupe_100: #ffe4d0;
+  --canteloupe_400: #ffa663;
+  --canteloupe_500: #e69559;
+  --canteloupe_600: #cc854f;
+  --canteloupe_700: #b37445;
+  --red_1: #fff1f0;
+  --red_3: #ffccc7;
+  --red_7: #cf1322;
+  --red_10: #5c0011;
+  --primary_link: #566fcf;
+  --danger_color: var(--red_7);
+}
 .lsf-select {
   --select-surface-color: #fafafa;
   height: 40px;
   background-color: var(--select-surface-color);
   font-size: 16px;
   line-height: 22px;
-  border: 1px solid rgba(0,0,0,0.15);
+  border: 1px solid var(--sand_300);
   box-sizing: border-box;
   border-radius: 5px;
   cursor: pointer;
@@ -29838,11 +31588,11 @@ div.ant-typography-edit-content.ant-typography-rtl {
 }
 .lsf-select__option_selected {
   color: #fff;
-  background-color: #09f;
+  background-color: var(--primary_link);
 }
 .lsf-select__option_selected:hover,
 .lsf-select__option_selected.lsf-select__option_focused {
-  background-color: #33adff;
+  background-color: var(--grape_0);
 }
 .lsf-select__icon {
   width: 16px;
@@ -29857,7 +31607,7 @@ div.ant-typography-edit-content.ant-typography-rtl {
   display: block;
   position: absolute;
   content: "";
-  border: 1px solid #09f;
+  border: 1px solid var(--primary_link);
   border-right: none;
   border-bottom: none;
 }
@@ -29887,10 +31637,63 @@ div.ant-typography-edit-content.ant-typography-rtl {
 }
 .lsf-select:focus {
   outline: none;
-  box-shadow: 0px 0px 0px 6px rgba(0,153,255,0.2), inset 0px -1px 0px rgba(0,0,0,0.1), inset 0px 0px 0px 1px rgba(0,0,0,0.15), inset 0px 0px 0px 1px rgba(0,153,255,0.2);
-  border-color: rgba(0,153,255,0.2);
+  box-shadow: 0px 0px 0px 6px var(--grape_100), inset 0px -1px 0px rgba(0,0,0,0.1), inset 0px 0px 0px 1px rgba(0,0,0,0.15), inset 0px 0px 0px 1px var(--grape_100);
+  border-color: var(--primary_link);
 }
 
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-SemiBold.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+body {
+  font-family: 'Figtree', sans-serif !important;
+  --sand_900: #12110d;
+  --sand_800: #262522;
+  --sand_700: #45433e;
+  --sand_600: #6b6860;
+  --sand_500: #a49f95;
+  --sand_400: #cac5b8;
+  --sand_300: #e1ded5;
+  --sand_200: #f0efeb;
+  --sand_100: #f9f8f6;
+  --sand_0: #fdfdfc;
+  --grape_0: #f0f3fe;
+  --grape_100: #d4dbfb;
+  --grape_500: #566fcf;
+  --grape_600: #576cc1;
+  --grape_700: #4c5fa9;
+  --grape_800: #37447a;
+  --kale_0: #f4f9f9;
+  --kale_400: #57b7ab;
+  --plum_500: #cc6fbe;
+  --plum_400: #e37bd3;
+  --plum_100: #f7d6f2;
+  --plum_0: #fbf2fc;
+  --persimmon_300: #ff9f89;
+  --persimmon_400: #ff7557;
+  --canteloupe_0: #fff6ef;
+  --canteloupe_100: #ffe4d0;
+  --canteloupe_400: #ffa663;
+  --canteloupe_500: #e69559;
+  --canteloupe_600: #cc854f;
+  --canteloupe_700: #b37445;
+  --red_1: #fff1f0;
+  --red_3: #ffccc7;
+  --red_7: #cf1322;
+  --red_10: #5c0011;
+  --primary_link: #566fcf;
+  --danger_color: var(--red_7);
+}
 .lsf-field-label {
   margin-bottom: 0;
 }
@@ -29907,7 +31710,7 @@ div.ant-typography-edit-content.ant-typography-rtl {
   margin-top: 5px;
   font-size: 14px;
   line-height: 22px;
-  color: rgba(0,0,0,0.4);
+  color: var(--sand_500);
 }
 .lsf-field-label__field {
   line-height: 0;
@@ -29928,7 +31731,7 @@ div.ant-typography-edit-content.ant-typography-rtl {
 }
 .lsf-field-label[data-required] .lsf-field-label__text::after {
   content: "Required";
-  color: rgba(0,0,0,0.2);
+  color: var(--sand_500);
 }
 .lsf-field-label_large .lsf-field-label__text {
   font-size: 16px;
@@ -29961,6 +31764,59 @@ div.ant-typography-edit-content.ant-typography-rtl {
   margin-top: 5px;
 }
 
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-SemiBold.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+body {
+  font-family: 'Figtree', sans-serif !important;
+  --sand_900: #12110d;
+  --sand_800: #262522;
+  --sand_700: #45433e;
+  --sand_600: #6b6860;
+  --sand_500: #a49f95;
+  --sand_400: #cac5b8;
+  --sand_300: #e1ded5;
+  --sand_200: #f0efeb;
+  --sand_100: #f9f8f6;
+  --sand_0: #fdfdfc;
+  --grape_0: #f0f3fe;
+  --grape_100: #d4dbfb;
+  --grape_500: #566fcf;
+  --grape_600: #576cc1;
+  --grape_700: #4c5fa9;
+  --grape_800: #37447a;
+  --kale_0: #f4f9f9;
+  --kale_400: #57b7ab;
+  --plum_500: #cc6fbe;
+  --plum_400: #e37bd3;
+  --plum_100: #f7d6f2;
+  --plum_0: #fbf2fc;
+  --persimmon_300: #ff9f89;
+  --persimmon_400: #ff7557;
+  --canteloupe_0: #fff6ef;
+  --canteloupe_100: #ffe4d0;
+  --canteloupe_400: #ffa663;
+  --canteloupe_500: #e69559;
+  --canteloupe_600: #cc854f;
+  --canteloupe_700: #b37445;
+  --red_1: #fff1f0;
+  --red_3: #ffccc7;
+  --red_7: #cf1322;
+  --red_10: #5c0011;
+  --primary_link: #566fcf;
+  --danger_color: var(--red_7);
+}
 .lsf-toggle {
   width: 42px;
   height: 24px;
@@ -29970,7 +31826,7 @@ div.ant-typography-edit-content.ant-typography-rtl {
   border-radius: 12px;
   position: relative;
   cursor: pointer;
-  color: var(--toggle-color, #09f);
+  color: var(--toggle-color, var(--grape_500));
   transition: box-shadow 80ms ease;
   background: linear-gradient(0deg, rgba(0,0,0,0.05), rgba(0,0,0,0.05)), #fff;
   box-shadow: inset 0px 1px 0px rgba(0,0,0,0.05), inset 0px 0px 0px 1px rgba(0,0,0,0.05);
@@ -30009,7 +31865,7 @@ div.ant-typography-edit-content.ant-typography-rtl {
   width: 16px;
   height: 16px;
   background: currentColor;
-  box-shadow: 0px 5px 10px rgba(0,153,255,0.3), inset 0px -1px 0px rgba(0,0,0,0.1);
+  box-shadow: 0px 5px 10px var(--grape_100), inset 0px -1px 0px rgba(0,0,0,0.1);
 }
 .lsf-toggle_disabled {
   box-shadow: none;
@@ -30026,6 +31882,59 @@ div.ant-typography-edit-content.ant-typography-rtl {
   background-color: rgba(0,0,0,0.12);
 }
 
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-SemiBold.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+body {
+  font-family: 'Figtree', sans-serif !important;
+  --sand_900: #12110d;
+  --sand_800: #262522;
+  --sand_700: #45433e;
+  --sand_600: #6b6860;
+  --sand_500: #a49f95;
+  --sand_400: #cac5b8;
+  --sand_300: #e1ded5;
+  --sand_200: #f0efeb;
+  --sand_100: #f9f8f6;
+  --sand_0: #fdfdfc;
+  --grape_0: #f0f3fe;
+  --grape_100: #d4dbfb;
+  --grape_500: #566fcf;
+  --grape_600: #576cc1;
+  --grape_700: #4c5fa9;
+  --grape_800: #37447a;
+  --kale_0: #f4f9f9;
+  --kale_400: #57b7ab;
+  --plum_500: #cc6fbe;
+  --plum_400: #e37bd3;
+  --plum_100: #f7d6f2;
+  --plum_0: #fbf2fc;
+  --persimmon_300: #ff9f89;
+  --persimmon_400: #ff7557;
+  --canteloupe_0: #fff6ef;
+  --canteloupe_100: #ffe4d0;
+  --canteloupe_400: #ffa663;
+  --canteloupe_500: #e69559;
+  --canteloupe_600: #cc854f;
+  --canteloupe_700: #b37445;
+  --red_1: #fff1f0;
+  --red_3: #ffccc7;
+  --red_7: #cf1322;
+  --red_10: #5c0011;
+  --primary_link: #566fcf;
+  --danger_color: var(--red_7);
+}
 .lsf-richtext {
   position: relative;
 }
@@ -30104,6 +32013,59 @@ div.ant-typography-edit-content.ant-typography-rtl {
   display: none;
 }
 
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-SemiBold.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+body {
+  font-family: 'Figtree', sans-serif !important;
+  --sand_900: #12110d;
+  --sand_800: #262522;
+  --sand_700: #45433e;
+  --sand_600: #6b6860;
+  --sand_500: #a49f95;
+  --sand_400: #cac5b8;
+  --sand_300: #e1ded5;
+  --sand_200: #f0efeb;
+  --sand_100: #f9f8f6;
+  --sand_0: #fdfdfc;
+  --grape_0: #f0f3fe;
+  --grape_100: #d4dbfb;
+  --grape_500: #566fcf;
+  --grape_600: #576cc1;
+  --grape_700: #4c5fa9;
+  --grape_800: #37447a;
+  --kale_0: #f4f9f9;
+  --kale_400: #57b7ab;
+  --plum_500: #cc6fbe;
+  --plum_400: #e37bd3;
+  --plum_100: #f7d6f2;
+  --plum_0: #fbf2fc;
+  --persimmon_300: #ff9f89;
+  --persimmon_400: #ff7557;
+  --canteloupe_0: #fff6ef;
+  --canteloupe_100: #ffe4d0;
+  --canteloupe_400: #ffa663;
+  --canteloupe_500: #e69559;
+  --canteloupe_600: #cc854f;
+  --canteloupe_700: #b37445;
+  --red_1: #fff1f0;
+  --red_3: #ffccc7;
+  --red_7: #cf1322;
+  --red_10: #5c0011;
+  --primary_link: #566fcf;
+  --danger_color: var(--red_7);
+}
 .lsf-menu {
   flex: 1;
   margin: 0;
@@ -30117,18 +32079,22 @@ div.ant-typography-edit-content.ant-typography-rtl {
   display: block;
   list-style-type: none;
 }
+.lsf-menu li {
+  margin: 0.5rem;
+}
+.lsf-menu li + li {
+  margin-top: 0;
+}
 .lsf-menu__item {
-  height: 48px;
-  width: 100%;
+  height: 32px;
   display: flex;
   cursor: pointer;
-  padding: 0 13px;
+  padding: 0 12px;
   border-radius: 3px;
   align-items: center;
   box-sizing: border-box;
-  color: rgba(0,0,0,0.6);
-  font-size: 16px;
-  font-family: Roboto;
+  color: var(--sand_600);
+  font-size: 14px;
   white-space: nowrap;
   -webkit-user-select: none;
      -moz-user-select: none;
@@ -30145,17 +32111,17 @@ div.ant-typography-edit-content.ant-typography-rtl {
   justify-content: center;
 }
 .lsf-menu__item_look_danger {
-  color: #d00;
+  color: var(--danger_color);
 }
 .lsf-menu__item:not(.lsf-menu__item_look_danger):hover {
-  color: #000;
+  color: var(--grape_700);
 }
 .lsf-menu__item:not(.lsf-menu__item_active):hover {
-  background-color: rgba(0,0,0,0.04);
+  background-color: var(--grape_0);
 }
 .lsf-menu__item_active {
-  color: #000;
-  background-color: rgba(0,0,0,0.08);
+  color: var(--grape_700);
+  background-color: var(--grape_0);
 }
 .lsf-menu__item_active:not(.lsf-sidebar__pin):not(.lsf-menu__item_clickable) {
   pointer-events: none;
@@ -30202,6 +32168,59 @@ div.ant-typography-edit-content.ant-typography-rtl {
   list-style-type: none;
 }
 
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-SemiBold.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+body {
+  font-family: 'Figtree', sans-serif !important;
+  --sand_900: #12110d;
+  --sand_800: #262522;
+  --sand_700: #45433e;
+  --sand_600: #6b6860;
+  --sand_500: #a49f95;
+  --sand_400: #cac5b8;
+  --sand_300: #e1ded5;
+  --sand_200: #f0efeb;
+  --sand_100: #f9f8f6;
+  --sand_0: #fdfdfc;
+  --grape_0: #f0f3fe;
+  --grape_100: #d4dbfb;
+  --grape_500: #566fcf;
+  --grape_600: #576cc1;
+  --grape_700: #4c5fa9;
+  --grape_800: #37447a;
+  --kale_0: #f4f9f9;
+  --kale_400: #57b7ab;
+  --plum_500: #cc6fbe;
+  --plum_400: #e37bd3;
+  --plum_100: #f7d6f2;
+  --plum_0: #fbf2fc;
+  --persimmon_300: #ff9f89;
+  --persimmon_400: #ff7557;
+  --canteloupe_0: #fff6ef;
+  --canteloupe_100: #ffe4d0;
+  --canteloupe_400: #ffa663;
+  --canteloupe_500: #e69559;
+  --canteloupe_600: #cc854f;
+  --canteloupe_700: #b37445;
+  --red_1: #fff1f0;
+  --red_3: #ffccc7;
+  --red_7: #cf1322;
+  --red_10: #5c0011;
+  --primary_link: #566fcf;
+  --danger_color: var(--red_7);
+}
 .lsf-video-canvas {
   width: -moz-max-content;
   width: max-content;
@@ -30270,6 +32289,59 @@ div.ant-typography-edit-content.ant-typography-rtl {
   }
 }
 
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-SemiBold.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+body {
+  font-family: 'Figtree', sans-serif !important;
+  --sand_900: #12110d;
+  --sand_800: #262522;
+  --sand_700: #45433e;
+  --sand_600: #6b6860;
+  --sand_500: #a49f95;
+  --sand_400: #cac5b8;
+  --sand_300: #e1ded5;
+  --sand_200: #f0efeb;
+  --sand_100: #f9f8f6;
+  --sand_0: #fdfdfc;
+  --grape_0: #f0f3fe;
+  --grape_100: #d4dbfb;
+  --grape_500: #566fcf;
+  --grape_600: #576cc1;
+  --grape_700: #4c5fa9;
+  --grape_800: #37447a;
+  --kale_0: #f4f9f9;
+  --kale_400: #57b7ab;
+  --plum_500: #cc6fbe;
+  --plum_400: #e37bd3;
+  --plum_100: #f7d6f2;
+  --plum_0: #fbf2fc;
+  --persimmon_300: #ff9f89;
+  --persimmon_400: #ff7557;
+  --canteloupe_0: #fff6ef;
+  --canteloupe_100: #ffe4d0;
+  --canteloupe_400: #ffa663;
+  --canteloupe_500: #e69559;
+  --canteloupe_600: #cc854f;
+  --canteloupe_700: #b37445;
+  --red_1: #fff1f0;
+  --red_3: #ffccc7;
+  --red_7: #cf1322;
+  --red_10: #5c0011;
+  --primary_link: #566fcf;
+  --danger_color: var(--red_7);
+}
 .lsf-video-segmentation {
   z-index: 1;
   position: relative;
@@ -30401,11 +32473,117 @@ div.ant-typography-edit-content.ant-typography-rtl {
   flex-direction: column;
   align-items: stretch;
 }
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-SemiBold.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+body {
+  font-family: 'Figtree', sans-serif !important;
+  --sand_900: #12110d;
+  --sand_800: #262522;
+  --sand_700: #45433e;
+  --sand_600: #6b6860;
+  --sand_500: #a49f95;
+  --sand_400: #cac5b8;
+  --sand_300: #e1ded5;
+  --sand_200: #f0efeb;
+  --sand_100: #f9f8f6;
+  --sand_0: #fdfdfc;
+  --grape_0: #f0f3fe;
+  --grape_100: #d4dbfb;
+  --grape_500: #566fcf;
+  --grape_600: #576cc1;
+  --grape_700: #4c5fa9;
+  --grape_800: #37447a;
+  --kale_0: #f4f9f9;
+  --kale_400: #57b7ab;
+  --plum_500: #cc6fbe;
+  --plum_400: #e37bd3;
+  --plum_100: #f7d6f2;
+  --plum_0: #fbf2fc;
+  --persimmon_300: #ff9f89;
+  --persimmon_400: #ff7557;
+  --canteloupe_0: #fff6ef;
+  --canteloupe_100: #ffe4d0;
+  --canteloupe_400: #ffa663;
+  --canteloupe_500: #e69559;
+  --canteloupe_600: #cc854f;
+  --canteloupe_700: #b37445;
+  --red_1: #fff1f0;
+  --red_3: #ffccc7;
+  --red_7: #cf1322;
+  --red_10: #5c0011;
+  --primary_link: #566fcf;
+  --danger_color: var(--red_7);
+}
 .htx-taxonomy-item-color {
   padding: 4px 4px;
   border-radius: 2px;
 }
 
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-SemiBold.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+body {
+  font-family: 'Figtree', sans-serif !important;
+  --sand_900: #12110d;
+  --sand_800: #262522;
+  --sand_700: #45433e;
+  --sand_600: #6b6860;
+  --sand_500: #a49f95;
+  --sand_400: #cac5b8;
+  --sand_300: #e1ded5;
+  --sand_200: #f0efeb;
+  --sand_100: #f9f8f6;
+  --sand_0: #fdfdfc;
+  --grape_0: #f0f3fe;
+  --grape_100: #d4dbfb;
+  --grape_500: #566fcf;
+  --grape_600: #576cc1;
+  --grape_700: #4c5fa9;
+  --grape_800: #37447a;
+  --kale_0: #f4f9f9;
+  --kale_400: #57b7ab;
+  --plum_500: #cc6fbe;
+  --plum_400: #e37bd3;
+  --plum_100: #f7d6f2;
+  --plum_0: #fbf2fc;
+  --persimmon_300: #ff9f89;
+  --persimmon_400: #ff7557;
+  --canteloupe_0: #fff6ef;
+  --canteloupe_100: #ffe4d0;
+  --canteloupe_400: #ffa663;
+  --canteloupe_500: #e69559;
+  --canteloupe_600: #cc854f;
+  --canteloupe_700: #b37445;
+  --red_1: #fff1f0;
+  --red_3: #ffccc7;
+  --red_7: #cf1322;
+  --red_10: #5c0011;
+  --primary_link: #566fcf;
+  --danger_color: var(--red_7);
+}
 .lsf-taxonomy-search-input {
   width: calc(100% - 8px);
   height: 40px;
@@ -30416,6 +32594,59 @@ div.ant-typography-edit-content.ant-typography-rtl {
   margin: 0 4px 14px 4px;
 }
 
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-SemiBold.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+body {
+  font-family: 'Figtree', sans-serif !important;
+  --sand_900: #12110d;
+  --sand_800: #262522;
+  --sand_700: #45433e;
+  --sand_600: #6b6860;
+  --sand_500: #a49f95;
+  --sand_400: #cac5b8;
+  --sand_300: #e1ded5;
+  --sand_200: #f0efeb;
+  --sand_100: #f9f8f6;
+  --sand_0: #fdfdfc;
+  --grape_0: #f0f3fe;
+  --grape_100: #d4dbfb;
+  --grape_500: #566fcf;
+  --grape_600: #576cc1;
+  --grape_700: #4c5fa9;
+  --grape_800: #37447a;
+  --kale_0: #f4f9f9;
+  --kale_400: #57b7ab;
+  --plum_500: #cc6fbe;
+  --plum_400: #e37bd3;
+  --plum_100: #f7d6f2;
+  --plum_0: #fbf2fc;
+  --persimmon_300: #ff9f89;
+  --persimmon_400: #ff7557;
+  --canteloupe_0: #fff6ef;
+  --canteloupe_100: #ffe4d0;
+  --canteloupe_400: #ffa663;
+  --canteloupe_500: #e69559;
+  --canteloupe_600: #cc854f;
+  --canteloupe_700: #b37445;
+  --red_1: #fff1f0;
+  --red_3: #ffccc7;
+  --red_7: #cf1322;
+  --red_10: #5c0011;
+  --primary_link: #566fcf;
+  --danger_color: var(--red_7);
+}
 .lsf-taxonomy {
   margin-top: 1em;
   margin-bottom: 1em;
@@ -30469,6 +32700,59 @@ div.ant-typography-edit-content.ant-typography-rtl {
   font-style: italic;
   font-size: 0.8rem;
 }
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-SemiBold.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+body {
+  font-family: 'Figtree', sans-serif !important;
+  --sand_900: #12110d;
+  --sand_800: #262522;
+  --sand_700: #45433e;
+  --sand_600: #6b6860;
+  --sand_500: #a49f95;
+  --sand_400: #cac5b8;
+  --sand_300: #e1ded5;
+  --sand_200: #f0efeb;
+  --sand_100: #f9f8f6;
+  --sand_0: #fdfdfc;
+  --grape_0: #f0f3fe;
+  --grape_100: #d4dbfb;
+  --grape_500: #566fcf;
+  --grape_600: #576cc1;
+  --grape_700: #4c5fa9;
+  --grape_800: #37447a;
+  --kale_0: #f4f9f9;
+  --kale_400: #57b7ab;
+  --plum_500: #cc6fbe;
+  --plum_400: #e37bd3;
+  --plum_100: #f7d6f2;
+  --plum_0: #fbf2fc;
+  --persimmon_300: #ff9f89;
+  --persimmon_400: #ff7557;
+  --canteloupe_0: #fff6ef;
+  --canteloupe_100: #ffe4d0;
+  --canteloupe_400: #ffa663;
+  --canteloupe_500: #e69559;
+  --canteloupe_600: #cc854f;
+  --canteloupe_700: #b37445;
+  --red_1: #fff1f0;
+  --red_3: #ffccc7;
+  --red_7: #cf1322;
+  --red_10: #5c0011;
+  --primary_link: #566fcf;
+  --danger_color: var(--red_7);
+}
 .lsf-draft-panel {
   margin: 8px 0;
 }
@@ -30477,7 +32761,7 @@ div.ant-typography-edit-content.ant-typography-rtl {
   border: 0;
   vertical-align: -0.5px;
   height: auto;
-  color: #09f;
+  color: var(--grape_500);
   background: none;
   padding: 0;
   cursor: pointer;
@@ -30486,6 +32770,59 @@ div.ant-typography-edit-content.ant-typography-rtl {
   opacity: 0.8;
 }
 
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-SemiBold.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+body {
+  font-family: 'Figtree', sans-serif !important;
+  --sand_900: #12110d;
+  --sand_800: #262522;
+  --sand_700: #45433e;
+  --sand_600: #6b6860;
+  --sand_500: #a49f95;
+  --sand_400: #cac5b8;
+  --sand_300: #e1ded5;
+  --sand_200: #f0efeb;
+  --sand_100: #f9f8f6;
+  --sand_0: #fdfdfc;
+  --grape_0: #f0f3fe;
+  --grape_100: #d4dbfb;
+  --grape_500: #566fcf;
+  --grape_600: #576cc1;
+  --grape_700: #4c5fa9;
+  --grape_800: #37447a;
+  --kale_0: #f4f9f9;
+  --kale_400: #57b7ab;
+  --plum_500: #cc6fbe;
+  --plum_400: #e37bd3;
+  --plum_100: #f7d6f2;
+  --plum_0: #fbf2fc;
+  --persimmon_300: #ff9f89;
+  --persimmon_400: #ff7557;
+  --canteloupe_0: #fff6ef;
+  --canteloupe_100: #ffe4d0;
+  --canteloupe_400: #ffa663;
+  --canteloupe_500: #e69559;
+  --canteloupe_600: #cc854f;
+  --canteloupe_700: #b37445;
+  --red_1: #fff1f0;
+  --red_3: #ffccc7;
+  --red_7: #cf1322;
+  --red_10: #5c0011;
+  --primary_link: #566fcf;
+  --danger_color: var(--red_7);
+}
 .lsf-userpic {
   width: 28px;
   height: 28px;
@@ -30516,10 +32853,62 @@ div.ant-typography-edit-content.ant-typography-rtl {
   font-size: 12px;
   line-height: 22px;
   font-weight: bold;
-  font-family: Roboto;
   opacity: 0.4;
 }
 
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-SemiBold.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+body {
+  font-family: 'Figtree', sans-serif !important;
+  --sand_900: #12110d;
+  --sand_800: #262522;
+  --sand_700: #45433e;
+  --sand_600: #6b6860;
+  --sand_500: #a49f95;
+  --sand_400: #cac5b8;
+  --sand_300: #e1ded5;
+  --sand_200: #f0efeb;
+  --sand_100: #f9f8f6;
+  --sand_0: #fdfdfc;
+  --grape_0: #f0f3fe;
+  --grape_100: #d4dbfb;
+  --grape_500: #566fcf;
+  --grape_600: #576cc1;
+  --grape_700: #4c5fa9;
+  --grape_800: #37447a;
+  --kale_0: #f4f9f9;
+  --kale_400: #57b7ab;
+  --plum_500: #cc6fbe;
+  --plum_400: #e37bd3;
+  --plum_100: #f7d6f2;
+  --plum_0: #fbf2fc;
+  --persimmon_300: #ff9f89;
+  --persimmon_400: #ff7557;
+  --canteloupe_0: #fff6ef;
+  --canteloupe_100: #ffe4d0;
+  --canteloupe_400: #ffa663;
+  --canteloupe_500: #e69559;
+  --canteloupe_600: #cc854f;
+  --canteloupe_700: #b37445;
+  --red_1: #fff1f0;
+  --red_3: #ffccc7;
+  --red_7: #cf1322;
+  --red_10: #5c0011;
+  --primary_link: #566fcf;
+  --danger_color: var(--red_7);
+}
 .lsf-annotation-history {
   margin: 0 0 8px;
 }
@@ -30641,7 +33030,7 @@ div.ant-typography-edit-content.ant-typography-rtl {
 }
 .lsf-history-item__collapse-comment {
   margin-top: 3px;
-  color: #09f;
+  color: var(--grape_500);
 }
 .lsf-history-item:not(.lsf-history-item_inline) {
   margin: 0 -10px;
@@ -30671,6 +33060,59 @@ div.ant-typography-edit-content.ant-typography-rtl {
   }
 }
 
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-SemiBold.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+body {
+  font-family: 'Figtree', sans-serif !important;
+  --sand_900: #12110d;
+  --sand_800: #262522;
+  --sand_700: #45433e;
+  --sand_600: #6b6860;
+  --sand_500: #a49f95;
+  --sand_400: #cac5b8;
+  --sand_300: #e1ded5;
+  --sand_200: #f0efeb;
+  --sand_100: #f9f8f6;
+  --sand_0: #fdfdfc;
+  --grape_0: #f0f3fe;
+  --grape_100: #d4dbfb;
+  --grape_500: #566fcf;
+  --grape_600: #576cc1;
+  --grape_700: #4c5fa9;
+  --grape_800: #37447a;
+  --kale_0: #f4f9f9;
+  --kale_400: #57b7ab;
+  --plum_500: #cc6fbe;
+  --plum_400: #e37bd3;
+  --plum_100: #f7d6f2;
+  --plum_0: #fbf2fc;
+  --persimmon_300: #ff9f89;
+  --persimmon_400: #ff7557;
+  --canteloupe_0: #fff6ef;
+  --canteloupe_100: #ffe4d0;
+  --canteloupe_400: #ffa663;
+  --canteloupe_500: #e69559;
+  --canteloupe_600: #cc854f;
+  --canteloupe_700: #b37445;
+  --red_1: #fff1f0;
+  --red_3: #ffccc7;
+  --red_7: #cf1322;
+  --red_10: #5c0011;
+  --primary_link: #566fcf;
+  --danger_color: var(--red_7);
+}
 .lsf-annotation {
   padding: 16px 16px 4px;
 }
@@ -30736,7 +33178,7 @@ div.ant-typography-edit-content.ant-typography-rtl {
   color: #944bff;
 }
 .lsf-annotation__parent_icon_annotation {
-  color: #09f;
+  color: var(--grape_500);
 }
 .lsf-annotation__parent_text {
   color: #000;
@@ -30825,7 +33267,7 @@ div.ant-typography-edit-content.ant-typography-rtl {
 }
 .item--aSS4K:hover {
   cursor: pointer;
-  color: #f5222d;
+  color: var(--red_7);
 }
 .lstitem--lKqJg {
   user-select: none;
@@ -30882,6 +33324,59 @@ div.ant-typography-edit-content.ant-typography-rtl {
 }
 .ant-tree-switcher--Fszg7 {
   margin-top: 15px;
+}
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-SemiBold.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+body {
+  font-family: 'Figtree', sans-serif !important;
+  --sand_900: #12110d;
+  --sand_800: #262522;
+  --sand_700: #45433e;
+  --sand_600: #6b6860;
+  --sand_500: #a49f95;
+  --sand_400: #cac5b8;
+  --sand_300: #e1ded5;
+  --sand_200: #f0efeb;
+  --sand_100: #f9f8f6;
+  --sand_0: #fdfdfc;
+  --grape_0: #f0f3fe;
+  --grape_100: #d4dbfb;
+  --grape_500: #566fcf;
+  --grape_600: #576cc1;
+  --grape_700: #4c5fa9;
+  --grape_800: #37447a;
+  --kale_0: #f4f9f9;
+  --kale_400: #57b7ab;
+  --plum_500: #cc6fbe;
+  --plum_400: #e37bd3;
+  --plum_100: #f7d6f2;
+  --plum_0: #fbf2fc;
+  --persimmon_300: #ff9f89;
+  --persimmon_400: #ff7557;
+  --canteloupe_0: #fff6ef;
+  --canteloupe_100: #ffe4d0;
+  --canteloupe_400: #ffa663;
+  --canteloupe_500: #e69559;
+  --canteloupe_600: #cc854f;
+  --canteloupe_700: #b37445;
+  --red_1: #fff1f0;
+  --red_3: #ffccc7;
+  --red_7: #cf1322;
+  --red_10: #5c0011;
+  --primary_link: #566fcf;
+  --danger_color: var(--red_7);
 }
 .lsf-region-item {
   width: 100%;
@@ -30983,6 +33478,59 @@ div.ant-typography-edit-content.ant-typography-rtl {
   color: #7f64ff;
 }
 
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-SemiBold.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+body {
+  font-family: 'Figtree', sans-serif !important;
+  --sand_900: #12110d;
+  --sand_800: #262522;
+  --sand_700: #45433e;
+  --sand_600: #6b6860;
+  --sand_500: #a49f95;
+  --sand_400: #cac5b8;
+  --sand_300: #e1ded5;
+  --sand_200: #f0efeb;
+  --sand_100: #f9f8f6;
+  --sand_0: #fdfdfc;
+  --grape_0: #f0f3fe;
+  --grape_100: #d4dbfb;
+  --grape_500: #566fcf;
+  --grape_600: #576cc1;
+  --grape_700: #4c5fa9;
+  --grape_800: #37447a;
+  --kale_0: #f4f9f9;
+  --kale_400: #57b7ab;
+  --plum_500: #cc6fbe;
+  --plum_400: #e37bd3;
+  --plum_100: #f7d6f2;
+  --plum_0: #fbf2fc;
+  --persimmon_300: #ff9f89;
+  --persimmon_400: #ff7557;
+  --canteloupe_0: #fff6ef;
+  --canteloupe_100: #ffe4d0;
+  --canteloupe_400: #ffa663;
+  --canteloupe_500: #e69559;
+  --canteloupe_600: #cc854f;
+  --canteloupe_700: #b37445;
+  --red_1: #fff1f0;
+  --red_3: #ffccc7;
+  --red_7: #cf1322;
+  --red_10: #5c0011;
+  --primary_link: #566fcf;
+  --danger_color: var(--red_7);
+}
 .lsf-list-item {
   --color: #666;
   padding: 0 8px 0 0;
@@ -31002,6 +33550,59 @@ div.ant-typography-edit-content.ant-typography-rtl {
   padding: 24px;
 }
 
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-SemiBold.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+body {
+  font-family: 'Figtree', sans-serif !important;
+  --sand_900: #12110d;
+  --sand_800: #262522;
+  --sand_700: #45433e;
+  --sand_600: #6b6860;
+  --sand_500: #a49f95;
+  --sand_400: #cac5b8;
+  --sand_300: #e1ded5;
+  --sand_200: #f0efeb;
+  --sand_100: #f9f8f6;
+  --sand_0: #fdfdfc;
+  --grape_0: #f0f3fe;
+  --grape_100: #d4dbfb;
+  --grape_500: #566fcf;
+  --grape_600: #576cc1;
+  --grape_700: #4c5fa9;
+  --grape_800: #37447a;
+  --kale_0: #f4f9f9;
+  --kale_400: #57b7ab;
+  --plum_500: #cc6fbe;
+  --plum_400: #e37bd3;
+  --plum_100: #f7d6f2;
+  --plum_0: #fbf2fc;
+  --persimmon_300: #ff9f89;
+  --persimmon_400: #ff7557;
+  --canteloupe_0: #fff6ef;
+  --canteloupe_100: #ffe4d0;
+  --canteloupe_400: #ffa663;
+  --canteloupe_500: #e69559;
+  --canteloupe_600: #cc854f;
+  --canteloupe_700: #b37445;
+  --red_1: #fff1f0;
+  --red_3: #ffccc7;
+  --red_7: #cf1322;
+  --red_10: #5c0011;
+  --primary_link: #566fcf;
+  --danger_color: var(--red_7);
+}
 .lsf-sort-menu__option-inner {
   width: 135px;
   display: flex;
@@ -31023,6 +33624,59 @@ div.ant-typography-edit-content.ant-typography-rtl {
   margin: 0 !important;
 }
 
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-SemiBold.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+body {
+  font-family: 'Figtree', sans-serif !important;
+  --sand_900: #12110d;
+  --sand_800: #262522;
+  --sand_700: #45433e;
+  --sand_600: #6b6860;
+  --sand_500: #a49f95;
+  --sand_400: #cac5b8;
+  --sand_300: #e1ded5;
+  --sand_200: #f0efeb;
+  --sand_100: #f9f8f6;
+  --sand_0: #fdfdfc;
+  --grape_0: #f0f3fe;
+  --grape_100: #d4dbfb;
+  --grape_500: #566fcf;
+  --grape_600: #576cc1;
+  --grape_700: #4c5fa9;
+  --grape_800: #37447a;
+  --kale_0: #f4f9f9;
+  --kale_400: #57b7ab;
+  --plum_500: #cc6fbe;
+  --plum_400: #e37bd3;
+  --plum_100: #f7d6f2;
+  --plum_0: #fbf2fc;
+  --persimmon_300: #ff9f89;
+  --persimmon_400: #ff7557;
+  --canteloupe_0: #fff6ef;
+  --canteloupe_100: #ffe4d0;
+  --canteloupe_400: #ffa663;
+  --canteloupe_500: #e69559;
+  --canteloupe_600: #cc854f;
+  --canteloupe_700: #b37445;
+  --red_1: #fff1f0;
+  --red_3: #ffccc7;
+  --red_7: #cf1322;
+  --red_10: #5c0011;
+  --primary_link: #566fcf;
+  --danger_color: var(--red_7);
+}
 .lsf-radio-group {
   --radius: 8px;
   --height: 40px;
@@ -31087,6 +33741,59 @@ div.ant-typography-edit-content.ant-typography-rtl {
   --button-checked-shadow: 0px 1px 0px rgba(0,0,0,0.1), 0px 0px 0px 1px rgba(0,0,0,0.02), 0px 2px 4px rgba(0,0,0,0.15);
 }
 
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-SemiBold.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+body {
+  font-family: 'Figtree', sans-serif !important;
+  --sand_900: #12110d;
+  --sand_800: #262522;
+  --sand_700: #45433e;
+  --sand_600: #6b6860;
+  --sand_500: #a49f95;
+  --sand_400: #cac5b8;
+  --sand_300: #e1ded5;
+  --sand_200: #f0efeb;
+  --sand_100: #f9f8f6;
+  --sand_0: #fdfdfc;
+  --grape_0: #f0f3fe;
+  --grape_100: #d4dbfb;
+  --grape_500: #566fcf;
+  --grape_600: #576cc1;
+  --grape_700: #4c5fa9;
+  --grape_800: #37447a;
+  --kale_0: #f4f9f9;
+  --kale_400: #57b7ab;
+  --plum_500: #cc6fbe;
+  --plum_400: #e37bd3;
+  --plum_100: #f7d6f2;
+  --plum_0: #fbf2fc;
+  --persimmon_300: #ff9f89;
+  --persimmon_400: #ff7557;
+  --canteloupe_0: #fff6ef;
+  --canteloupe_100: #ffe4d0;
+  --canteloupe_400: #ffa663;
+  --canteloupe_500: #e69559;
+  --canteloupe_600: #cc854f;
+  --canteloupe_700: #b37445;
+  --red_1: #fff1f0;
+  --red_3: #ffccc7;
+  --red_7: #cf1322;
+  --red_10: #5c0011;
+  --primary_link: #566fcf;
+  --danger_color: var(--red_7);
+}
 .lsf-entities {
   margin-top: 12px;
   padding-top: 12px;
@@ -31145,13 +33852,66 @@ div.ant-typography-edit-content.ant-typography-rtl {
   flex: 14px 0 0;
 }
 
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-SemiBold.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+body {
+  font-family: 'Figtree', sans-serif !important;
+  --sand_900: #12110d;
+  --sand_800: #262522;
+  --sand_700: #45433e;
+  --sand_600: #6b6860;
+  --sand_500: #a49f95;
+  --sand_400: #cac5b8;
+  --sand_300: #e1ded5;
+  --sand_200: #f0efeb;
+  --sand_100: #f9f8f6;
+  --sand_0: #fdfdfc;
+  --grape_0: #f0f3fe;
+  --grape_100: #d4dbfb;
+  --grape_500: #566fcf;
+  --grape_600: #576cc1;
+  --grape_700: #4c5fa9;
+  --grape_800: #37447a;
+  --kale_0: #f4f9f9;
+  --kale_400: #57b7ab;
+  --plum_500: #cc6fbe;
+  --plum_400: #e37bd3;
+  --plum_100: #f7d6f2;
+  --plum_0: #fbf2fc;
+  --persimmon_300: #ff9f89;
+  --persimmon_400: #ff7557;
+  --canteloupe_0: #fff6ef;
+  --canteloupe_100: #ffe4d0;
+  --canteloupe_400: #ffa663;
+  --canteloupe_500: #e69559;
+  --canteloupe_600: #cc854f;
+  --canteloupe_700: #b37445;
+  --red_1: #fff1f0;
+  --red_3: #ffccc7;
+  --red_7: #cf1322;
+  --red_10: #5c0011;
+  --primary_link: #566fcf;
+  --danger_color: var(--red_7);
+}
 .lsf-modal {
   --transition-duration: 100ms;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: 1000;
+  z-index: 10000;
   display: flex;
   position: absolute;
   align-items: center;
@@ -31182,7 +33942,7 @@ div.ant-typography-edit-content.ant-typography-rtl {
   min-height: 40px;
   align-items: center;
   justify-content: space-between;
-  padding: 16px 40px;
+  padding: 16px 32px;
   box-sizing: content-box;
 }
 .lsf-modal__header_divided {
@@ -31203,7 +33963,7 @@ div.ant-typography-edit-content.ant-typography-rtl {
   flex-direction: column;
 }
 .lsf-modal__footer {
-  padding: 16px 40px;
+  padding: 16px 32px;
   background: rgba(0,0,0,0.03);
   box-shadow: inset 0px 1px 0px rgba(0,0,0,0.05);
   text-align: center;
@@ -31294,6 +34054,59 @@ div.ant-typography-edit-content.ant-typography-rtl {
   overflow: hidden;
   text-overflow: ellipsis;
 }
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-SemiBold.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+body {
+  font-family: 'Figtree', sans-serif !important;
+  --sand_900: #12110d;
+  --sand_800: #262522;
+  --sand_700: #45433e;
+  --sand_600: #6b6860;
+  --sand_500: #a49f95;
+  --sand_400: #cac5b8;
+  --sand_300: #e1ded5;
+  --sand_200: #f0efeb;
+  --sand_100: #f9f8f6;
+  --sand_0: #fdfdfc;
+  --grape_0: #f0f3fe;
+  --grape_100: #d4dbfb;
+  --grape_500: #566fcf;
+  --grape_600: #576cc1;
+  --grape_700: #4c5fa9;
+  --grape_800: #37447a;
+  --kale_0: #f4f9f9;
+  --kale_400: #57b7ab;
+  --plum_500: #cc6fbe;
+  --plum_400: #e37bd3;
+  --plum_100: #f7d6f2;
+  --plum_0: #fbf2fc;
+  --persimmon_300: #ff9f89;
+  --persimmon_400: #ff7557;
+  --canteloupe_0: #fff6ef;
+  --canteloupe_100: #ffe4d0;
+  --canteloupe_400: #ffa663;
+  --canteloupe_500: #e69559;
+  --canteloupe_600: #cc854f;
+  --canteloupe_700: #b37445;
+  --red_1: #fff1f0;
+  --red_3: #ffccc7;
+  --red_7: #cf1322;
+  --red_10: #5c0011;
+  --primary_link: #566fcf;
+  --danger_color: var(--red_7);
+}
 .lsf-tag {
   --height: 22px;
   --radius: 5px;
@@ -31326,6 +34139,59 @@ div.ant-typography-edit-content.ant-typography-rtl {
   --font-size: 14px;
 }
 
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-SemiBold.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+body {
+  font-family: 'Figtree', sans-serif !important;
+  --sand_900: #12110d;
+  --sand_800: #262522;
+  --sand_700: #45433e;
+  --sand_600: #6b6860;
+  --sand_500: #a49f95;
+  --sand_400: #cac5b8;
+  --sand_300: #e1ded5;
+  --sand_200: #f0efeb;
+  --sand_100: #f9f8f6;
+  --sand_0: #fdfdfc;
+  --grape_0: #f0f3fe;
+  --grape_100: #d4dbfb;
+  --grape_500: #566fcf;
+  --grape_600: #576cc1;
+  --grape_700: #4c5fa9;
+  --grape_800: #37447a;
+  --kale_0: #f4f9f9;
+  --kale_400: #57b7ab;
+  --plum_500: #cc6fbe;
+  --plum_400: #e37bd3;
+  --plum_100: #f7d6f2;
+  --plum_0: #fbf2fc;
+  --persimmon_300: #ff9f89;
+  --persimmon_400: #ff7557;
+  --canteloupe_0: #fff6ef;
+  --canteloupe_100: #ffe4d0;
+  --canteloupe_400: #ffa663;
+  --canteloupe_500: #e69559;
+  --canteloupe_600: #cc854f;
+  --canteloupe_700: #b37445;
+  --red_1: #fff1f0;
+  --red_3: #ffccc7;
+  --red_7: #cf1322;
+  --red_10: #5c0011;
+  --primary_link: #566fcf;
+  --danger_color: var(--red_7);
+}
 .lsf-entity {
   padding: 0 15px;
   margin-top: 12px;
@@ -31420,6 +34286,59 @@ div.ant-typography-edit-content.ant-typography-rtl {
 .uivisible--ImOx9 {
   opacity: 1;
 }
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-SemiBold.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+body {
+  font-family: 'Figtree', sans-serif !important;
+  --sand_900: #12110d;
+  --sand_800: #262522;
+  --sand_700: #45433e;
+  --sand_600: #6b6860;
+  --sand_500: #a49f95;
+  --sand_400: #cac5b8;
+  --sand_300: #e1ded5;
+  --sand_200: #f0efeb;
+  --sand_100: #f9f8f6;
+  --sand_0: #fdfdfc;
+  --grape_0: #f0f3fe;
+  --grape_100: #d4dbfb;
+  --grape_500: #566fcf;
+  --grape_600: #576cc1;
+  --grape_700: #4c5fa9;
+  --grape_800: #37447a;
+  --kale_0: #f4f9f9;
+  --kale_400: #57b7ab;
+  --plum_500: #cc6fbe;
+  --plum_400: #e37bd3;
+  --plum_100: #f7d6f2;
+  --plum_0: #fbf2fc;
+  --persimmon_300: #ff9f89;
+  --persimmon_400: #ff7557;
+  --canteloupe_0: #fff6ef;
+  --canteloupe_100: #ffe4d0;
+  --canteloupe_400: #ffa663;
+  --canteloupe_500: #e69559;
+  --canteloupe_600: #cc854f;
+  --canteloupe_700: #b37445;
+  --red_1: #fff1f0;
+  --red_3: #ffccc7;
+  --red_7: #cf1322;
+  --red_10: #5c0011;
+  --primary_link: #566fcf;
+  --danger_color: var(--red_7);
+}
 .lsf-relations__header {
   display: flex;
   height: 46px;
@@ -31437,13 +34356,66 @@ div.ant-typography-edit-content.ant-typography-rtl {
   padding: 0 15px;
 }
 
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-SemiBold.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+body {
+  font-family: 'Figtree', sans-serif !important;
+  --sand_900: #12110d;
+  --sand_800: #262522;
+  --sand_700: #45433e;
+  --sand_600: #6b6860;
+  --sand_500: #a49f95;
+  --sand_400: #cac5b8;
+  --sand_300: #e1ded5;
+  --sand_200: #f0efeb;
+  --sand_100: #f9f8f6;
+  --sand_0: #fdfdfc;
+  --grape_0: #f0f3fe;
+  --grape_100: #d4dbfb;
+  --grape_500: #566fcf;
+  --grape_600: #576cc1;
+  --grape_700: #4c5fa9;
+  --grape_800: #37447a;
+  --kale_0: #f4f9f9;
+  --kale_400: #57b7ab;
+  --plum_500: #cc6fbe;
+  --plum_400: #e37bd3;
+  --plum_100: #f7d6f2;
+  --plum_0: #fbf2fc;
+  --persimmon_300: #ff9f89;
+  --persimmon_400: #ff7557;
+  --canteloupe_0: #fff6ef;
+  --canteloupe_100: #ffe4d0;
+  --canteloupe_400: #ffa663;
+  --canteloupe_500: #e69559;
+  --canteloupe_600: #cc854f;
+  --canteloupe_700: #b37445;
+  --red_1: #fff1f0;
+  --red_3: #ffccc7;
+  --red_7: #cf1322;
+  --red_10: #5c0011;
+  --primary_link: #566fcf;
+  --danger_color: var(--red_7);
+}
 .lsf-comment-form {
-  --primary-action-color: #00a8ff;
+  --primary-action-color: var(--grape_500);
   --primary-action-padding: 4px;
   --primary-action-border-radius: 4px;
-  --primary-action-surface-color-hover: rgba(9,109,217,0.12);
+  --primary-action-surface-color-hover: var(--grape_0);
   --text-input-min-height: 40px;
-  --tooltip-text-color: #f5222d;
+  --tooltip-text-color: var(--danger_color);
   display: grid;
   grid-template-columns: auto var(--text-input-min-height);
   align-items: center;
@@ -31490,6 +34462,59 @@ div.ant-typography-edit-content.ant-typography-rtl {
   font-size: 0.9em;
 }
 
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-SemiBold.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+body {
+  font-family: 'Figtree', sans-serif !important;
+  --sand_900: #12110d;
+  --sand_800: #262522;
+  --sand_700: #45433e;
+  --sand_600: #6b6860;
+  --sand_500: #a49f95;
+  --sand_400: #cac5b8;
+  --sand_300: #e1ded5;
+  --sand_200: #f0efeb;
+  --sand_100: #f9f8f6;
+  --sand_0: #fdfdfc;
+  --grape_0: #f0f3fe;
+  --grape_100: #d4dbfb;
+  --grape_500: #566fcf;
+  --grape_600: #576cc1;
+  --grape_700: #4c5fa9;
+  --grape_800: #37447a;
+  --kale_0: #f4f9f9;
+  --kale_400: #57b7ab;
+  --plum_500: #cc6fbe;
+  --plum_400: #e37bd3;
+  --plum_100: #f7d6f2;
+  --plum_0: #fbf2fc;
+  --persimmon_300: #ff9f89;
+  --persimmon_400: #ff7557;
+  --canteloupe_0: #fff6ef;
+  --canteloupe_100: #ffe4d0;
+  --canteloupe_400: #ffa663;
+  --canteloupe_500: #e69559;
+  --canteloupe_600: #cc854f;
+  --canteloupe_700: #b37445;
+  --red_1: #fff1f0;
+  --red_3: #ffccc7;
+  --red_7: #cf1322;
+  --red_10: #5c0011;
+  --primary_link: #566fcf;
+  --danger_color: var(--red_7);
+}
 .lsf-textarea {
   --textarea-surface-color: #fafafa;
   --textarea-border-size: 1px;
@@ -31527,6 +34552,59 @@ div.ant-typography-edit-content.ant-typography-rtl {
   resize: none !important;
 }
 
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-SemiBold.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+body {
+  font-family: 'Figtree', sans-serif !important;
+  --sand_900: #12110d;
+  --sand_800: #262522;
+  --sand_700: #45433e;
+  --sand_600: #6b6860;
+  --sand_500: #a49f95;
+  --sand_400: #cac5b8;
+  --sand_300: #e1ded5;
+  --sand_200: #f0efeb;
+  --sand_100: #f9f8f6;
+  --sand_0: #fdfdfc;
+  --grape_0: #f0f3fe;
+  --grape_100: #d4dbfb;
+  --grape_500: #566fcf;
+  --grape_600: #576cc1;
+  --grape_700: #4c5fa9;
+  --grape_800: #37447a;
+  --kale_0: #f4f9f9;
+  --kale_400: #57b7ab;
+  --plum_500: #cc6fbe;
+  --plum_400: #e37bd3;
+  --plum_100: #f7d6f2;
+  --plum_0: #fbf2fc;
+  --persimmon_300: #ff9f89;
+  --persimmon_400: #ff7557;
+  --canteloupe_0: #fff6ef;
+  --canteloupe_100: #ffe4d0;
+  --canteloupe_400: #ffa663;
+  --canteloupe_500: #e69559;
+  --canteloupe_600: #cc854f;
+  --canteloupe_700: #b37445;
+  --red_1: #fff1f0;
+  --red_3: #ffccc7;
+  --red_7: #cf1322;
+  --red_10: #5c0011;
+  --primary_link: #566fcf;
+  --danger_color: var(--red_7);
+}
 .lsf-comment-item {
   --comment-item-padding: 8px;
   --comment-item-spacing: 6px;
@@ -31637,6 +34715,59 @@ div.ant-typography-edit-content.ant-typography-rtl {
   }
 }
 
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-SemiBold.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+body {
+  font-family: 'Figtree', sans-serif !important;
+  --sand_900: #12110d;
+  --sand_800: #262522;
+  --sand_700: #45433e;
+  --sand_600: #6b6860;
+  --sand_500: #a49f95;
+  --sand_400: #cac5b8;
+  --sand_300: #e1ded5;
+  --sand_200: #f0efeb;
+  --sand_100: #f9f8f6;
+  --sand_0: #fdfdfc;
+  --grape_0: #f0f3fe;
+  --grape_100: #d4dbfb;
+  --grape_500: #566fcf;
+  --grape_600: #576cc1;
+  --grape_700: #4c5fa9;
+  --grape_800: #37447a;
+  --kale_0: #f4f9f9;
+  --kale_400: #57b7ab;
+  --plum_500: #cc6fbe;
+  --plum_400: #e37bd3;
+  --plum_100: #f7d6f2;
+  --plum_0: #fbf2fc;
+  --persimmon_300: #ff9f89;
+  --persimmon_400: #ff7557;
+  --canteloupe_0: #fff6ef;
+  --canteloupe_100: #ffe4d0;
+  --canteloupe_400: #ffa663;
+  --canteloupe_500: #e69559;
+  --canteloupe_600: #cc854f;
+  --canteloupe_700: #b37445;
+  --red_1: #fff1f0;
+  --red_3: #ffccc7;
+  --red_7: #cf1322;
+  --red_10: #5c0011;
+  --primary_link: #566fcf;
+  --danger_color: var(--red_7);
+}
 .lsf-comments {
   --comments-padding: 0 16px 8px;
   --comments-spacing: 8px;
@@ -31646,6 +34777,59 @@ div.ant-typography-edit-content.ant-typography-rtl {
   margin-top: var(--comments-spacing);
 }
 
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-SemiBold.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+body {
+  font-family: 'Figtree', sans-serif !important;
+  --sand_900: #12110d;
+  --sand_800: #262522;
+  --sand_700: #45433e;
+  --sand_600: #6b6860;
+  --sand_500: #a49f95;
+  --sand_400: #cac5b8;
+  --sand_300: #e1ded5;
+  --sand_200: #f0efeb;
+  --sand_100: #f9f8f6;
+  --sand_0: #fdfdfc;
+  --grape_0: #f0f3fe;
+  --grape_100: #d4dbfb;
+  --grape_500: #566fcf;
+  --grape_600: #576cc1;
+  --grape_700: #4c5fa9;
+  --grape_800: #37447a;
+  --kale_0: #f4f9f9;
+  --kale_400: #57b7ab;
+  --plum_500: #cc6fbe;
+  --plum_400: #e37bd3;
+  --plum_100: #f7d6f2;
+  --plum_0: #fbf2fc;
+  --persimmon_300: #ff9f89;
+  --persimmon_400: #ff7557;
+  --canteloupe_0: #fff6ef;
+  --canteloupe_100: #ffe4d0;
+  --canteloupe_400: #ffa663;
+  --canteloupe_500: #e69559;
+  --canteloupe_600: #cc854f;
+  --canteloupe_700: #b37445;
+  --red_1: #fff1f0;
+  --red_3: #ffccc7;
+  --red_7: #cf1322;
+  --red_10: #5c0011;
+  --primary_link: #566fcf;
+  --danger_color: var(--red_7);
+}
 .lsf-comments-section {
   border-top: 1px solid rgba(0,0,0,0.1);
 }
@@ -31663,6 +34847,59 @@ div.ant-typography-edit-content.ant-typography-rtl {
   flex: 1;
 }
 
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-SemiBold.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+body {
+  font-family: 'Figtree', sans-serif !important;
+  --sand_900: #12110d;
+  --sand_800: #262522;
+  --sand_700: #45433e;
+  --sand_600: #6b6860;
+  --sand_500: #a49f95;
+  --sand_400: #cac5b8;
+  --sand_300: #e1ded5;
+  --sand_200: #f0efeb;
+  --sand_100: #f9f8f6;
+  --sand_0: #fdfdfc;
+  --grape_0: #f0f3fe;
+  --grape_100: #d4dbfb;
+  --grape_500: #566fcf;
+  --grape_600: #576cc1;
+  --grape_700: #4c5fa9;
+  --grape_800: #37447a;
+  --kale_0: #f4f9f9;
+  --kale_400: #57b7ab;
+  --plum_500: #cc6fbe;
+  --plum_400: #e37bd3;
+  --plum_100: #f7d6f2;
+  --plum_0: #fbf2fc;
+  --persimmon_300: #ff9f89;
+  --persimmon_400: #ff7557;
+  --canteloupe_0: #fff6ef;
+  --canteloupe_100: #ffe4d0;
+  --canteloupe_400: #ffa663;
+  --canteloupe_500: #e69559;
+  --canteloupe_600: #cc854f;
+  --canteloupe_700: #b37445;
+  --red_1: #fff1f0;
+  --red_3: #ffccc7;
+  --red_7: #cf1322;
+  --red_10: #5c0011;
+  --primary_link: #566fcf;
+  --danger_color: var(--red_7);
+}
 .lsf-history-buttons {
   display: flex;
   gap: 8px;
@@ -31685,6 +34922,59 @@ div.ant-typography-edit-content.ant-typography-rtl {
   color: #d00;
 }
 
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-SemiBold.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+body {
+  font-family: 'Figtree', sans-serif !important;
+  --sand_900: #12110d;
+  --sand_800: #262522;
+  --sand_700: #45433e;
+  --sand_600: #6b6860;
+  --sand_500: #a49f95;
+  --sand_400: #cac5b8;
+  --sand_300: #e1ded5;
+  --sand_200: #f0efeb;
+  --sand_100: #f9f8f6;
+  --sand_0: #fdfdfc;
+  --grape_0: #f0f3fe;
+  --grape_100: #d4dbfb;
+  --grape_500: #566fcf;
+  --grape_600: #576cc1;
+  --grape_700: #4c5fa9;
+  --grape_800: #37447a;
+  --kale_0: #f4f9f9;
+  --kale_400: #57b7ab;
+  --plum_500: #cc6fbe;
+  --plum_400: #e37bd3;
+  --plum_100: #f7d6f2;
+  --plum_0: #fbf2fc;
+  --persimmon_300: #ff9f89;
+  --persimmon_400: #ff7557;
+  --canteloupe_0: #fff6ef;
+  --canteloupe_100: #ffe4d0;
+  --canteloupe_400: #ffa663;
+  --canteloupe_500: #e69559;
+  --canteloupe_600: #cc854f;
+  --canteloupe_700: #b37445;
+  --red_1: #fff1f0;
+  --red_3: #ffccc7;
+  --red_7: #cf1322;
+  --red_10: #5c0011;
+  --primary_link: #566fcf;
+  --danger_color: var(--red_7);
+}
 .lsf-dynamic-preannotations {
   top: 0;
   height: 44px;
@@ -31699,6 +34989,59 @@ div.ant-typography-edit-content.ant-typography-rtl {
   width: 100%;
 }
 
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-SemiBold.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+body {
+  font-family: 'Figtree', sans-serif !important;
+  --sand_900: #12110d;
+  --sand_800: #262522;
+  --sand_700: #45433e;
+  --sand_600: #6b6860;
+  --sand_500: #a49f95;
+  --sand_400: #cac5b8;
+  --sand_300: #e1ded5;
+  --sand_200: #f0efeb;
+  --sand_100: #f9f8f6;
+  --sand_0: #fdfdfc;
+  --grape_0: #f0f3fe;
+  --grape_100: #d4dbfb;
+  --grape_500: #566fcf;
+  --grape_600: #576cc1;
+  --grape_700: #4c5fa9;
+  --grape_800: #37447a;
+  --kale_0: #f4f9f9;
+  --kale_400: #57b7ab;
+  --plum_500: #cc6fbe;
+  --plum_400: #e37bd3;
+  --plum_100: #f7d6f2;
+  --plum_0: #fbf2fc;
+  --persimmon_300: #ff9f89;
+  --persimmon_400: #ff7557;
+  --canteloupe_0: #fff6ef;
+  --canteloupe_100: #ffe4d0;
+  --canteloupe_400: #ffa663;
+  --canteloupe_500: #e69559;
+  --canteloupe_600: #cc854f;
+  --canteloupe_700: #b37445;
+  --red_1: #fff1f0;
+  --red_3: #ffccc7;
+  --red_7: #cf1322;
+  --red_10: #5c0011;
+  --primary_link: #566fcf;
+  --danger_color: var(--red_7);
+}
 .lsf-auto-accept {
   height: 44px;
   display: flex;
@@ -31755,6 +35098,59 @@ div.ant-typography-edit-content.ant-typography-rtl {
   }
 }
 
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-SemiBold.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+body {
+  font-family: 'Figtree', sans-serif !important;
+  --sand_900: #12110d;
+  --sand_800: #262522;
+  --sand_700: #45433e;
+  --sand_600: #6b6860;
+  --sand_500: #a49f95;
+  --sand_400: #cac5b8;
+  --sand_300: #e1ded5;
+  --sand_200: #f0efeb;
+  --sand_100: #f9f8f6;
+  --sand_0: #fdfdfc;
+  --grape_0: #f0f3fe;
+  --grape_100: #d4dbfb;
+  --grape_500: #566fcf;
+  --grape_600: #576cc1;
+  --grape_700: #4c5fa9;
+  --grape_800: #37447a;
+  --kale_0: #f4f9f9;
+  --kale_400: #57b7ab;
+  --plum_500: #cc6fbe;
+  --plum_400: #e37bd3;
+  --plum_100: #f7d6f2;
+  --plum_0: #fbf2fc;
+  --persimmon_300: #ff9f89;
+  --persimmon_400: #ff7557;
+  --canteloupe_0: #fff6ef;
+  --canteloupe_100: #ffe4d0;
+  --canteloupe_400: #ffa663;
+  --canteloupe_500: #e69559;
+  --canteloupe_600: #cc854f;
+  --canteloupe_700: #b37445;
+  --red_1: #fff1f0;
+  --red_3: #ffccc7;
+  --red_7: #cf1322;
+  --red_10: #5c0011;
+  --primary_link: #566fcf;
+  --danger_color: var(--red_7);
+}
 .lsf-ground-truth_size_md,
 .lsf-ground-truth__toggle,
 .lsf-ground-truth__indicator {
@@ -31774,13 +35170,66 @@ div.ant-typography-edit-content.ant-typography-rtl {
   color: #000;
 }
 .lsf-ground-truth__indicator_active {
-  color: #ffbb1a;
+  color: var(--canteloupe_400);
 }
 .lsf-ground-truth__indicator_active path {
   fill-opacity: 1;
   stroke-opacity: 1;
 }
 
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-SemiBold.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+body {
+  font-family: 'Figtree', sans-serif !important;
+  --sand_900: #12110d;
+  --sand_800: #262522;
+  --sand_700: #45433e;
+  --sand_600: #6b6860;
+  --sand_500: #a49f95;
+  --sand_400: #cac5b8;
+  --sand_300: #e1ded5;
+  --sand_200: #f0efeb;
+  --sand_100: #f9f8f6;
+  --sand_0: #fdfdfc;
+  --grape_0: #f0f3fe;
+  --grape_100: #d4dbfb;
+  --grape_500: #566fcf;
+  --grape_600: #576cc1;
+  --grape_700: #4c5fa9;
+  --grape_800: #37447a;
+  --kale_0: #f4f9f9;
+  --kale_400: #57b7ab;
+  --plum_500: #cc6fbe;
+  --plum_400: #e37bd3;
+  --plum_100: #f7d6f2;
+  --plum_0: #fbf2fc;
+  --persimmon_300: #ff9f89;
+  --persimmon_400: #ff7557;
+  --canteloupe_0: #fff6ef;
+  --canteloupe_100: #ffe4d0;
+  --canteloupe_400: #ffa663;
+  --canteloupe_500: #e69559;
+  --canteloupe_600: #cc854f;
+  --canteloupe_700: #b37445;
+  --red_1: #fff1f0;
+  --red_3: #ffccc7;
+  --red_7: #cf1322;
+  --red_10: #5c0011;
+  --primary_link: #566fcf;
+  --danger_color: var(--red_7);
+}
 .lsf-bottombar .lsf-controls {
   flex: 1;
   height: 100%;
@@ -31804,7 +35253,7 @@ div.ant-typography-edit-content.ant-typography-rtl {
 }
 .lsf-bottombar .lsf-controls .lsf-submit {
   border-radius: 4px;
-  background: #09f;
+  background: var(--grape_500);
   box-shadow: 0px 4px 4px 0px rgba(0,0,0,0.25);
   display: flex;
   width: 160px;
@@ -31820,6 +35269,7 @@ div.ant-typography-edit-content.ant-typography-rtl {
   letter-spacing: 0.15px;
   flex-direction: row-reverse;
   padding: 0;
+  cursor: pointer;
 }
 .lsf-bottombar .lsf-controls .lsf-submit_disabled {
   color: rgba(255,255,255,0.8);
@@ -31888,21 +35338,18 @@ div.ant-typography-edit-content.ant-typography-rtl {
   display: flex;
   align-items: center;
   align-self: stretch;
-  color: #1f1f1f;
+  color: var(--sand_900);
   text-overflow: ellipsis;
   white-space: nowrap;
-  font-family: Roboto;
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
   line-height: 24px;
-  letter-spacing: 0.5px;
   box-shadow: 0px 1px 3px 1px rgba(38,38,38,0.15), 0px 1px 2px 0px rgba(38,38,38,0.3);
 }
 .lsf-submit-option:hover:before {
   content: '';
   z-index: auto;
-  background: #00f;
   width: calc(100% - 16px);
   height: calc(100% - 16px);
   position: absolute;
@@ -31911,10 +35358,63 @@ div.ant-typography-edit-content.ant-typography-rtl {
   margin: 8px;
   border-radius: 4px;
   opacity: 0.08;
-  background: #096dd9;
+  background: var(--grape_500);
   pointer-events: none;
 }
 
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-SemiBold.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+body {
+  font-family: 'Figtree', sans-serif !important;
+  --sand_900: #12110d;
+  --sand_800: #262522;
+  --sand_700: #45433e;
+  --sand_600: #6b6860;
+  --sand_500: #a49f95;
+  --sand_400: #cac5b8;
+  --sand_300: #e1ded5;
+  --sand_200: #f0efeb;
+  --sand_100: #f9f8f6;
+  --sand_0: #fdfdfc;
+  --grape_0: #f0f3fe;
+  --grape_100: #d4dbfb;
+  --grape_500: #566fcf;
+  --grape_600: #576cc1;
+  --grape_700: #4c5fa9;
+  --grape_800: #37447a;
+  --kale_0: #f4f9f9;
+  --kale_400: #57b7ab;
+  --plum_500: #cc6fbe;
+  --plum_400: #e37bd3;
+  --plum_100: #f7d6f2;
+  --plum_0: #fbf2fc;
+  --persimmon_300: #ff9f89;
+  --persimmon_400: #ff7557;
+  --canteloupe_0: #fff6ef;
+  --canteloupe_100: #ffe4d0;
+  --canteloupe_400: #ffa663;
+  --canteloupe_500: #e69559;
+  --canteloupe_600: #cc854f;
+  --canteloupe_700: #b37445;
+  --red_1: #fff1f0;
+  --red_3: #ffccc7;
+  --red_7: #cf1322;
+  --red_10: #5c0011;
+  --primary_link: #566fcf;
+  --danger_color: var(--red_7);
+}
 .lsf-bottombar {
   height: var(--bottombar-height);
   width: 100%;
@@ -58887,6 +62387,59 @@ div.ant-typography-edit-content--zFRYU.ant-typography-rtl--G3WaG {
 .grid--oau_Q > div:empty {
   display: none;
 }
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-SemiBold.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+body {
+  font-family: 'Figtree', sans-serif !important;
+  --sand_900: #12110d;
+  --sand_800: #262522;
+  --sand_700: #45433e;
+  --sand_600: #6b6860;
+  --sand_500: #a49f95;
+  --sand_400: #cac5b8;
+  --sand_300: #e1ded5;
+  --sand_200: #f0efeb;
+  --sand_100: #f9f8f6;
+  --sand_0: #fdfdfc;
+  --grape_0: #f0f3fe;
+  --grape_100: #d4dbfb;
+  --grape_500: #566fcf;
+  --grape_600: #576cc1;
+  --grape_700: #4c5fa9;
+  --grape_800: #37447a;
+  --kale_0: #f4f9f9;
+  --kale_400: #57b7ab;
+  --plum_500: #cc6fbe;
+  --plum_400: #e37bd3;
+  --plum_100: #f7d6f2;
+  --plum_0: #fbf2fc;
+  --persimmon_300: #ff9f89;
+  --persimmon_400: #ff7557;
+  --canteloupe_0: #fff6ef;
+  --canteloupe_100: #ffe4d0;
+  --canteloupe_400: #ffa663;
+  --canteloupe_500: #e69559;
+  --canteloupe_600: #cc854f;
+  --canteloupe_700: #b37445;
+  --red_1: #fff1f0;
+  --red_3: #ffccc7;
+  --red_7: #cf1322;
+  --red_10: #5c0011;
+  --primary_link: #566fcf;
+  --danger_color: var(--red_7);
+}
 .lsf-annotation-tabs {
   height: 44px;
   width: 100%;
@@ -58930,7 +62483,7 @@ div.ant-typography-edit-content--zFRYU.ant-typography-rtl--G3WaG {
   color: rgba(0,0,0,0.6);
 }
 .lsf-annotation-tabs__all_active {
-  color: #09f;
+  color: var(--grape_500);
 }
 .lsf-annotation-tabs__list {
   flex: 1;
@@ -58959,7 +62512,7 @@ div.ant-typography-edit-content--zFRYU.ant-typography-rtl--G3WaG {
   opacity: 1;
   cursor: default;
   background-color: var(--main-bg-color);
-  box-shadow: inset 0 2px 0 #09f;
+  box-shadow: inset 0 2px 0 var(--grape_500);
 }
 .lsf-entity-tab__userpic {
   width: 24px;
@@ -58971,7 +62524,7 @@ div.ant-typography-edit-content--zFRYU.ant-typography-rtl--G3WaG {
   box-shadow: inset 0px 0px 0px 1px rgba(148,75,255,0.15);
 }
 .lsf-entity-tab__ground-truth {
-  color: #ffbb1a;
+  color: var(--canteloupe_400);
   margin-top: -2px;
 }
 .lsf-entity-tab__ground-truth path {
@@ -85884,10 +89437,62 @@ div.ant-typography-edit-content--k5vaQ.ant-typography-rtl--YE78x {
     margin-right: 0;
   }
 }
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-SemiBold.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+body {
+  font-family: 'Figtree', sans-serif !important;
+  --sand_900: #12110d;
+  --sand_800: #262522;
+  --sand_700: #45433e;
+  --sand_600: #6b6860;
+  --sand_500: #a49f95;
+  --sand_400: #cac5b8;
+  --sand_300: #e1ded5;
+  --sand_200: #f0efeb;
+  --sand_100: #f9f8f6;
+  --sand_0: #fdfdfc;
+  --grape_0: #f0f3fe;
+  --grape_100: #d4dbfb;
+  --grape_500: #566fcf;
+  --grape_600: #576cc1;
+  --grape_700: #4c5fa9;
+  --grape_800: #37447a;
+  --kale_0: #f4f9f9;
+  --kale_400: #57b7ab;
+  --plum_500: #cc6fbe;
+  --plum_400: #e37bd3;
+  --plum_100: #f7d6f2;
+  --plum_0: #fbf2fc;
+  --persimmon_300: #ff9f89;
+  --persimmon_400: #ff7557;
+  --canteloupe_0: #fff6ef;
+  --canteloupe_100: #ffe4d0;
+  --canteloupe_400: #ffa663;
+  --canteloupe_500: #e69559;
+  --canteloupe_600: #cc854f;
+  --canteloupe_700: #b37445;
+  --red_1: #fff1f0;
+  --red_3: #ffccc7;
+  --red_7: #cf1322;
+  --red_10: #5c0011;
+  --primary_link: #566fcf;
+  --danger_color: var(--red_7);
+}
 .lsf-settings_newUI .lsf-settings__label__title,
 .lsf-settings-modal .ant-tabs-tab .ant-tabs-tab-btn {
-  color: #1f1f1f;
-  font-family: Roboto;
+  font-family: 'Figtree', sans-serif;
   font-size: 16px;
   font-weight: 500;
   line-height: 24px;
@@ -85925,7 +89530,7 @@ div.ant-typography-edit-content--k5vaQ.ant-typography-rtl--YE78x {
   height: 16px;
   display: inline-flex;
   align-items: center;
-  background: #fff;
+  background: var(--sand_0);
   border-radius: 2px;
   font-weight: bold;
   font-size: 12px;
@@ -85946,15 +89551,24 @@ div.ant-typography-edit-content--k5vaQ.ant-typography-rtl--YE78x {
   border-top: 2px solid rgba(0,0,0,0.05);
 }
 .lsf-settings-modal {
-  --modal-button-text-color-active: #40a9ff;
-  --toggle-color: #1890ff;
+  --modal-button-text-color-active: var(--primary_link);
+  --toggle-color: var(--primary_link);
   --modal-border-radius: 8px;
   --modal-padding: 24px;
   width: 100% !important;
   max-width: 568px !important;
 }
+.lsf-settings-modal .ant-pagination-item-active {
+  border-color: var(--primary_link);
+}
+.lsf-settings-modal .ant-pagination-item-active a {
+  color: var(--primary_link);
+}
 .lsf-settings-modal .ant-tabs-tab .ant-tabs-tab-btn {
   text-shadow: none;
+}
+.lsf-settings-modal .ant-tabs-ink-bar {
+  background: var(--primary_link);
 }
 .lsf-settings-modal .ant-modal-close {
   top: 28px;
@@ -85971,6 +89585,9 @@ div.ant-typography-edit-content--k5vaQ.ant-typography-rtl--YE78x {
 }
 .lsf-settings-modal .ant-tabs-tab {
   padding: calc(var(--modal-padding) / 4) var(--modal-padding) !important;
+}
+.lsf-settings-modal .ant-tabs-tab :hover {
+  color: var(--primary_link);
 }
 .lsf-settings-modal .ant-tabs-tab + .ant-tabs-tab {
   margin-left: 0 !important;
@@ -85990,10 +89607,8 @@ div.ant-typography-edit-content--k5vaQ.ant-typography-rtl--YE78x {
   border: none !important;
 }
 .lsf-settings-modal .ant-modal-title {
-  color: #1f1f1f;
-  font-family: Roboto;
   font-size: 24px;
-  font-weight: 400;
+  font-weight: 500;
   line-height: 32px;
   letter-spacing: 0;
   text-align: left;
@@ -86003,8 +89618,8 @@ div.ant-typography-edit-content--k5vaQ.ant-typography-rtl--YE78x {
   align-items: center;
   justify-content: center;
   padding-inline: 4px;
-  color: #030852;
-  background-color: #d6e4ff;
+  color: var(--grape_700);
+  background-color: var(--grape_0);
   border-radius: 2px;
   height: 20px;
   font-size: 11px;
@@ -86014,6 +89629,59 @@ div.ant-typography-edit-content--k5vaQ.ant-typography-rtl--YE78x {
   text-align: center;
 }
 
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-SemiBold.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+body {
+  font-family: 'Figtree', sans-serif !important;
+  --sand_900: #12110d;
+  --sand_800: #262522;
+  --sand_700: #45433e;
+  --sand_600: #6b6860;
+  --sand_500: #a49f95;
+  --sand_400: #cac5b8;
+  --sand_300: #e1ded5;
+  --sand_200: #f0efeb;
+  --sand_100: #f9f8f6;
+  --sand_0: #fdfdfc;
+  --grape_0: #f0f3fe;
+  --grape_100: #d4dbfb;
+  --grape_500: #566fcf;
+  --grape_600: #576cc1;
+  --grape_700: #4c5fa9;
+  --grape_800: #37447a;
+  --kale_0: #f4f9f9;
+  --kale_400: #57b7ab;
+  --plum_500: #cc6fbe;
+  --plum_400: #e37bd3;
+  --plum_100: #f7d6f2;
+  --plum_0: #fbf2fc;
+  --persimmon_300: #ff9f89;
+  --persimmon_400: #ff7557;
+  --canteloupe_0: #fff6ef;
+  --canteloupe_100: #ffe4d0;
+  --canteloupe_400: #ffa663;
+  --canteloupe_500: #e69559;
+  --canteloupe_600: #cc854f;
+  --canteloupe_700: #b37445;
+  --red_1: #fff1f0;
+  --red_3: #ffccc7;
+  --red_7: #cf1322;
+  --red_10: #5c0011;
+  --primary_link: #566fcf;
+  --danger_color: var(--red_7);
+}
 .lsf-sidebar-tabs {
   flex: 1;
   position: sticky;
@@ -86054,6 +89722,59 @@ div.ant-typography-edit-content--k5vaQ.ant-typography-rtl--YE78x {
   overflow: auto;
 }
 
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-SemiBold.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+body {
+  font-family: 'Figtree', sans-serif !important;
+  --sand_900: #12110d;
+  --sand_800: #262522;
+  --sand_700: #45433e;
+  --sand_600: #6b6860;
+  --sand_500: #a49f95;
+  --sand_400: #cac5b8;
+  --sand_300: #e1ded5;
+  --sand_200: #f0efeb;
+  --sand_100: #f9f8f6;
+  --sand_0: #fdfdfc;
+  --grape_0: #f0f3fe;
+  --grape_100: #d4dbfb;
+  --grape_500: #566fcf;
+  --grape_600: #576cc1;
+  --grape_700: #4c5fa9;
+  --grape_800: #37447a;
+  --kale_0: #f4f9f9;
+  --kale_400: #57b7ab;
+  --plum_500: #cc6fbe;
+  --plum_400: #e37bd3;
+  --plum_100: #f7d6f2;
+  --plum_0: #fbf2fc;
+  --persimmon_300: #ff9f89;
+  --persimmon_400: #ff7557;
+  --canteloupe_0: #fff6ef;
+  --canteloupe_100: #ffe4d0;
+  --canteloupe_400: #ffa663;
+  --canteloupe_500: #e69559;
+  --canteloupe_600: #cc854f;
+  --canteloupe_700: #b37445;
+  --red_1: #fff1f0;
+  --red_3: #ffccc7;
+  --red_7: #cf1322;
+  --red_10: #5c0011;
+  --primary_link: #566fcf;
+  --danger_color: var(--red_7);
+}
 .lsf-panel {
   --header-height: 24px;
   --header-border-radius: 0;
@@ -86072,8 +89793,8 @@ div.ant-typography-edit-content--k5vaQ.ant-typography-rtl--YE78x {
   color: var(--icon-color);
 }
 .lsf-panel .lsf-panel__header:hover {
-  --icon-color: #096dd9;
-  --header-background-new: #d8e7f9;
+  --icon-color: var(--grape_500);
+  --header-background-new: var(--grape_0);
 }
 .lsf-panel.lsf-panel_alignment_left .lsf-panel__header,
 .lsf-panel.lsf-panel_alignment_right .lsf-panel__header {
@@ -86134,8 +89855,8 @@ div.ant-typography-edit-content--k5vaQ.ant-typography-rtl--YE78x {
   margin: 0;
 }
 .lsf-panel_hidden:not(.lsf-panel_detached):hover {
-  --icon-color: #096dd9;
-  --header-background: rgba(9,109,217,0.16);
+  --icon-color: var(--grape_500);
+  --header-background: var(--grape_0);
 }
 .lsf-panel__header {
   top: 0;
@@ -86187,7 +89908,7 @@ div.ant-typography-edit-content--k5vaQ.ant-typography-rtl--YE78x {
   display: block;
 }
 .lsf-panel__toggle:hover {
-  background-color: rgba(9,109,217,0.16);
+  background-color: var(--grape_0);
 }
 .lsf-panel:not(.lsf-panel_detached).lsf-panel_hidden .lsf-panel__toggle {
   pointer-events: none;
@@ -86327,7 +90048,7 @@ div.ant-typography-edit-content--k5vaQ.ant-typography-rtl--YE78x {
   height: 6px;
   display: none;
   position: absolute;
-  background-color: #09f;
+  background-color: var(--grape_500);
   border-radius: 100%;
 }
 .lsf-panel__resizer[data-resize=top]::before,
@@ -86359,12 +90080,65 @@ div.ant-typography-edit-content--k5vaQ.ant-typography-rtl--YE78x {
   display: block;
 }
 
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-SemiBold.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+body {
+  font-family: 'Figtree', sans-serif !important;
+  --sand_900: #12110d;
+  --sand_800: #262522;
+  --sand_700: #45433e;
+  --sand_600: #6b6860;
+  --sand_500: #a49f95;
+  --sand_400: #cac5b8;
+  --sand_300: #e1ded5;
+  --sand_200: #f0efeb;
+  --sand_100: #f9f8f6;
+  --sand_0: #fdfdfc;
+  --grape_0: #f0f3fe;
+  --grape_100: #d4dbfb;
+  --grape_500: #566fcf;
+  --grape_600: #576cc1;
+  --grape_700: #4c5fa9;
+  --grape_800: #37447a;
+  --kale_0: #f4f9f9;
+  --kale_400: #57b7ab;
+  --plum_500: #cc6fbe;
+  --plum_400: #e37bd3;
+  --plum_100: #f7d6f2;
+  --plum_0: #fbf2fc;
+  --persimmon_300: #ff9f89;
+  --persimmon_400: #ff7557;
+  --canteloupe_0: #fff6ef;
+  --canteloupe_100: #ffe4d0;
+  --canteloupe_400: #ffa663;
+  --canteloupe_500: #e69559;
+  --canteloupe_600: #cc854f;
+  --canteloupe_700: #b37445;
+  --red_1: #fff1f0;
+  --red_3: #ffccc7;
+  --red_7: #cf1322;
+  --red_10: #5c0011;
+  --primary_link: #566fcf;
+  --danger_color: var(--red_7);
+}
 .lsf-details,
 .lsf-history,
 .lsf-relations,
 .lsf-info,
 .lsf-comments-panel {
-  --details-section-border-color: #e1e0e0;
+  --details-section-border-color: var(--sand_300);
   width: 100%;
 }
 .lsf-details__section-tab,
@@ -86379,7 +90153,6 @@ div.ant-typography-edit-content--k5vaQ.ant-typography-rtl--YE78x {
 .lsf-relations__section-tab-head,
 .lsf-info__section-tab-head,
 .lsf-comments-panel__section-tab-head {
-  font-family: "Roboto", Arial, sans-serif;
   font-weight: 500;
   font-size: 15px;
 }
@@ -86416,7 +90189,7 @@ div.ant-typography-edit-content--k5vaQ.ant-typography-rtl--YE78x {
 .lsf-relations__section-head span,
 .lsf-info__section-head span,
 .lsf-comments-panel__section-head span {
-  opacity: 0.6;
+  color: var(--sand_600);
   font-weight: normal;
 }
 .lsf-region-actions {
@@ -86448,7 +90221,72 @@ div.ant-typography-edit-content--k5vaQ.ant-typography-rtl--YE78x {
 .lsf-history__section-tab {
   padding: 8px;
 }
+.lsf-relations__view-control {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: min-content;
+  align-items: center;
+  grid-column-gap: 4px;
+  text-wrap: nowrap;
+  padding: 4px;
+  font-family: "Roboto", Arial, sans-serif;
+  font-weight: 500;
+  font-size: 15px;
+}
 
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-SemiBold.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+body {
+  font-family: 'Figtree', sans-serif !important;
+  --sand_900: #12110d;
+  --sand_800: #262522;
+  --sand_700: #45433e;
+  --sand_600: #6b6860;
+  --sand_500: #a49f95;
+  --sand_400: #cac5b8;
+  --sand_300: #e1ded5;
+  --sand_200: #f0efeb;
+  --sand_100: #f9f8f6;
+  --sand_0: #fdfdfc;
+  --grape_0: #f0f3fe;
+  --grape_100: #d4dbfb;
+  --grape_500: #566fcf;
+  --grape_600: #576cc1;
+  --grape_700: #4c5fa9;
+  --grape_800: #37447a;
+  --kale_0: #f4f9f9;
+  --kale_400: #57b7ab;
+  --plum_500: #cc6fbe;
+  --plum_400: #e37bd3;
+  --plum_100: #f7d6f2;
+  --plum_0: #fbf2fc;
+  --persimmon_300: #ff9f89;
+  --persimmon_400: #ff7557;
+  --canteloupe_0: #fff6ef;
+  --canteloupe_100: #ffe4d0;
+  --canteloupe_400: #ffa663;
+  --canteloupe_500: #e69559;
+  --canteloupe_600: #cc854f;
+  --canteloupe_700: #b37445;
+  --red_1: #fff1f0;
+  --red_3: #ffccc7;
+  --red_7: #cf1322;
+  --red_10: #5c0011;
+  --primary_link: #566fcf;
+  --danger_color: var(--red_7);
+}
 .lsf-region-editor {
   --col-count: 3;
   --col-width: calc((100% - 16px) / var(--col-count));
@@ -86515,8 +90353,8 @@ div.ant-typography-edit-content--k5vaQ.ant-typography-rtl--YE78x {
   border-color: #e5e5e5;
 }
 .lsf-region-editor__input:not([type=checkbox]):not([type=radio]):focus {
-  border-color: #09f;
-  box-shadow: 0 0 0 1px #09f;
+  border-color: var(--grape_500);
+  box-shadow: 0 0 0 1px var(--grape_500);
 }
 .lsf-region-editor__input[type=checkbox] + .lsf-region-editor__text,
 .lsf-region-editor__input[type=radio] + .lsf-region-editor__text {
@@ -86525,6 +90363,59 @@ div.ant-typography-edit-content--k5vaQ.ant-typography-rtl--YE78x {
   position: static;
 }
 
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-SemiBold.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+body {
+  font-family: 'Figtree', sans-serif !important;
+  --sand_900: #12110d;
+  --sand_800: #262522;
+  --sand_700: #45433e;
+  --sand_600: #6b6860;
+  --sand_500: #a49f95;
+  --sand_400: #cac5b8;
+  --sand_300: #e1ded5;
+  --sand_200: #f0efeb;
+  --sand_100: #f9f8f6;
+  --sand_0: #fdfdfc;
+  --grape_0: #f0f3fe;
+  --grape_100: #d4dbfb;
+  --grape_500: #566fcf;
+  --grape_600: #576cc1;
+  --grape_700: #4c5fa9;
+  --grape_800: #37447a;
+  --kale_0: #f4f9f9;
+  --kale_400: #57b7ab;
+  --plum_500: #cc6fbe;
+  --plum_400: #e37bd3;
+  --plum_100: #f7d6f2;
+  --plum_0: #fbf2fc;
+  --persimmon_300: #ff9f89;
+  --persimmon_400: #ff7557;
+  --canteloupe_0: #fff6ef;
+  --canteloupe_100: #ffe4d0;
+  --canteloupe_400: #ffa663;
+  --canteloupe_500: #e69559;
+  --canteloupe_600: #cc854f;
+  --canteloupe_700: #b37445;
+  --red_1: #fff1f0;
+  --red_3: #ffccc7;
+  --red_7: #cf1322;
+  --red_10: #5c0011;
+  --primary_link: #566fcf;
+  --danger_color: var(--red_7);
+}
 .lsf-detailed-region__icon {
   width: 24px;
   height: 24px;
@@ -86573,8 +90464,8 @@ textarea.lsf-detailed-region__meta-text:hover {
 }
 textarea.lsf-detailed-region__meta-text:focus {
   background-color: #fff;
-  border-color: #09f;
-  box-shadow: 0 0 0 1px #09f;
+  border-color: var(--grape_500);
+  box-shadow: 0 0 0 1px var(--grape_500);
 }
 .lsf-detailed-region__meta-text:not(textarea) {
   white-space: pre-wrap;
@@ -86630,6 +90521,59 @@ textarea.lsf-detailed-region__meta-text:focus {
   opacity: 0.6;
 }
 
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-SemiBold.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+body {
+  font-family: 'Figtree', sans-serif !important;
+  --sand_900: #12110d;
+  --sand_800: #262522;
+  --sand_700: #45433e;
+  --sand_600: #6b6860;
+  --sand_500: #a49f95;
+  --sand_400: #cac5b8;
+  --sand_300: #e1ded5;
+  --sand_200: #f0efeb;
+  --sand_100: #f9f8f6;
+  --sand_0: #fdfdfc;
+  --grape_0: #f0f3fe;
+  --grape_100: #d4dbfb;
+  --grape_500: #566fcf;
+  --grape_600: #576cc1;
+  --grape_700: #4c5fa9;
+  --grape_800: #37447a;
+  --kale_0: #f4f9f9;
+  --kale_400: #57b7ab;
+  --plum_500: #cc6fbe;
+  --plum_400: #e37bd3;
+  --plum_100: #f7d6f2;
+  --plum_0: #fbf2fc;
+  --persimmon_300: #ff9f89;
+  --persimmon_400: #ff7557;
+  --canteloupe_0: #fff6ef;
+  --canteloupe_100: #ffe4d0;
+  --canteloupe_400: #ffa663;
+  --canteloupe_500: #e69559;
+  --canteloupe_600: #cc854f;
+  --canteloupe_700: #b37445;
+  --red_1: #fff1f0;
+  --red_3: #ffccc7;
+  --red_7: #cf1322;
+  --red_10: #5c0011;
+  --primary_link: #566fcf;
+  --danger_color: var(--red_7);
+}
 .lsf-relations__item {
   cursor: default;
   -webkit-user-select: none;
@@ -86710,6 +90654,141 @@ textarea.lsf-detailed-region__meta-text:focus {
   flex: 1;
 }
 
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-SemiBold.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+body {
+  font-family: 'Figtree', sans-serif !important;
+  --sand_900: #12110d;
+  --sand_800: #262522;
+  --sand_700: #45433e;
+  --sand_600: #6b6860;
+  --sand_500: #a49f95;
+  --sand_400: #cac5b8;
+  --sand_300: #e1ded5;
+  --sand_200: #f0efeb;
+  --sand_100: #f9f8f6;
+  --sand_0: #fdfdfc;
+  --grape_0: #f0f3fe;
+  --grape_100: #d4dbfb;
+  --grape_500: #566fcf;
+  --grape_600: #576cc1;
+  --grape_700: #4c5fa9;
+  --grape_800: #37447a;
+  --kale_0: #f4f9f9;
+  --kale_400: #57b7ab;
+  --plum_500: #cc6fbe;
+  --plum_400: #e37bd3;
+  --plum_100: #f7d6f2;
+  --plum_0: #fbf2fc;
+  --persimmon_300: #ff9f89;
+  --persimmon_400: #ff7557;
+  --canteloupe_0: #fff6ef;
+  --canteloupe_100: #ffe4d0;
+  --canteloupe_400: #ffa663;
+  --canteloupe_500: #e69559;
+  --canteloupe_600: #cc854f;
+  --canteloupe_700: #b37445;
+  --red_1: #fff1f0;
+  --red_3: #ffccc7;
+  --red_7: #cf1322;
+  --red_10: #5c0011;
+  --primary_link: #566fcf;
+  --danger_color: var(--red_7);
+}
+.lsf-relation-controls {
+  display: flex;
+  align-items: center;
+}
+.lsf-relation-controls .lsf-button {
+  height: 24px;
+  font-size: 14px;
+  font-weight: 400;
+  padding: 0px 2px !important;
+  justify-content: flex-start;
+}
+.lsf-relation-controls .lsf-button__icon {
+  width: 24px;
+  height: 24px;
+  flex: none;
+  margin: 0;
+}
+.lsf-relation-controls .lsf-button:focus {
+  box-shadow: none;
+}
+.lsf-relation-controls .lsf-button:hover {
+  background: rgba(65,60,74,0.08);
+  border-radius: 4px;
+}
+.lsf-relation-controls .lsf-button[disabled] {
+  background-color: #fff;
+  color: rgba(0,0,0,0.3);
+}
+
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-SemiBold.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+body {
+  font-family: 'Figtree', sans-serif !important;
+  --sand_900: #12110d;
+  --sand_800: #262522;
+  --sand_700: #45433e;
+  --sand_600: #6b6860;
+  --sand_500: #a49f95;
+  --sand_400: #cac5b8;
+  --sand_300: #e1ded5;
+  --sand_200: #f0efeb;
+  --sand_100: #f9f8f6;
+  --sand_0: #fdfdfc;
+  --grape_0: #f0f3fe;
+  --grape_100: #d4dbfb;
+  --grape_500: #566fcf;
+  --grape_600: #576cc1;
+  --grape_700: #4c5fa9;
+  --grape_800: #37447a;
+  --kale_0: #f4f9f9;
+  --kale_400: #57b7ab;
+  --plum_500: #cc6fbe;
+  --plum_400: #e37bd3;
+  --plum_100: #f7d6f2;
+  --plum_0: #fbf2fc;
+  --persimmon_300: #ff9f89;
+  --persimmon_400: #ff7557;
+  --canteloupe_0: #fff6ef;
+  --canteloupe_100: #ffe4d0;
+  --canteloupe_400: #ffa663;
+  --canteloupe_500: #e69559;
+  --canteloupe_600: #cc854f;
+  --canteloupe_700: #b37445;
+  --red_1: #fff1f0;
+  --red_3: #ffccc7;
+  --red_7: #cf1322;
+  --red_10: #5c0011;
+  --primary_link: #566fcf;
+  --danger_color: var(--red_7);
+}
 .lsf-tree {
   -webkit-user-select: none;
      -moz-user-select: none;
@@ -86891,9 +90970,6 @@ textarea.lsf-detailed-region__meta-text:focus {
   display: flex;
   margin-left: 13px;
 }
-.lsf-outliner-item__control_type_score {
-  font-family: 'Roboto Mono';
-}
 .lsf-outliner-item__control_type_predict {
   color: $magic_color;
 }
@@ -86928,6 +91004,59 @@ textarea.lsf-detailed-region__meta-text:focus {
   padding: 0;
 }
 
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-SemiBold.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+body {
+  font-family: 'Figtree', sans-serif !important;
+  --sand_900: #12110d;
+  --sand_800: #262522;
+  --sand_700: #45433e;
+  --sand_600: #6b6860;
+  --sand_500: #a49f95;
+  --sand_400: #cac5b8;
+  --sand_300: #e1ded5;
+  --sand_200: #f0efeb;
+  --sand_100: #f9f8f6;
+  --sand_0: #fdfdfc;
+  --grape_0: #f0f3fe;
+  --grape_100: #d4dbfb;
+  --grape_500: #566fcf;
+  --grape_600: #576cc1;
+  --grape_700: #4c5fa9;
+  --grape_800: #37447a;
+  --kale_0: #f4f9f9;
+  --kale_400: #57b7ab;
+  --plum_500: #cc6fbe;
+  --plum_400: #e37bd3;
+  --plum_100: #f7d6f2;
+  --plum_0: #fbf2fc;
+  --persimmon_300: #ff9f89;
+  --persimmon_400: #ff7557;
+  --canteloupe_0: #fff6ef;
+  --canteloupe_100: #ffe4d0;
+  --canteloupe_400: #ffa663;
+  --canteloupe_500: #e69559;
+  --canteloupe_600: #cc854f;
+  --canteloupe_700: #b37445;
+  --red_1: #fff1f0;
+  --red_3: #ffccc7;
+  --red_7: #cf1322;
+  --red_10: #5c0011;
+  --primary_link: #566fcf;
+  --danger_color: var(--red_7);
+}
 .lsf-view-controls {
   top: 0;
   z-index: 2;
@@ -86955,7 +91084,7 @@ textarea.lsf-detailed-region__meta-text:focus {
 .lsf-view-controls__label span {
   display: flex;
   align-items: center;
-  color: #09f;
+  color: var(--grape_500);
 }
 .lsf-view-controls_collapsed {
   top: 0;
@@ -87008,6 +91137,59 @@ textarea.lsf-detailed-region__meta-text:focus {
   padding: 0px 6px 0px 2px;
 }
 
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-SemiBold.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+body {
+  font-family: 'Figtree', sans-serif !important;
+  --sand_900: #12110d;
+  --sand_800: #262522;
+  --sand_700: #45433e;
+  --sand_600: #6b6860;
+  --sand_500: #a49f95;
+  --sand_400: #cac5b8;
+  --sand_300: #e1ded5;
+  --sand_200: #f0efeb;
+  --sand_100: #f9f8f6;
+  --sand_0: #fdfdfc;
+  --grape_0: #f0f3fe;
+  --grape_100: #d4dbfb;
+  --grape_500: #566fcf;
+  --grape_600: #576cc1;
+  --grape_700: #4c5fa9;
+  --grape_800: #37447a;
+  --kale_0: #f4f9f9;
+  --kale_400: #57b7ab;
+  --plum_500: #cc6fbe;
+  --plum_400: #e37bd3;
+  --plum_100: #f7d6f2;
+  --plum_0: #fbf2fc;
+  --persimmon_300: #ff9f89;
+  --persimmon_400: #ff7557;
+  --canteloupe_0: #fff6ef;
+  --canteloupe_100: #ffe4d0;
+  --canteloupe_400: #ffa663;
+  --canteloupe_500: #e69559;
+  --canteloupe_600: #cc854f;
+  --canteloupe_700: #b37445;
+  --red_1: #fff1f0;
+  --red_3: #ffccc7;
+  --red_7: #cf1322;
+  --red_10: #5c0011;
+  --primary_link: #566fcf;
+  --danger_color: var(--red_7);
+}
 .lsf-filter {
   padding: 10px;
 }
@@ -87046,13 +91228,66 @@ textarea.lsf-detailed-region__meta-text:focus {
   margin-left: 3px;
 }
 
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-SemiBold.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+body {
+  font-family: 'Figtree', sans-serif !important;
+  --sand_900: #12110d;
+  --sand_800: #262522;
+  --sand_700: #45433e;
+  --sand_600: #6b6860;
+  --sand_500: #a49f95;
+  --sand_400: #cac5b8;
+  --sand_300: #e1ded5;
+  --sand_200: #f0efeb;
+  --sand_100: #f9f8f6;
+  --sand_0: #fdfdfc;
+  --grape_0: #f0f3fe;
+  --grape_100: #d4dbfb;
+  --grape_500: #566fcf;
+  --grape_600: #576cc1;
+  --grape_700: #4c5fa9;
+  --grape_800: #37447a;
+  --kale_0: #f4f9f9;
+  --kale_400: #57b7ab;
+  --plum_500: #cc6fbe;
+  --plum_400: #e37bd3;
+  --plum_100: #f7d6f2;
+  --plum_0: #fbf2fc;
+  --persimmon_300: #ff9f89;
+  --persimmon_400: #ff7557;
+  --canteloupe_0: #fff6ef;
+  --canteloupe_100: #ffe4d0;
+  --canteloupe_400: #ffa663;
+  --canteloupe_500: #e69559;
+  --canteloupe_600: #cc854f;
+  --canteloupe_700: #b37445;
+  --red_1: #fff1f0;
+  --red_3: #ffccc7;
+  --red_7: #cf1322;
+  --red_10: #5c0011;
+  --primary_link: #566fcf;
+  --danger_color: var(--red_7);
+}
 .lsf-input:not([type=checkbox]):not([type=radio]),
 .lsf-textarea {
   height: 32px;
   width: 100%;
   background: #fafafa;
   font-size: 14px;
-  border: 1px solid rgba(0,0,0,0.15);
+  border: 1px solid var(--sand_300);
   box-sizing: border-box;
   border-radius: 5px;
   padding: 0 16px;
@@ -87077,8 +91312,8 @@ textarea.lsf-detailed-region__meta-text:focus {
 .lsf-input:not([type=checkbox]):not([type=radio]):focus,
 .lsf-textarea:focus {
   outline: none;
-  box-shadow: 0px 0px 0px 6px rgba(0,153,255,0.2), inset 0px -1px 0px rgba(0,0,0,0.1), inset 0px 0px 0px 1px rgba(0,0,0,0.15), inset 0px 0px 0px 1px rgba(0,153,255,0.2);
-  border-color: rgba(0,153,255,0.2);
+  box-shadow: 0px 0px 0px 6px var(--grape_100), inset 0px -1px 0px rgba(0,0,0,0.1), inset 0px 0px 0px 1px rgba(0,0,0,0.15), inset 0px 0px 0px 1px var(--grape_100);
+  border-color: var(--grape_700);
 }
 .lsf-input[type=checkbox],
 .lsf-input[type=radio] {
@@ -87103,6 +91338,59 @@ textarea.lsf-detailed-region__meta-text:focus {
   }
 }
 
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-SemiBold.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+body {
+  font-family: 'Figtree', sans-serif !important;
+  --sand_900: #12110d;
+  --sand_800: #262522;
+  --sand_700: #45433e;
+  --sand_600: #6b6860;
+  --sand_500: #a49f95;
+  --sand_400: #cac5b8;
+  --sand_300: #e1ded5;
+  --sand_200: #f0efeb;
+  --sand_100: #f9f8f6;
+  --sand_0: #fdfdfc;
+  --grape_0: #f0f3fe;
+  --grape_100: #d4dbfb;
+  --grape_500: #566fcf;
+  --grape_600: #576cc1;
+  --grape_700: #4c5fa9;
+  --grape_800: #37447a;
+  --kale_0: #f4f9f9;
+  --kale_400: #57b7ab;
+  --plum_500: #cc6fbe;
+  --plum_400: #e37bd3;
+  --plum_100: #f7d6f2;
+  --plum_0: #fbf2fc;
+  --persimmon_300: #ff9f89;
+  --persimmon_400: #ff7557;
+  --canteloupe_0: #fff6ef;
+  --canteloupe_100: #ffe4d0;
+  --canteloupe_400: #ffa663;
+  --canteloupe_500: #e69559;
+  --canteloupe_600: #cc854f;
+  --canteloupe_700: #b37445;
+  --red_1: #fff1f0;
+  --red_3: #ffccc7;
+  --red_7: #cf1322;
+  --red_10: #5c0011;
+  --primary_link: #566fcf;
+  --danger_color: var(--red_7);
+}
 .lsf-filter-row {
   display: flex;
   flex-direction: row;
@@ -87125,6 +91413,59 @@ textarea.lsf-detailed-region__meta-text:focus {
   height: 24px !important;
 }
 
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-SemiBold.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+body {
+  font-family: 'Figtree', sans-serif !important;
+  --sand_900: #12110d;
+  --sand_800: #262522;
+  --sand_700: #45433e;
+  --sand_600: #6b6860;
+  --sand_500: #a49f95;
+  --sand_400: #cac5b8;
+  --sand_300: #e1ded5;
+  --sand_200: #f0efeb;
+  --sand_100: #f9f8f6;
+  --sand_0: #fdfdfc;
+  --grape_0: #f0f3fe;
+  --grape_100: #d4dbfb;
+  --grape_500: #566fcf;
+  --grape_600: #576cc1;
+  --grape_700: #4c5fa9;
+  --grape_800: #37447a;
+  --kale_0: #f4f9f9;
+  --kale_400: #57b7ab;
+  --plum_500: #cc6fbe;
+  --plum_400: #e37bd3;
+  --plum_100: #f7d6f2;
+  --plum_0: #fbf2fc;
+  --persimmon_300: #ff9f89;
+  --persimmon_400: #ff7557;
+  --canteloupe_0: #fff6ef;
+  --canteloupe_100: #ffe4d0;
+  --canteloupe_400: #ffa663;
+  --canteloupe_500: #e69559;
+  --canteloupe_600: #cc854f;
+  --canteloupe_700: #b37445;
+  --red_1: #fff1f0;
+  --red_3: #ffccc7;
+  --red_7: #cf1322;
+  --red_10: #5c0011;
+  --primary_link: #566fcf;
+  --danger_color: var(--red_7);
+}
 .lsf-outliner {
   --view-controls-height: 40px;
 }
@@ -87157,6 +91498,59 @@ textarea.lsf-detailed-region__meta-text:focus {
   color: #898098;
 }
 
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-SemiBold.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+body {
+  font-family: 'Figtree', sans-serif !important;
+  --sand_900: #12110d;
+  --sand_800: #262522;
+  --sand_700: #45433e;
+  --sand_600: #6b6860;
+  --sand_500: #a49f95;
+  --sand_400: #cac5b8;
+  --sand_300: #e1ded5;
+  --sand_200: #f0efeb;
+  --sand_100: #f9f8f6;
+  --sand_0: #fdfdfc;
+  --grape_0: #f0f3fe;
+  --grape_100: #d4dbfb;
+  --grape_500: #566fcf;
+  --grape_600: #576cc1;
+  --grape_700: #4c5fa9;
+  --grape_800: #37447a;
+  --kale_0: #f4f9f9;
+  --kale_400: #57b7ab;
+  --plum_500: #cc6fbe;
+  --plum_400: #e37bd3;
+  --plum_100: #f7d6f2;
+  --plum_0: #fbf2fc;
+  --persimmon_300: #ff9f89;
+  --persimmon_400: #ff7557;
+  --canteloupe_0: #fff6ef;
+  --canteloupe_100: #ffe4d0;
+  --canteloupe_400: #ffa663;
+  --canteloupe_500: #e69559;
+  --canteloupe_600: #cc854f;
+  --canteloupe_700: #b37445;
+  --red_1: #fff1f0;
+  --red_3: #ffccc7;
+  --red_7: #cf1322;
+  --red_10: #5c0011;
+  --primary_link: #566fcf;
+  --danger_color: var(--red_7);
+}
 .lsf-sidepanels {
   height: 100%;
   overflow: hidden;
@@ -87215,7 +91609,7 @@ textarea.lsf-detailed-region__meta-text:focus {
   content: "";
   display: block;
   position: absolute;
-  background: #09f;
+  background: var(--grape_500);
 }
 .lsf-sidepanels__wrapper_align_left.lsf-sidepanels__wrapper_snap::before {
   border-radius: 0 4px 4px 0;
@@ -87249,11 +91643,64 @@ textarea.lsf-detailed-region__meta-text:focus {
   flex-direction: column;
 }
 
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-SemiBold.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+body {
+  font-family: 'Figtree', sans-serif !important;
+  --sand_900: #12110d;
+  --sand_800: #262522;
+  --sand_700: #45433e;
+  --sand_600: #6b6860;
+  --sand_500: #a49f95;
+  --sand_400: #cac5b8;
+  --sand_300: #e1ded5;
+  --sand_200: #f0efeb;
+  --sand_100: #f9f8f6;
+  --sand_0: #fdfdfc;
+  --grape_0: #f0f3fe;
+  --grape_100: #d4dbfb;
+  --grape_500: #566fcf;
+  --grape_600: #576cc1;
+  --grape_700: #4c5fa9;
+  --grape_800: #37447a;
+  --kale_0: #f4f9f9;
+  --kale_400: #57b7ab;
+  --plum_500: #cc6fbe;
+  --plum_400: #e37bd3;
+  --plum_100: #f7d6f2;
+  --plum_0: #fbf2fc;
+  --persimmon_300: #ff9f89;
+  --persimmon_400: #ff7557;
+  --canteloupe_0: #fff6ef;
+  --canteloupe_100: #ffe4d0;
+  --canteloupe_400: #ffa663;
+  --canteloupe_500: #e69559;
+  --canteloupe_600: #cc854f;
+  --canteloupe_700: #b37445;
+  --red_1: #fff1f0;
+  --red_3: #ffccc7;
+  --red_7: #cf1322;
+  --red_10: #5c0011;
+  --primary_link: #566fcf;
+  --danger_color: var(--red_7);
+}
 .lsf-tabs-panel {
   --header-height: 24px;
   --header-border-radius: 0;
-  --header-background: #e1e0e2;
-  --icon-color: #898098;
+  --header-background: var(--sand_200);
+  --icon-color: var(--sand_500);
   height: 100%;
   z-index: 10;
   background-color: #fff;
@@ -87263,8 +91710,8 @@ textarea.lsf-detailed-region__meta-text:focus {
   padding: 4px;
 }
 .lsf-tabs-panel__header:hover {
-  --icon-color: #096dd9;
-  --header-background: #d8e7f9;
+  --icon-color: var(--grape_500);
+  --header-background: var(--grape_0);
 }
 .lsf-tabs-panel__header-right,
 .lsf-tabs-panel__header-left {
@@ -87305,7 +91752,7 @@ textarea.lsf-detailed-region__meta-text:focus {
   margin: 0;
 }
 .lsf-tabs-panel_hidden:hover {
-  --icon-color: #096dd9;
+  --icon-color: var(--grape_500);
   --header-background: #d8e5f5;
 }
 .lsf-tabs-panel__shield {
@@ -87503,7 +91950,7 @@ textarea.lsf-detailed-region__meta-text:focus {
   height: 6px;
   display: none;
   position: absolute;
-  background-color: #09f;
+  background-color: var(--grape_500);
   border-radius: 100%;
 }
 .lsf-tabs-panel__resizer[data-resize=grouped-top]::before,
@@ -87549,12 +91996,11 @@ textarea.lsf-detailed-region__meta-text:focus {
 }
 .lsf-tabs-panel__grouped-top:hover::before,
 .lsf-tabs-panel__grouped-top_drag::before {
-  background-color: #09f;
+  background-color: var(--grape_500);
   content: '';
   width: calc(100% + 50px);
   height: 3px;
   position: absolute;
-  background-color: #09f;
   border-radius: 3px;
   transform: translate(0, -50%);
   cursor: ns-resize;
@@ -87563,18 +92009,70 @@ textarea.lsf-detailed-region__meta-text:focus {
 .lsf-tabs-panel_dragBottom::after {
   position: absolute;
   z-index: 100;
-  background-color: #09f;
   content: '';
   width: 100%;
   height: 6px;
   position: absolute;
-  background-color: #09f;
+  background-color: var(--grape_500);
   border-radius: 6px;
 }
 .lsf-tabs-panel_dragBottom::after {
   bottom: 0;
 }
 
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-SemiBold.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+body {
+  font-family: 'Figtree', sans-serif !important;
+  --sand_900: #12110d;
+  --sand_800: #262522;
+  --sand_700: #45433e;
+  --sand_600: #6b6860;
+  --sand_500: #a49f95;
+  --sand_400: #cac5b8;
+  --sand_300: #e1ded5;
+  --sand_200: #f0efeb;
+  --sand_100: #f9f8f6;
+  --sand_0: #fdfdfc;
+  --grape_0: #f0f3fe;
+  --grape_100: #d4dbfb;
+  --grape_500: #566fcf;
+  --grape_600: #576cc1;
+  --grape_700: #4c5fa9;
+  --grape_800: #37447a;
+  --kale_0: #f4f9f9;
+  --kale_400: #57b7ab;
+  --plum_500: #cc6fbe;
+  --plum_400: #e37bd3;
+  --plum_100: #f7d6f2;
+  --plum_0: #fbf2fc;
+  --persimmon_300: #ff9f89;
+  --persimmon_400: #ff7557;
+  --canteloupe_0: #fff6ef;
+  --canteloupe_100: #ffe4d0;
+  --canteloupe_400: #ffa663;
+  --canteloupe_500: #e69559;
+  --canteloupe_600: #cc854f;
+  --canteloupe_700: #b37445;
+  --red_1: #fff1f0;
+  --red_3: #ffccc7;
+  --red_7: #cf1322;
+  --red_10: #5c0011;
+  --primary_link: #566fcf;
+  --danger_color: var(--red_7);
+}
 .lsf-tabs {
   --tab-row-height: 33px;
   --tab-height: 32px;
@@ -87721,13 +92219,66 @@ textarea.lsf-detailed-region__meta-text:focus {
   height: 30px;
 }
 
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-SemiBold.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+body {
+  font-family: 'Figtree', sans-serif !important;
+  --sand_900: #12110d;
+  --sand_800: #262522;
+  --sand_700: #45433e;
+  --sand_600: #6b6860;
+  --sand_500: #a49f95;
+  --sand_400: #cac5b8;
+  --sand_300: #e1ded5;
+  --sand_200: #f0efeb;
+  --sand_100: #f9f8f6;
+  --sand_0: #fdfdfc;
+  --grape_0: #f0f3fe;
+  --grape_100: #d4dbfb;
+  --grape_500: #566fcf;
+  --grape_600: #576cc1;
+  --grape_700: #4c5fa9;
+  --grape_800: #37447a;
+  --kale_0: #f4f9f9;
+  --kale_400: #57b7ab;
+  --plum_500: #cc6fbe;
+  --plum_400: #e37bd3;
+  --plum_100: #f7d6f2;
+  --plum_0: #fbf2fc;
+  --persimmon_300: #ff9f89;
+  --persimmon_400: #ff7557;
+  --canteloupe_0: #fff6ef;
+  --canteloupe_100: #ffe4d0;
+  --canteloupe_400: #ffa663;
+  --canteloupe_500: #e69559;
+  --canteloupe_600: #cc854f;
+  --canteloupe_700: #b37445;
+  --red_1: #fff1f0;
+  --red_3: #ffccc7;
+  --red_7: #cf1322;
+  --red_10: #5c0011;
+  --primary_link: #566fcf;
+  --danger_color: var(--red_7);
+}
 .lsf-annotation-button {
   display: flex;
   padding: 4px 8px;
   border-radius: 4px 4px 0 0;
   border-width: 1px 1px 0px 1px;
   border-style: solid;
-  background-color: rgba(137,128,152,0.08);
+  background-color: var(--sand_200);
   border-color: transparent;
   margin-top: 2px;
   align-items: center;
@@ -87750,8 +92301,8 @@ textarea.lsf-detailed-region__meta-text:focus {
   flex: 1 0 auto;
 }
 .lsf-annotation-button__mainSection .lsf-annotation-button__userpic_prediction {
-  background-color: #efdbff;
-  color: #7735d6;
+  background-color: var(--plum_100);
+  color: var(--plum_500);
 }
 .lsf-annotation-button__name {
   font-size: 12px;
@@ -87759,7 +92310,7 @@ textarea.lsf-detailed-region__meta-text:focus {
   line-height: 16px;
   letter-spacing: 0.4px;
   text-align: left;
-  color: #898098;
+  color: var(--sand_700);
 }
 .lsf-annotation-button__entity-id {
   font-size: 10px;
@@ -87767,7 +92318,7 @@ textarea.lsf-detailed-region__meta-text:focus {
   line-height: 16px;
   letter-spacing: 0.4px;
   text-align: left;
-  color: #898098;
+  color: var(--sand_700);
   margin-left: 8px;
 }
 .lsf-annotation-button__created {
@@ -87776,11 +92327,11 @@ textarea.lsf-detailed-region__meta-text:focus {
   line-height: 16px;
   letter-spacing: 0.4px;
   text-align: left;
-  color: #898098;
+  color: var(--sand_700);
 }
 .lsf-annotation-button:hover {
-  background-color: rgba(9,109,217,0.12);
-  border-color: rgba(9,109,217,0.16);
+  background-color: var(--grape_0);
+  border-color: var(--grape_100);
   border-bottom-color: transparent;
 }
 .lsf-annotation-button:hover .lsf-annotation-button__name {
@@ -87793,12 +92344,12 @@ textarea.lsf-detailed-region__meta-text:focus {
   visibility: visible;
 }
 .lsf-annotation-button_selected {
-  background-color: #fff;
-  border-color: rgba(137,128,152,0.16);
+  background-color: var(--sand_0);
+  border-color: var(--sand_300);
 }
 .lsf-annotation-button_selected:hover {
-  background-color: #fff;
-  border-color: rgba(137,128,152,0.16);
+  background-color: var(--sand_0);
+  border-color: var(--sand_300);
   border-bottom-color: transparent;
 }
 .lsf-annotation-button_selected .lsf-annotation-button__ellipsisIcon {
@@ -87820,18 +92371,18 @@ textarea.lsf-detailed-region__meta-text:focus {
   border-radius: 4px;
 }
 .lsf-annotation-button__icon_groundTruth {
-  color: #ffc53d;
+  color: var(--canteloupe_400);
 }
 .lsf-annotation-button__ellipsisIcon {
   transform: rotate(90deg);
   display: flex;
   border-radius: 4px;
-  color: #898098;
+  color: var(--sand_700);
   visibility: hidden;
 }
 .lsf-annotation-button__ellipsisIcon:hover {
-  color: #096dd9;
-  background: rgba(9,109,217,0.12);
+  color: var(--grape_500);
+  background: var(--grape_0);
 }
 .lsf-annotation-button__picSection {
   position: relative;
@@ -87842,7 +92393,7 @@ textarea.lsf-detailed-region__meta-text:focus {
   left: calc(50% + 5px);
   border-radius: 4px;
   color: #fafafa;
-  border: 2px solid #fafafa;
+  border: 2px solid var(--sand_300);
   display: flex;
   width: 10px;
   height: 10px;
@@ -87851,20 +92402,20 @@ textarea.lsf-detailed-region__meta-text:focus {
   justify-content: center;
 }
 .lsf-annotation-button__status_approved {
-  background-color: #389e0d;
+  background-color: var(--success_color);
 }
 .lsf-annotation-button__status_skipped {
-  background-color: #cf1322;
+  background-color: var(--danger_color);
 }
 .lsf-annotation-button__status_updated {
-  background-color: #1d39c4;
+  background-color: var(--grape_500);
 }
 .lsf-annotation-button__status_updated svg {
   display: block;
 }
 .lsf-annotation-button_contextMenuOpen .lsf-annotation-button__ellipsisIcon {
-  color: #096dd9;
-  background: rgba(9,109,217,0.122);
+  color: var(--grape_500);
+  background: var(--grape_0);
 }
 .lsf-AnnotationButtonContextMenu {
   border-radius: 4px;
@@ -87872,7 +92423,7 @@ textarea.lsf-detailed-region__meta-text:focus {
 }
 .lsf-AnnotationButtonContextMenu__seperator {
   height: 1px;
-  background-color: rgba(137,128,152,0.12);
+  background-color: var(--sand_100);
 }
 .lsf-AnnotationButtonContextMenu__option {
   display: flex;
@@ -87881,15 +92432,15 @@ textarea.lsf-detailed-region__meta-text:focus {
   white-space: nowrap;
   gap: 2px;
   cursor: pointer;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 400;
-  line-height: 24px;
-  letter-spacing: 0.5px;
+  line-height: 22px;
   border-radius: 4px;
   padding-right: 32px;
 }
 .lsf-AnnotationButtonContextMenu__option:hover {
-  background-color: rgba(65,60,74,0.08);
+  background-color: var(--grape_0);
+  color: var(--grape_500);
 }
 .lsf-AnnotationButtonContextMenu__option_duplicate {
   padding-top: 6px;
@@ -87903,7 +92454,11 @@ textarea.lsf-detailed-region__meta-text:focus {
 .lsf-AnnotationButtonContextMenu__option_delete {
   padding-top: 6px;
   padding-bottom: 6px;
-  color: #cf1322;
+  color: var(--danger_color);
+}
+.lsf-AnnotationButtonContextMenu__option_delete:hover {
+  background-color: var(--red_1);
+  color: var(--danger_color);
 }
 .lsf-AnnotationButtonContextMenu__option_delete .lsf-AnnotationButtonContextMenu__icon {
   display: flex;
@@ -87911,6 +92466,59 @@ textarea.lsf-detailed-region__meta-text:focus {
   align-items: center;
 }
 
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-SemiBold.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+body {
+  font-family: 'Figtree', sans-serif !important;
+  --sand_900: #12110d;
+  --sand_800: #262522;
+  --sand_700: #45433e;
+  --sand_600: #6b6860;
+  --sand_500: #a49f95;
+  --sand_400: #cac5b8;
+  --sand_300: #e1ded5;
+  --sand_200: #f0efeb;
+  --sand_100: #f9f8f6;
+  --sand_0: #fdfdfc;
+  --grape_0: #f0f3fe;
+  --grape_100: #d4dbfb;
+  --grape_500: #566fcf;
+  --grape_600: #576cc1;
+  --grape_700: #4c5fa9;
+  --grape_800: #37447a;
+  --kale_0: #f4f9f9;
+  --kale_400: #57b7ab;
+  --plum_500: #cc6fbe;
+  --plum_400: #e37bd3;
+  --plum_100: #f7d6f2;
+  --plum_0: #fbf2fc;
+  --persimmon_300: #ff9f89;
+  --persimmon_400: #ff7557;
+  --canteloupe_0: #fff6ef;
+  --canteloupe_100: #ffe4d0;
+  --canteloupe_400: #ffa663;
+  --canteloupe_500: #e69559;
+  --canteloupe_600: #cc854f;
+  --canteloupe_700: #b37445;
+  --red_1: #fff1f0;
+  --red_3: #ffccc7;
+  --red_7: #cf1322;
+  --red_10: #5c0011;
+  --primary_link: #566fcf;
+  --danger_color: var(--red_7);
+}
 .lsf-annotations-carousel {
   --carousel-left: 0px;
   position: relative;
@@ -87976,6 +92584,59 @@ textarea.lsf-detailed-region__meta-text:focus {
   transform: rotate(90deg);
 }
 
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-SemiBold.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+body {
+  font-family: 'Figtree', sans-serif !important;
+  --sand_900: #12110d;
+  --sand_800: #262522;
+  --sand_700: #45433e;
+  --sand_600: #6b6860;
+  --sand_500: #a49f95;
+  --sand_400: #cac5b8;
+  --sand_300: #e1ded5;
+  --sand_200: #f0efeb;
+  --sand_100: #f9f8f6;
+  --sand_0: #fdfdfc;
+  --grape_0: #f0f3fe;
+  --grape_100: #d4dbfb;
+  --grape_500: #566fcf;
+  --grape_600: #576cc1;
+  --grape_700: #4c5fa9;
+  --grape_800: #37447a;
+  --kale_0: #f4f9f9;
+  --kale_400: #57b7ab;
+  --plum_500: #cc6fbe;
+  --plum_400: #e37bd3;
+  --plum_100: #f7d6f2;
+  --plum_0: #fbf2fc;
+  --persimmon_300: #ff9f89;
+  --persimmon_400: #ff7557;
+  --canteloupe_0: #fff6ef;
+  --canteloupe_100: #ffe4d0;
+  --canteloupe_400: #ffa663;
+  --canteloupe_500: #e69559;
+  --canteloupe_600: #cc854f;
+  --canteloupe_700: #b37445;
+  --red_1: #fff1f0;
+  --red_3: #ffccc7;
+  --red_7: #cf1322;
+  --red_10: #5c0011;
+  --primary_link: #566fcf;
+  --danger_color: var(--red_7);
+}
 .lsf-history-buttons {
   display: flex;
 }
@@ -87996,6 +92657,59 @@ textarea.lsf-detailed-region__meta-text:focus {
   color: #d00;
 }
 
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-SemiBold.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+body {
+  font-family: 'Figtree', sans-serif !important;
+  --sand_900: #12110d;
+  --sand_800: #262522;
+  --sand_700: #45433e;
+  --sand_600: #6b6860;
+  --sand_500: #a49f95;
+  --sand_400: #cac5b8;
+  --sand_300: #e1ded5;
+  --sand_200: #f0efeb;
+  --sand_100: #f9f8f6;
+  --sand_0: #fdfdfc;
+  --grape_0: #f0f3fe;
+  --grape_100: #d4dbfb;
+  --grape_500: #566fcf;
+  --grape_600: #576cc1;
+  --grape_700: #4c5fa9;
+  --grape_800: #37447a;
+  --kale_0: #f4f9f9;
+  --kale_400: #57b7ab;
+  --plum_500: #cc6fbe;
+  --plum_400: #e37bd3;
+  --plum_100: #f7d6f2;
+  --plum_0: #fbf2fc;
+  --persimmon_300: #ff9f89;
+  --persimmon_400: #ff7557;
+  --canteloupe_0: #fff6ef;
+  --canteloupe_100: #ffe4d0;
+  --canteloupe_400: #ffa663;
+  --canteloupe_500: #e69559;
+  --canteloupe_600: #cc854f;
+  --canteloupe_700: #b37445;
+  --red_1: #fff1f0;
+  --red_3: #ffccc7;
+  --red_7: #cf1322;
+  --red_10: #5c0011;
+  --primary_link: #566fcf;
+  --danger_color: var(--red_7);
+}
 .lsf-annotations-list {
   min-width: 264px;
   box-sizing: border-box;
@@ -88025,11 +92739,11 @@ textarea.lsf-detailed-region__meta-text:focus {
 }
 .lsf-annotations-list__create:hover,
 .lsf-annotations-list__entity:hover {
-  background-color: #f3f9ff;
+  background-color: var(--grape_0);
 }
 .lsf-annotations-list__entity_selected {
   pointer-events: none;
-  background-color: #e3f1ff;
+  background-color: var(--grape_0);
 }
 .lsf-annotations-list__user {
   font-size: 14px;
@@ -88113,6 +92827,59 @@ textarea.lsf-detailed-region__meta-text:focus {
   transform: translate3d(-50%, -50%, 0) rotate(45deg);
 }
 
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-SemiBold.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+body {
+  font-family: 'Figtree', sans-serif !important;
+  --sand_900: #12110d;
+  --sand_800: #262522;
+  --sand_700: #45433e;
+  --sand_600: #6b6860;
+  --sand_500: #a49f95;
+  --sand_400: #cac5b8;
+  --sand_300: #e1ded5;
+  --sand_200: #f0efeb;
+  --sand_100: #f9f8f6;
+  --sand_0: #fdfdfc;
+  --grape_0: #f0f3fe;
+  --grape_100: #d4dbfb;
+  --grape_500: #566fcf;
+  --grape_600: #576cc1;
+  --grape_700: #4c5fa9;
+  --grape_800: #37447a;
+  --kale_0: #f4f9f9;
+  --kale_400: #57b7ab;
+  --plum_500: #cc6fbe;
+  --plum_400: #e37bd3;
+  --plum_100: #f7d6f2;
+  --plum_0: #fbf2fc;
+  --persimmon_300: #ff9f89;
+  --persimmon_400: #ff7557;
+  --canteloupe_0: #fff6ef;
+  --canteloupe_100: #ffe4d0;
+  --canteloupe_400: #ffa663;
+  --canteloupe_500: #e69559;
+  --canteloupe_600: #cc854f;
+  --canteloupe_700: #b37445;
+  --red_1: #fff1f0;
+  --red_3: #ffccc7;
+  --red_7: #cf1322;
+  --red_10: #5c0011;
+  --primary_link: #566fcf;
+  --danger_color: var(--red_7);
+}
 .lsf-topbar .lsf-controls {
   flex: 1;
   height: 100%;
@@ -88163,6 +92930,59 @@ textarea.lsf-detailed-region__meta-text:focus {
   justify-content: flex-end;
 }
 
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-SemiBold.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+body {
+  font-family: 'Figtree', sans-serif !important;
+  --sand_900: #12110d;
+  --sand_800: #262522;
+  --sand_700: #45433e;
+  --sand_600: #6b6860;
+  --sand_500: #a49f95;
+  --sand_400: #cac5b8;
+  --sand_300: #e1ded5;
+  --sand_200: #f0efeb;
+  --sand_100: #f9f8f6;
+  --sand_0: #fdfdfc;
+  --grape_0: #f0f3fe;
+  --grape_100: #d4dbfb;
+  --grape_500: #566fcf;
+  --grape_600: #576cc1;
+  --grape_700: #4c5fa9;
+  --grape_800: #37447a;
+  --kale_0: #f4f9f9;
+  --kale_400: #57b7ab;
+  --plum_500: #cc6fbe;
+  --plum_400: #e37bd3;
+  --plum_100: #f7d6f2;
+  --plum_0: #fbf2fc;
+  --persimmon_300: #ff9f89;
+  --persimmon_400: #ff7557;
+  --canteloupe_0: #fff6ef;
+  --canteloupe_100: #ffe4d0;
+  --canteloupe_400: #ffa663;
+  --canteloupe_500: #e69559;
+  --canteloupe_600: #cc854f;
+  --canteloupe_700: #b37445;
+  --red_1: #fff1f0;
+  --red_3: #ffccc7;
+  --red_7: #cf1322;
+  --red_10: #5c0011;
+  --primary_link: #566fcf;
+  --danger_color: var(--red_7);
+}
 .lsf-current-task {
   padding: 0 8px 0 16px;
   display: flex;
@@ -88232,7 +93052,7 @@ textarea.lsf-detailed-region__meta-text:focus {
   transform: rotate(-90deg);
 }
 .lsf-current-task__prevnext_next.lsf-current-task__prevnext_postpone::before {
-  border-color: #09f;
+  border-color: var(--grape_500);
 }
 .lsf-current-task__prevnext_prev {
   grid-area: p;
@@ -88250,6 +93070,59 @@ textarea.lsf-detailed-region__meta-text:focus {
   border-right: none;
 }
 
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-SemiBold.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+body {
+  font-family: 'Figtree', sans-serif !important;
+  --sand_900: #12110d;
+  --sand_800: #262522;
+  --sand_700: #45433e;
+  --sand_600: #6b6860;
+  --sand_500: #a49f95;
+  --sand_400: #cac5b8;
+  --sand_300: #e1ded5;
+  --sand_200: #f0efeb;
+  --sand_100: #f9f8f6;
+  --sand_0: #fdfdfc;
+  --grape_0: #f0f3fe;
+  --grape_100: #d4dbfb;
+  --grape_500: #566fcf;
+  --grape_600: #576cc1;
+  --grape_700: #4c5fa9;
+  --grape_800: #37447a;
+  --kale_0: #f4f9f9;
+  --kale_400: #57b7ab;
+  --plum_500: #cc6fbe;
+  --plum_400: #e37bd3;
+  --plum_100: #f7d6f2;
+  --plum_0: #fbf2fc;
+  --persimmon_300: #ff9f89;
+  --persimmon_400: #ff7557;
+  --canteloupe_0: #fff6ef;
+  --canteloupe_100: #ffe4d0;
+  --canteloupe_400: #ffa663;
+  --canteloupe_500: #e69559;
+  --canteloupe_600: #cc854f;
+  --canteloupe_700: #b37445;
+  --red_1: #fff1f0;
+  --red_3: #ffccc7;
+  --red_7: #cf1322;
+  --red_10: #5c0011;
+  --primary_link: #566fcf;
+  --danger_color: var(--red_7);
+}
 .lsf-topbar {
   height: var(--topbar-height);
   width: 100%;
@@ -88267,7 +93140,7 @@ textarea.lsf-detailed-region__meta-text:focus {
   top: 0;
 }
 .lsf-topbar__button:hover {
-  background-color: rgba(9,109,217,0.12);
+  background-color: var(--grape_0);
 }
 .lsf-topbar__group {
   display: flex;
@@ -88297,8 +93170,61 @@ textarea.lsf-detailed-region__meta-text:focus {
   align-items: center;
 }
 
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Figtree";
+  src: url("/static/fonts/Figtree-SemiBold.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+body {
+  font-family: 'Figtree', sans-serif !important;
+  --sand_900: #12110d;
+  --sand_800: #262522;
+  --sand_700: #45433e;
+  --sand_600: #6b6860;
+  --sand_500: #a49f95;
+  --sand_400: #cac5b8;
+  --sand_300: #e1ded5;
+  --sand_200: #f0efeb;
+  --sand_100: #f9f8f6;
+  --sand_0: #fdfdfc;
+  --grape_0: #f0f3fe;
+  --grape_100: #d4dbfb;
+  --grape_500: #566fcf;
+  --grape_600: #576cc1;
+  --grape_700: #4c5fa9;
+  --grape_800: #37447a;
+  --kale_0: #f4f9f9;
+  --kale_400: #57b7ab;
+  --plum_500: #cc6fbe;
+  --plum_400: #e37bd3;
+  --plum_100: #f7d6f2;
+  --plum_0: #fbf2fc;
+  --persimmon_300: #ff9f89;
+  --persimmon_400: #ff7557;
+  --canteloupe_0: #fff6ef;
+  --canteloupe_100: #ffe4d0;
+  --canteloupe_400: #ffa663;
+  --canteloupe_500: #e69559;
+  --canteloupe_600: #cc854f;
+  --canteloupe_700: #b37445;
+  --red_1: #fff1f0;
+  --red_3: #ffccc7;
+  --red_7: #cf1322;
+  --red_10: #5c0011;
+  --primary_link: #566fcf;
+  --danger_color: var(--red_7);
+}
 .lsf-editor {
-  --main-bg-color: #fafafa;
+  --main-bg-color: var(--sand_100);
   --sticky-items-offset: 48px;
   --topbar-height: 48px;
   --bottombar-height: 0;
@@ -88322,10 +93248,6 @@ textarea.lsf-detailed-region__meta-text:focus {
   left: 0;
   width: 100%;
   padding: 2em;
-}
-.lsf-editor,
-.lsf-editor * {
-  font-family: Roboto, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 @include respond("phone") {
   .lsf-editor {
@@ -88415,7 +93337,6 @@ textarea.lsf-detailed-region__meta-text:focus {
   align-self: stretch;
   background-color: #fff;
   border-left: 1px solid rgba(0,0,0,0.1);
-  padding-bottom: calc(var(--bottombar-height) + 8px);
 }
 @include respond("phone") {
   margin-left: 0;
