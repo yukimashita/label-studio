@@ -26,13 +26,11 @@
   GM_addStyle(GM_getResourceText('toastr.min.css'));
   GM_addStyle(`.${toastrPositionClass} { top: 50%; left: 50%; margin:0 0 0 -150px; }`);
   toastr.options = {
-    positionClass: toastrPositionClass,
-    preventDuplicates: true,
-    preventOpenDuplicates: true
+    positionClass: toastrPositionClass
   };
 
-  GM_addStyle('.lsf-tree-treenode-selected { font-weight: bolder; border-left: 10px solid red; }');
-  GM_addStyle('.dm-table__row-wrapper_selected { font-weight: bolder; border-left: 10px solid red; }');
+  GM_addStyle('.lsf-tree-treenode-selected { font-weight: bolder; border-left: solid 10px red; }');
+  GM_addStyle('.dm-table__row-wrapper_selected { font-weight: bolder; border-left: solid 10px red; }');
 
   const isTaskPage = () => {
     const params = new URLSearchParams(location.search);
@@ -365,19 +363,19 @@
         e.preventDefault();
       }
       break;
-    case 't':
+    case '/':
       if (!e.ctrlKey && !e.altKey && !e.shiftKey) {
         // 選択中のリージョン以降の同一トラッキングを選択
-        console.log('>>> handle "t" key');
+        console.log('>>> handle "/" key');
         console.log(getSelectedRegion());
         selectSameTrackingRegions({ ignoreBeforeRegion: true });
         e.preventDefault();
       }
       break;
-    case 'T':
+    case '?':
       if (!e.ctrlKey && !e.altKey && e.shiftKey) {
         // 選択中のリージョンと同一トラッキングを選択
-        console.log('>>> handle "T" key');
+        console.log('>>> handle "?" key');
         console.log(getSelectedRegion());
         selectSameTrackingRegions({ ignoreBeforeRegion: false });
         e.preventDefault();
@@ -398,29 +396,10 @@
     }
   });
 
-  const onURLChanged = () => {
-    if (!isTaskPage())
-      return;
-    const f = () => {
+  setInterval(() => {
+    if (!isTaskPage()) {
       setMinimapEntries(7);
       setTimelineEntries(7);
-    };
-    setTimeout(f, 1000);
-    setTimeout(f, 3000);
-    setTimeout(f, 5000);
-    setTimeout(f, 7000);
-    setTimeout(f, 9000);
-    setTimeout(f, 11000);
-    setTimeout(f, 13000);
-    setTimeout(f, 15000);
-    setTimeout(f, 17000);
-    setTimeout(f, 19000);
-    setTimeout(f, 21000);
-    setTimeout(f, 23000);
-    setTimeout(f, 25000);
-    setTimeout(f, 27000);
-    setTimeout(f, 29000);
-  };
-  window.onurlchange = onURLChanged;
-  setTimeout(onURLChanged, 100);
+    }
+  }, 1000);
 })();
