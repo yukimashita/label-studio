@@ -397,7 +397,7 @@
   });
 
   setInterval(() => {
-    if (!isTaskPage()) {
+    if (isTaskPage()) {
       setMinimapEntries(7);
       setTimelineEntries(7);
     }
