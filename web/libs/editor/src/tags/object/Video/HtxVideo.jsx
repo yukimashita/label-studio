@@ -438,7 +438,8 @@ const HtxVideoView = ({ item, store }) => {
   if (window.LabelStudioHook === undefined)
     window.LabelStudioHook = {};
   window.LabelStudioHook.HtxVideo = {
-    handleTimelinePositionChange
+    handleTimelinePositionChange,
+    position
   };
 
   useEffect(

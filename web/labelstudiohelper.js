@@ -33,6 +33,8 @@
   GM_addStyle('.dm-table__row-wrapper_selected { font-weight: bolder; border-left: solid 10px red; }');
 
   const isTaskPage = () => {
+    if (!unsafeWindow.Htx)
+      return false;
     const params = new URLSearchParams(location.search);
     return params.get('task');
   };
@@ -397,9 +399,18 @@
   });
 
   setInterval(() => {
-    if (isTaskPage()) {
-      setMinimapEntries(7);
-      setTimelineEntries(7);
-    }
+    if (!isTaskPage())
+      return;
+
+    setMinimapEntries(7);
+    setTimelineEntries(7);
+
+    const params = new URL(location).searchParams;
+    const regionID = params.get('region');
+    if (regionID === null)
+      return;
+    const region = getRegions()
+          .find(r => r.id.split('#')[0] === regionID);
+    selectRegion(region);
   }, 1000);
 })();
