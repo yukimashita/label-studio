@@ -13,7 +13,7 @@ import { Block, cn, Elem } from "../../../utils/bem";
 import { Palette } from "../../../utils/colors";
 import { FF_UNSAVED_CHANGES, isFF } from "../../../utils/feature-flags";
 import { colorNames } from "./colors";
-import "./Config.styl";
+import "./Config.scss";
 import { Preview } from "./Preview";
 import { DEFAULT_COLUMN, EMPTY_CONFIG, isEmptyConfig, Template } from "./Template";
 import { TemplatesList } from "./TemplatesList";
@@ -22,6 +22,7 @@ import "./codemirror.css";
 import "./config-hint";
 import tags from "./schema.json";
 import { UnsavedChanges } from "./UnsavedChanges";
+import { Checkbox } from "@humansignal/ui";
 
 const wizardClass = cn("wizard");
 const configClass = cn("configure");
@@ -183,9 +184,9 @@ const ConfigureSettings = ({ template }) => {
         };
         return (
           <li key={key}>
-            <label>
-              <input type="checkbox" checked={value} onChange={onChange} /> {options.title}
-            </label>
+            <Checkbox checked={value} onChange={onChange}>
+              {options.title}
+            </Checkbox>
           </li>
         );
       case String:

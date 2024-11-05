@@ -32,7 +32,7 @@ import {
 import ControlBase from "../Base";
 import ClassificationBase from "../ClassificationBase";
 
-import styles from "./Taxonomy.styl";
+import styles from "./Taxonomy.scss";
 import messages from "../../../utils/messages";
 import { errorBuilder } from "../../../core/DataValidator/ConfigValidator";
 
@@ -630,7 +630,7 @@ const HtxTaxonomy = observer(({ item }) => {
   }
 
   return (
-    <div className={className} style={visibleStyle}>
+    <div className={className} style={visibleStyle} ref={item.elementRef}>
       {isFF(FF_TAXONOMY_ASYNC) && !item.legacy ? (
         <NewTaxonomy
           items={item.items}

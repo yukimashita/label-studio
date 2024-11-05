@@ -78,7 +78,7 @@ const TagAttrs = types.model("RichTextModel", {
 const Model = types
   .model("RichTextModel", {
     type: "richtext",
-    _value: types.optional(types.string, ""),
+    _value: types.optional(types.maybeNull(types.string), null),
   })
   .views((self) => ({
     get hasStates() {
@@ -117,7 +117,7 @@ const Model = types
         padding: 2px 2px;
         font-size: 9.5px;
         font-weight: bold;
-        font-family: Monaco;
+        font-family: var(--font-mono);
         vertical-align: super;
         content: attr(data-label);
         line-height: 0;
@@ -127,7 +127,7 @@ const Model = types
       }
       .htx-highlight.${STATE_CLASS_MODS.highlighted} {
         position: relative;
-        cursor: ${Constants.RELATION_MODE_CURSOR};
+        cursor: ${Constants.LINKING_MODE_CURSOR};
         border-color: rgb(0, 174, 255);
       }
       .htx-highlight.${STATE_CLASS_MODS.hidden} {
@@ -355,7 +355,7 @@ const Model = types
        * @param {number} startOffset - The offset within the starting node.
        * @param {Node} end - The ending node of the range.
        * @param {number} endOffset - The offset within the ending node.
-       * @return {undefined|[number,number]} - An array containing the calculated global offsets in codepoints in the form [startGlobalOffset, endGlobalOffset].
+       * @return {number[]|undefined} - An array containing the calculated global offsets in codepoints in the form of [startGlobalOffset, endGlobalOffset].
        */
       relativeOffsetsToGlobalOffsets(start, startOffset, end, endOffset) {
         return domManager.relativeOffsetsToGlobalOffsets(start, startOffset, end, endOffset);
@@ -365,7 +365,7 @@ const Model = types
        * Converts the given range to its global offset.
        *
        * @param {Range} range - The range to convert.
-       * @returns {[number, number]|undefined} - The global offsets of the range.
+       * @returns {number[]|undefined} - The global offsets of the range in the form of [startGlobalOffset, endGlobalOffset].
        */
       rangeToGlobalOffset(range) {
         return domManager.rangeToGlobalOffset(range);
@@ -413,7 +413,7 @@ const Model = types
         self.regs.forEach((r) => r.setHighlight(false));
         if (!region) return;
 
-        if (region.annotation.relationMode) {
+        if (region.annotation.isLinkingMode) {
           region.setHighlight(true);
         }
       },

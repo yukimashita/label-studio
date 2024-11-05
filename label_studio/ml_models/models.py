@@ -5,12 +5,18 @@ import logging
 from django.conf import settings
 from django.db import models
 from django.utils.translation import gettext_lazy as _
-from ml_model_providers.models import ModelProviders
+from ml_model_providers.models import ModelProviderConnection, ModelProviders
 from projects.models import Project
 from rest_framework.exceptions import ValidationError
-from tasks.models import Annotation, Prediction
+from tasks.models import Annotation, FailedPrediction, Prediction, PredictionMeta
 
 logger = logging.getLogger(__name__)
+
+
+# skills are partitions of projects (label config + input columns + output columns) into categories of labeling tasks
+class SkillNames(models.TextChoices):
+    TEXT_CLASSIFICATION = 'TextClassification', _('TextClassification')
+    NAMED_ENTITY_RECOGNITION = 'NamedEntityRecognition', _('NamedEntityRecognition')
 
 
 def validate_string_list(value):
@@ -39,6 +45,8 @@ class ModelInterface(models.Model):
         'organizations.Organization', on_delete=models.CASCADE, related_name='model_interfaces', null=True
     )
 
+    skill_name = models.CharField(max_length=255, choices=SkillNames.choices, null=True)
+
     input_fields = models.JSONField(default=list, validators=[validate_string_list])
 
     output_classes = models.JSONField(default=list, validators=[validate_string_list])
@@ -58,6 +66,10 @@ class ModelVersion(models.Model):
     parent_model = models.ForeignKey(ModelInterface, related_name='model_versions', on_delete=models.CASCADE)
 
     prompt = models.TextField(_('prompt'), null=False, blank=False, help_text='Prompt to execute')
+
+    model_provider_connection = models.ForeignKey(
+        ModelProviderConnection, related_name='model_versions', on_delete=models.SET_NULL, null=True
+    )
 
     @property
     def full_title(self):
@@ -165,6 +177,9 @@ class ModelRun(models.Model):
 
     completed_at = models.DateTimeField(_('completed at'), null=True, default=None)
 
+    def has_permission(self, user):
+        return user.active_organization == self.organization
+
     def delete_predictions(self):
         """
         Deletes any predictions that have originated from a ModelRun
@@ -185,7 +200,18 @@ class ModelRun(models.Model):
             prediction_stats_to_be_deleted.delete()
         except Exception as e:
             logger.info(f'PredictionStats model does not exist , exception:{e}')
+
+        # Delete failed predictions. Currently no other model references this, no fk relationships to remove
+        failed_predictions = FailedPrediction.objects.filter(model_run=self.id)
+        failed_predictions_ids = [p.id for p in failed_predictions]
+
+        # delete predictions meta
+        PredictionMeta.objects.filter(prediction__in=prediction_ids).delete()
+        PredictionMeta.objects.filter(failed_prediction__in=failed_predictions_ids).delete()
+
+        # remove predictions from db
         predictions._raw_delete(predictions.db)
+        failed_predictions._raw_delete(failed_predictions.db)
 
     def delete(self, *args, **kwargs):
         """
