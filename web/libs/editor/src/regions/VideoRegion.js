@@ -16,6 +16,7 @@ const Model = types
     id: types.optional(types.identifier, guidGenerator),
     pid: types.optional(types.string, guidGenerator),
     object: types.late(() => types.reference(VideoModel)),
+    annotated_by: types.maybeNull(types.integer),
 
     sequence: types.frozen([]),
   })
@@ -63,6 +64,7 @@ const Model = types
       const value = {
         framesCount,
         duration,
+        annotated_by: self.annotated_by,
         sequence: self.sequence.map((keyframe) => {
           return { ...keyframe, time: keyframe.frame / framerate };
         }),
@@ -142,6 +144,10 @@ const Model = types
 
       return result;
     },
+
+    updateSpans() {
+      self.annotated_by = getRoot(self).user?.id;
+    }
   }));
 
 const VideoRegion = types.compose("VideoRegionModel", RegionsMixin, AreaMixin, NormalizationMixin, Model);
