@@ -198,18 +198,6 @@ urllib3 = ">=1.25.4,<1.27"
 crt = ["awscrt (==0.16.26)"]
 
 [[package]]
-name = "boxing"
-version = "0.1.4"
-description = "Draw boxes like never before!"
-optional = false
-python-versions = "*"
-files = [
-    {file = "boxing-0.1.4-py2-none-any.whl", hash = "sha256:707221c4d946b330d4ca885bdbf48ed46644fae0abf34246a0dcdd24e4faa628"},
-    {file = "boxing-0.1.4-py3-none-any.whl", hash = "sha256:76fa658edab8344c0917db4b3d543c89340deca602c6736837c206f127ded296"},
-    {file = "boxing-0.1.4.tar.gz", hash = "sha256:b9141bd02d0fb5ebda881e727e16ce7c89034773282b29b8ce938a8117e79d1b"},
-]
-
-[[package]]
 name = "cachetools"
 version = "5.3.2"
 description = "Extensible memoizing collections and decorators"
@@ -1403,13 +1391,13 @@ socks = ["socksio (==1.*)"]
 
 [[package]]
 name = "humansignal-drf-yasg"
-version = "1.21.9"
+version = "1.21.10.post1"
 description = "Automated generation of real Swagger/OpenAPI 2.0 schemas from Django Rest Framework code."
 optional = false
 python-versions = ">=3.6"
 files = [
-    {file = "humansignal-drf-yasg-1.21.9.tar.gz", hash = "sha256:bc330542f5a5bf926f993fde3fa111ff45d8d6965fffb6c1d4c39f30edf844a4"},
-    {file = "humansignal_drf_yasg-1.21.9-py3-none-any.whl", hash = "sha256:ee3c5b44daec634cc3a666952cf12ab1d5503b5e22786769de121e09505fc549"},
+    {file = "humansignal-drf-yasg-1.21.10.post1.tar.gz", hash = "sha256:ed3cd9c6b305578e8f92afb05e229b1de39aa2da5b3737faf61ec066a1e7cbb4"},
+    {file = "humansignal_drf_yasg-1.21.10.post1-py3-none-any.whl", hash = "sha256:aa6fdd504b727bcc6ef8c05540505b8c53922156058cf64da269cd90bdeed2d8"},
 ]
 
 [package.dependencies]
@@ -1740,12 +1728,13 @@ testing = ["pytest (>=6)", "pytest-black (>=0.3.7)", "pytest-checkdocs (>=2.4)",
 
 [[package]]
 name = "label-studio-sdk"
-version = "1.0.6"
+version = "1.0.7"
 description = ""
 optional = false
 python-versions = "<4.0,>=3.8"
 files = [
-    {file = "6114a728b6bda1ac63a3e6a00601d7ea293852e0.zip", hash = "sha256:cd842c479084258d37258069ecc1d25ec63b6716cb78d9aea7c341d611560317"},
+    {file = "label_studio_sdk-1.0.7-py3-none-any.whl", hash = "sha256:b2220a8012d9a5affd6224ca9c56a60a83e7fc037c3a3e9ffa78ade227d13957"},
+    {file = "label_studio_sdk-1.0.7.tar.gz", hash = "sha256:392a5274e12e33263afefb92327824e3a79e1f1f570cab83a5fbfa5454cd8b4a"},
 ]
 
 [package.dependencies]
@@ -1764,10 +1753,6 @@ requests-mock = "1.12.1"
 typing_extensions = ">=4.0.0"
 ujson = ">=5.8.0"
 xmljson = "0.2.1"
-
-[package.source]
-type = "url"
-url = "https://github.com/HumanSignal/label-studio-sdk/archive/6114a728b6bda1ac63a3e6a00601d7ea293852e0.zip"
 
 [[package]]
 name = "launchdarkly-server-sdk"
@@ -2766,6 +2751,20 @@ files = [
 
 [package.dependencies]
 pyasn1 = ">=0.4.6,<0.6.0"
+
+[[package]]
+name = "pyboxen"
+version = "1.3.0"
+description = "Beautiful, customizable boxes in your terminal using Python"
+optional = false
+python-versions = ">=3.8.0,<4.0.0"
+files = [
+    {file = "pyboxen-1.3.0-py3-none-any.whl", hash = "sha256:ac799533bbdb0a4f4a7c3b8723607dbe3aed3d293d3863e178064027f8177c9c"},
+    {file = "pyboxen-1.3.0.tar.gz", hash = "sha256:f12e6c656769f9d6aa1dd5d11688a62ed12da9dcebfa22a242103c610130b948"},
+]
+
+[package.dependencies]
+rich = ">=12.5.1"
 
 [[package]]
 name = "pycparser"
@@ -3795,19 +3794,23 @@ tornado = ["tornado (>=6)"]
 
 [[package]]
 name = "setuptools"
-version = "72.1.0"
+version = "75.4.0"
 description = "Easily download, build, install, upgrade, and uninstall Python packages"
 optional = false
-python-versions = ">=3.8"
+python-versions = ">=3.9"
 files = [
-    {file = "setuptools-72.1.0-py3-none-any.whl", hash = "sha256:5a03e1860cf56bb6ef48ce186b0e557fdba433237481a9a625176c2831be15d1"},
-    {file = "setuptools-72.1.0.tar.gz", hash = "sha256:8d243eff56d095e5817f796ede6ae32941278f542e0f941867cc05ae52b162ec"},
+    {file = "setuptools-75.4.0-py3-none-any.whl", hash = "sha256:b3c5d862f98500b06ffdf7cc4499b48c46c317d8d56cb30b5c8bce4d88f5c216"},
+    {file = "setuptools-75.4.0.tar.gz", hash = "sha256:1dc484f5cf56fd3fe7216d7b8df820802e7246cfb534a1db2aa64f14fcb9cdcb"},
 ]
 
 [package.extras]
-core = ["importlib-metadata (>=6)", "importlib-resources (>=5.10.2)", "jaraco.text (>=3.7)", "more-itertools (>=8.8)", "ordered-set (>=3.1.1)", "packaging (>=24)", "platformdirs (>=2.6.2)", "tomli (>=2.0.1)", "wheel (>=0.43.0)"]
-doc = ["furo", "jaraco.packaging (>=9.3)", "jaraco.tidelift (>=1.4)", "pygments-github-lexers (==0.0.5)", "pyproject-hooks (!=1.1)", "rst.linker (>=1.9)", "sphinx (>=3.5)", "sphinx-favicon", "sphinx-inline-tabs", "sphinx-lint", "sphinx-notfound-page (>=1,<2)", "sphinx-reredirects", "sphinxcontrib-towncrier"]
-test = ["build[virtualenv] (>=1.0.3)", "filelock (>=3.4.0)", "importlib-metadata", "ini2toml[lite] (>=0.14)", "jaraco.develop (>=7.21)", "jaraco.envs (>=2.2)", "jaraco.path (>=3.2.0)", "jaraco.test", "mypy (==1.11.*)", "packaging (>=23.2)", "pip (>=19.1)", "pyproject-hooks (!=1.1)", "pytest (>=6,!=8.1.*)", "pytest-checkdocs (>=2.4)", "pytest-cov", "pytest-enabler (>=2.2)", "pytest-home (>=0.5)", "pytest-mypy", "pytest-perf", "pytest-ruff (<0.4)", "pytest-ruff (>=0.2.1)", "pytest-ruff (>=0.3.2)", "pytest-subprocess", "pytest-timeout", "pytest-xdist (>=3)", "tomli", "tomli-w (>=1.0.0)", "virtualenv (>=13.0.0)", "wheel"]
+check = ["pytest-checkdocs (>=2.4)", "pytest-ruff (>=0.2.1)", "ruff (>=0.7.0)"]
+core = ["importlib-metadata (>=6)", "jaraco.collections", "jaraco.functools (>=4)", "jaraco.text (>=3.7)", "more-itertools", "more-itertools (>=8.8)", "packaging", "packaging (>=24.2)", "platformdirs (>=4.2.2)", "tomli (>=2.0.1)", "wheel (>=0.43.0)"]
+cover = ["pytest-cov"]
+doc = ["furo", "jaraco.packaging (>=9.3)", "jaraco.tidelift (>=1.4)", "pygments-github-lexers (==0.0.5)", "pyproject-hooks (!=1.1)", "rst.linker (>=1.9)", "sphinx (>=3.5)", "sphinx-favicon", "sphinx-inline-tabs", "sphinx-lint", "sphinx-notfound-page (>=1,<2)", "sphinx-reredirects", "sphinxcontrib-towncrier", "towncrier (<24.7)"]
+enabler = ["pytest-enabler (>=2.2)"]
+test = ["build[virtualenv] (>=1.0.3)", "filelock (>=3.4.0)", "ini2toml[lite] (>=0.14)", "jaraco.develop (>=7.21)", "jaraco.envs (>=2.2)", "jaraco.path (>=3.2.0)", "jaraco.test (>=5.5)", "packaging (>=24.2)", "pip (>=19.1)", "pyproject-hooks (!=1.1)", "pytest (>=6,!=8.1.*)", "pytest-home (>=0.5)", "pytest-perf", "pytest-subprocess", "pytest-timeout", "pytest-xdist (>=3)", "tomli-w (>=1.0.0)", "virtualenv (>=13.0.0)", "wheel (>=0.44.0)"]
+type = ["importlib-metadata (>=7.0.2)", "jaraco.develop (>=7.21)", "mypy (>=1.12,<1.14)", "pytest-mypy"]
 
 [[package]]
 name = "six"
@@ -4210,4 +4213,4 @@ mysql = ["mysqlclient"]
 [metadata]
 lock-version = "2.0"
 python-versions = ">=3.9,<4"
-content-hash = "7fdc7c4acafcc9eaabc1ea6b9c769b951742caca7b982df18f632c49f4764123"
+content-hash = "8e0b6d2ad8ea67b73eac305a51827add3241a59045c5ea37788e5029aadc03bc"
