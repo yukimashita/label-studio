@@ -205,25 +205,25 @@
       .length;
   };
 
-  const getEmptyLabelRegions = () => {
+  const getNoneUniqueLabelRegions = () => {
     return getRegions()
-      .filter(r => getLabelCount(r) === 0);
+      .filter(r => getActionLabelCount(r) !== 1);
   };
 
-  const getEmptyLabelRegion = (regions=getRegions()) => {
+  const getNoneUniqueLabelRegion = (regions=getRegions()) => {
     for (const r of regions) {
-      if (getLabelCount(r) === 0)
+      if (getActionLabelCount(r) !== 1)
         return r;
     }
     return null;
   };
 
-  const selectNextEmptyLabelRegion = (regions=getRegions(), reverse=false) => {
+  const selectNextNoneUniqueLabelRegion = (regions=getRegions(), reverse=false) => {
     const s = getSelectedRegion() || regions[0];
-    if (getLabelCount(s) === 0) {
+    if (getActionLabelCount(s) !== 1) {
       const emptyLabelRegions = reverse?
-            getEmptyLabelRegions().toReversed():
-            getEmptyLabelRegions();
+            getNoneUniqueLabelRegions().toReversed():
+            getNoneUniqueLabelRegions();
       if (!selectNextRegion({
         regions: emptyLabelRegions
       }))
@@ -237,18 +237,18 @@
     const index = regions
           .findIndex(r => r.id === s.id);
     if (index === -1) {
-      console.error('>>> selectNextEmptyLabelRegion');
+      console.error('>>> selectNextNoneUniqueLabelRegion');
       console.error('index === -1');
       return;
     }
-    if (selectRegion(getEmptyLabelRegion(regions.slice(index))))
+    if (selectRegion(getNoneUniqueLabelRegion(regions.slice(index))))
       return;
-    if (!selectRegion(getEmptyLabelRegion(regions.slice(0, index))))
+    if (!selectRegion(getNoneUniqueLabelRegion(regions.slice(0, index))))
       toastr.info('🎉 ラベルなしはありません');
   };
 
-  const selectPreviousEmptyLabelRegion = (regions=getRegions()) => {
-    selectNextEmptyLabelRegion(regions.toReversed(), true);
+  const selectPreviousNoneUniqueLabelRegion = (regions=getRegions()) => {
+    selectNextNoneUniqueLabelRegion(regions.toReversed(), true);
   };
 
   async function selectRegions(regions, title, selectedRegion) {
@@ -384,10 +384,10 @@
       }
       break;
     case '}':
-      selectNextEmptyLabelRegion();
+      selectNextNoneUniqueLabelRegion();
       break;
     case '{':
-      selectPreviousEmptyLabelRegion();
+      selectPreviousNoneUniqueLabelRegion();
       break;
     case 'a':
       if ((e.ctrlKey || e.metaKey) && !e.altKey && !e.shiftKey) {
