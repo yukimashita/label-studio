@@ -111,6 +111,11 @@ export const VideoCanvas = memo(
     const [brightness, setBrightness] = useState(1);
     const [saturation, setSaturation] = useState(1);
 
+    useEffect(() => {
+      const event = new CustomEvent('label-studio-video-canvas-loading-changed', { detail: loading });
+      window.dispatchEvent(event);
+    }, [loading]);
+
     const filters = useMemo(() => {
       const result: string[] = [];
 

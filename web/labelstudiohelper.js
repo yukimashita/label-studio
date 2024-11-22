@@ -8,6 +8,7 @@
 // @match        http://localhost:45547/*
 // @match        http://127.0.0.1:45547/*
 // @match        http://10.2.0.7:45547/*
+// @match        http://localhost:8888/*
 // @resource     toastr.min.css https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css
 // @require      https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js
 // @require      https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js
@@ -398,19 +399,27 @@
     }
   });
 
-  setInterval(() => {
-    if (!isTaskPage())
+  // 動画のローディング画面変化イベント
+  unsafeWindow.addEventListener('label-studio-video-canvas-loading-changed', e => {
+    console.log(`label-studio-video-canvas-loading-changed: ${e.detail}`);
+    if (e.detail) {
+      // ローディング中
       return;
+    }
 
-    setMinimapEntries(7);
-    setTimelineEntries(7);
+    setTimeout(() => {
+      // ミニマップとタイムラインの表示を7つにする
+      setMinimapEntries(7);
+      setTimelineEntries(7);
 
-    const params = new URL(location).searchParams;
-    const regionID = params.get('region');
-    if (regionID === null)
-      return;
-    const region = getRegions()
-          .find(r => r.id.split('#')[0] === regionID);
-    selectRegion(region);
-  }, 1000);
+      // URLに"region=..."とある場合はそのリージョンの先頭に移動
+      const params = new URL(location).searchParams;
+      const regionID = params.get('region');
+      if (regionID === null)
+        return;
+      const region = getRegions()
+            .find(r => r.id.split('#')[0] === regionID);
+      selectRegion(region);
+    }, 1000);
+  });
 })();
