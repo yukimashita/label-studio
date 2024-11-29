@@ -257,6 +257,7 @@ const Model = types
           region.notifyDrawingFinished();
           // hack to trigger RichText re-render the region
           region.updateSpans?.();
+          region.onLabelUpdate?.(self);
         }
       });
     },

@@ -145,7 +145,7 @@ const Model = types
       return result;
     },
 
-    updateSpans() {
+    setAnnotatedBy() {
       self.annotated_by = getRoot(self).user?.id;
     }
   }));

@@ -408,6 +408,16 @@
     }
 
     setTimeout(() => {
+      getRegions()
+        .forEach(r => {
+          r.onLabelUpdate = label => {
+            if (!label.value.endsWith('さん')) {
+              // 行動ラベルの場合は集計者をつける
+              r.setAnnotatedBy();
+            }
+          }
+      });
+
       // ミニマップとタイムラインの表示を7つにする
       setMinimapEntries(7);
       setTimelineEntries(7);
