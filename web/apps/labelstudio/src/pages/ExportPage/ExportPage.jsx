@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useHistory } from "react-router";
 import { Button } from "../../components";
 import { Form, Input } from "../../components/Form";
@@ -238,7 +238,7 @@ const FormatInfo = ({ availableFormats, selected, onClick }) => {
         or submit an issue to the{" "}
         <a
           className="no-go"
-          href="https://github.com/heartexlabs/label-studio-converter/issues"
+          href="https://github.com/HumanSignal/label-studio-converter/issues"
           target="_blank"
           rel="noreferrer"
         >

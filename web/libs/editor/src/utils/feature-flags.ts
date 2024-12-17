@@ -84,12 +84,6 @@ export const FF_DEV_3666 = "fflag_fix_front_dev_3666_max_usages_on_region_creati
 export const FF_DEV_3873 = "fflag_feat_front_dev_3873_labeling_ui_improvements_short";
 
 /**
- * Filter component that filter regions on outliner component
- * @link https://app.launchdarkly.com/default/production/features/fflag_feat_front_lsdv_3025_outliner_filter_short
- */
-export const FF_LSDV_3025 = "fflag_feat_front_lsdv_3025_outliner_filter_short";
-
-/**
  * Allow shourtcuts button to work with visible main textarea when there is no focus
  * @link https://app.launchdarkly.com/default/production/features/fflag_fix_front_dev_3730_shortcuts_initial_input_22122022_short
  */
@@ -103,9 +97,6 @@ export const FF_DEV_3793 = "fflag_fix_front_dev_3793_relative_coords_short";
  * @link https://app.launchdarkly.com/default/community/features/fflag_fix_front_dev_4075_taxonomy_overlap_281222_short
  */
 export const FF_DEV_4075 = "fflag_fix_front_dev_4075_taxonomy_overlap_281222_short";
-
-// Enable a Magic Wand to be used for quickly thresholding images with segmentation labels.
-export const FF_DEV_4081 = "fflag_feat_front_dev_4081_magic_wand_tool";
 
 /**
  * Label stream ablation experiment for solving overlap issue
@@ -227,11 +218,6 @@ export const FF_LSDV_4992 = "fflag_fix_front_lsdv_4992_hide_all_regions_04052023
  * @link https://app.launchdarkly.com/default/production/features/fflag_fix_front_lsdv_4998_missed_dynamic_children_030523_short
  */
 export const FF_LSDV_4998 = "fflag_fix_front_lsdv_4998_missed_dynamic_children_030523_short";
-
-/**
- * Add ability to show hints while hover over the choice
- */
-export const FF_PROD_309 = "fflag_feat_front_prod_309_choice_hint_080523_short";
 
 /**
  * Fix delay on double-click interactions in Image Segmentation

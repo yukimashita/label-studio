@@ -273,6 +273,13 @@ class Project(ProjectMixin, models.Model):
 
     pinned_at = models.DateTimeField(_('pinned at'), null=True, default=None, help_text='Pinned date and time')
 
+    custom_task_lock_ttl = models.IntegerField(
+        _('custom_task_lock_ttl'),
+        null=True,
+        default=None,
+        help_text='Custom task lock TTL in seconds. If not set, the default value is used',
+    )
+
     def __init__(self, *args, **kwargs):
         super(Project, self).__init__(*args, **kwargs)
         self.__original_label_config = self.label_config
@@ -342,14 +349,6 @@ class Project(ProjectMixin, models.Model):
     @property
     def one_object_in_label_config(self):
         return len(self.data_types) <= 1
-
-    @property
-    def only_undefined_field(self):
-        return (
-            self.one_object_in_label_config
-            and self.summary.common_data_columns
-            and self.summary.common_data_columns[0] == settings.DATA_UNDEFINED_NAME
-        )
 
     @property
     def get_labeled_count(self):
@@ -697,7 +696,7 @@ class Project(ProjectMixin, models.Model):
         return {'deleted_predictions': count}
 
     def get_updated_weights(self):
-        outputs = self.get_parsed_config(autosave_cache=False)
+        outputs = self.get_parsed_config()
         control_weights = {}
         exclude_control_types = ('Filter',)
 
@@ -888,12 +887,14 @@ class Project(ProjectMixin, models.Model):
     def max_tasks_file_size():
         return settings.TASKS_MAX_FILE_SIZE
 
-    def get_parsed_config(self, autosave_cache=True):
+    def get_parsed_config(self):
         if self.parsed_label_config is None:
-            self.parsed_label_config = parse_config(self.label_config)
-
-            # if autosave_cache:
-            #    Project.objects.filter(id=self.id).update(parsed_label_config=self.parsed_label_config)
+            try:
+                self.parsed_label_config = parse_config(self.label_config)
+                self.save(update_fields=['parsed_label_config'])
+            except Exception as e:
+                logger.error(f'Error parsing label config for project {self.id}: {e}', exc_info=True)
+                return {}
 
         return self.parsed_label_config
 

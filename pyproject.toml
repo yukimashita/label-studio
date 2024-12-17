@@ -104,7 +104,7 @@ target-version = ['py38']
 [tool.poetry]
 
 name = "label-studio"
-version = "1.14.0"
+version = "1.15.0"
 description = "Label Studio annotation tool"
 authors = [
     "Heartex <hello@heartex.ai>",
@@ -116,7 +116,7 @@ classifiers = [
     "Operating System :: OS Independent",
     "Programming Language :: Python :: 3",
 ]
-homepage = "https://github.com/heartexlabs/label-studio"
+homepage = "https://github.com/HumanSignal/label-studio"
 packages = [
     { include = "label_studio" },
 ]
@@ -195,15 +195,15 @@ launchdarkly-server-sdk = "8.2.1"
 python-json-logger = "2.0.4"
 google-cloud-storage = "^2.13.0"
 google-cloud-logging = "^3.10.0"
-mysqlclient = {version = "*", optional = true}
+pyuwsgi = { version = "2.0.28.post1", optional = true }
+uwsgitop = { version = "0.12", optional = true }
 django-csp = "3.7"
 openai = "^1.10.0"
 django-migration-linter = "^5.1.0"
 setuptools = ">=75.4.0"
 
 # Humansignal repo dependencies
-
-label-studio-sdk = "1.0.7"
+label-studio-sdk = "1.0.8"
 
 [tool.poetry.group.test.dependencies]
 pytest = "7.2.2"
@@ -226,7 +226,7 @@ requests-mock = "1.12.1"
 twine = ">=4.0.2"
 
 [tool.poetry.extras]
-mysql = ["mysqlclient"]
+uwsgi = ["pyuwsgi","uwsgitop"]
 
 [build-system]
 requires = ["poetry-core"]
