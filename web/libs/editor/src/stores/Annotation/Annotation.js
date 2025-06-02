@@ -11,12 +11,10 @@ import Result from "../../regions/Result";
 import Utils from "../../utils";
 import {
   FF_DEV_1284,
-  FF_DEV_2432,
   FF_DEV_3391,
   FF_LLM_EPIC,
   FF_LSDV_3009,
   FF_LSDV_4583,
-  FF_LSDV_4988,
   FF_REVIEWER_FLOW,
   isFF,
 } from "../../utils/feature-flags";
@@ -112,6 +110,7 @@ const _Annotation = types
     createdAgo: types.maybeNull(types.string),
     createdBy: types.optional(types.string, "Admin"),
     user: types.optional(types.maybeNull(types.safeReference(UserExtended)), null),
+    score: types.maybeNull(types.number),
 
     parent_prediction: types.maybeNull(types.integer),
     parent_annotation: types.maybeNull(types.integer),
@@ -175,8 +174,10 @@ const _Annotation = types
 
     const updateIds = (item) => {
       const children = item.children?.map(updateIds);
+      const imageEntities = item.imageEntities?.map(updateIds);
 
       if (children) item = { ...item, children };
+      if (imageEntities) item = { ...item, imageEntities };
       if (item.id) item = { ...item, id: `${item.name ?? item.id}@${sn.id}` };
       // @todo fallback for tags with name as id:
       // if (item.name) item = { ...item, name: item.name + "@" + sn.id };
@@ -361,6 +362,8 @@ const _Annotation = types
         getEnv(self).events.hasEvent("acceptAnnotation") &&
         // Quick View — we don't have View All in Label Stream
         store.hasInterface("annotations:view-all") &&
+        // skipped annotations can't be reviewed
+        !self.skipped &&
         // annotation was submitted already
         !isNaN(self.pk)
       );
@@ -656,13 +659,16 @@ const _Annotation = types
       if (force) self.unselectAll();
 
       self.names.forEach((tag) => tag.needsUpdate && tag.needsUpdate());
-      self.areas.forEach((area) => area.updateAppearenceFromState && area.updateAppearenceFromState());
-      if (isFF(FF_DEV_2432)) {
-        const areas = Array.from(self.areas.values());
-        const filtered = areas.filter((area) => area.isDrawing);
+      self.updateAppearenceFromState();
+      const areas = Array.from(self.areas.values());
+      // It should find just one unfinished region, but just in case we work with array
+      const filtered = areas.filter((area) => area.isDrawing);
 
-        self.regionStore.selection._updateResultsFromRegions(filtered);
-      }
+      // Update UI to reflect the state of an unfinished region in case if it exists
+      if (filtered.length) self.regionStore.selection._updateResultsFromRegions(filtered);
+    },
+    updateAppearenceFromState() {
+      self.areas.forEach((area) => area.updateAppearenceFromState?.());
     },
 
     setInitialValues() {
@@ -888,7 +894,7 @@ const _Annotation = types
           else audioNode = node;
 
           node.hotkey = comb;
-          hotkeys.addKey(comb, node.onHotKey, "Play an audio", `${Hotkey.DEFAULT_SCOPE},${Hotkey.INPUT_SCOPE}`);
+          hotkeys.addKey(comb, node.onHotKey, "Play an audio", Hotkey.ALL_SCOPES);
 
           audiosNum++;
         }
@@ -961,6 +967,11 @@ const _Annotation = types
       objectTag?.afterResultCreated?.(area);
 
       if (!area) return;
+
+      // This is added mostly for the reason of updating indexes in labels
+      // for the elements (like highlights in text) that won't be dynamically changed
+      // but are dependent on the whole region list values
+      self.updateAppearenceFromState();
 
       if (!area.classification) getEnv(self).events.invoke("entityCreate", area);
       if (!skipAfrerCreate) self.afterCreateResult(area, control);
@@ -1036,34 +1047,8 @@ const _Annotation = types
         if (obj.type.endsWith("labels")) {
           const keys = Object.keys(obj.value);
 
-          for (let key of keys) {
+          for (const key of keys) {
             if (key.endsWith("labels")) {
-              const hasControlTag = tagNames.has(obj.from_name) || tagNames.has("labels");
-
-              // remove non-existent labels, it actually breaks dynamic labels
-              // and makes no reason overall — labels from predictions can be out of config
-              if (!isFF(FF_LSDV_4988) && hasControlTag) {
-                const labelsContainer = tagNames.get(obj.from_name) ?? tagNames.get("labels");
-                const value = obj.value[key];
-
-                if (value && value.length && labelsContainer.type.endsWith("labels")) {
-                  const filteredValue = value.filter((labelName) => !!labelsContainer.findLabel(labelName));
-                  const oldKey = key;
-
-                  key = key === labelsContainer.type ? key : labelsContainer.type;
-
-                  if (oldKey !== key) {
-                    obj.type = key;
-                    obj.value[key] = obj.value[oldKey];
-                    delete obj.value[oldKey];
-                  }
-
-                  if (filteredValue.length !== value.length) {
-                    obj.value[key] = filteredValue;
-                  }
-                }
-              }
-
               // detect most relevant label tags if that one from from_name is missing
               // can be useful for predictions in old format with config in new format:
               // Rectangle + Labels -> RectangleLabels

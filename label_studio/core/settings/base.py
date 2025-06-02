@@ -214,6 +214,7 @@ INSTALLED_APPS = [
     'annoying',
     'rest_framework',
     'rest_framework.authtoken',
+    'rest_framework_simplejwt.token_blacklist',
     'drf_generators',
     'core',
     'users',
@@ -229,6 +230,7 @@ INSTALLED_APPS = [
     'labels_manager',
     'ml_models',
     'ml_model_providers',
+    'jwt_auth',
 ]
 
 MIDDLEWARE = [
@@ -247,12 +249,13 @@ MIDDLEWARE = [
     'core.middleware.ContextLogMiddleware',
     'core.middleware.DatabaseIsLockedRetryMiddleware',
     'core.current_request.ThreadLocalMiddleware',
+    'jwt_auth.middleware.JWTAuthenticationMiddleware',
 ]
 
 REST_FRAMEWORK = {
     'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend'],
     'DEFAULT_AUTHENTICATION_CLASSES': (
-        'rest_framework.authentication.TokenAuthentication',
+        'jwt_auth.auth.TokenAuthenticationPhaseout',
         'rest_framework.authentication.SessionAuthentication',
     ),
     'DEFAULT_PERMISSION_CLASSES': [
@@ -386,6 +389,15 @@ FRONTEND_SENTRY_DSN = get_env('FRONTEND_SENTRY_DSN', None)
 FRONTEND_SENTRY_RATE = get_env('FRONTEND_SENTRY_RATE', 0.01)
 FRONTEND_SENTRY_ENVIRONMENT = get_env('FRONTEND_SENTRY_ENVIRONMENT', 'stage.opensource')
 
+# Exceptions that should not be logged to Sentry and aren't children of drf's APIException class
+SENTRY_IGNORED_EXCEPTIONS = [
+    'Http404',
+    'XMLSyntaxError',
+    'FileUpload.DoesNotExist',
+    'Forbidden',
+    'KeyboardInterrupt',
+]
+
 ROOT_URLCONF = 'core.urls'
 WSGI_APPLICATION = 'core.wsgi.application'
 GRAPHIQL = True
@@ -411,7 +423,14 @@ STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 )
-STATICFILES_STORAGE = 'core.storage.SkipMissedManifestStaticFilesStorage'
+STORAGES = {
+    'default': {
+        'BACKEND': 'django.core.files.storage.FileSystemStorage',
+    },
+    'staticfiles': {
+        'BACKEND': 'core.storage.SkipMissedManifestStaticFilesStorage',
+    },
+}
 
 # Sessions and CSRF
 SESSION_COOKIE_SECURE = bool(int(get_env('SESSION_COOKIE_SECURE', False)))
@@ -420,6 +439,11 @@ SESSION_COOKIE_SAMESITE = get_env('SESSION_COOKIE_SAMESITE', 'Lax')
 CSRF_COOKIE_SECURE = bool(int(get_env('CSRF_COOKIE_SECURE', SESSION_COOKIE_SECURE)))
 CSRF_COOKIE_HTTPONLY = bool(int(get_env('CSRF_COOKIE_HTTPONLY', SESSION_COOKIE_SECURE)))
 CSRF_COOKIE_SAMESITE = get_env('CSRF_COOKIE_SAMESITE', 'Lax')
+
+# default value is from django docs: https://docs.djangoproject.com/en/5.1/ref/settings/#csrf-cookie-age
+# approximately 1 year
+CSRF_COOKIE_AGE = int(get_env('CSRF_COOKIE_AGE', 31449600))
+
 
 # Inactivity user sessions
 INACTIVITY_SESSION_TIMEOUT_ENABLED = bool(int(get_env('INACTIVITY_SESSION_TIMEOUT_ENABLED', True)))
@@ -519,7 +543,7 @@ BATCH_SIZE = 1000
 PROJECT_TITLE_MIN_LEN = 3
 PROJECT_TITLE_MAX_LEN = 50
 LOGIN_REDIRECT_URL = '/'
-LOGIN_URL = '/'
+LOGIN_URL = '/user/login/'
 MIN_GROUND_TRUTH = 10
 DATA_UNDEFINED_NAME = '$undefined$'
 LICENSE = {}
@@ -648,7 +672,7 @@ USE_NGINX_FOR_EXPORT_DOWNLOADS = get_bool_env('USE_NGINX_FOR_EXPORT_DOWNLOADS', 
 
 if get_env('MINIO_STORAGE_ENDPOINT') and not get_bool_env('MINIO_SKIP', False):
     CLOUD_FILE_STORAGE_ENABLED = True
-    DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+    STORAGES['default']['BACKEND'] = 'storages.backends.s3boto3.S3Boto3Storage'
     AWS_STORAGE_BUCKET_NAME = get_env('MINIO_STORAGE_BUCKET_NAME')
     AWS_ACCESS_KEY_ID = get_env('MINIO_STORAGE_ACCESS_KEY')
     AWS_SECRET_ACCESS_KEY = get_env('MINIO_STORAGE_SECRET_KEY')
@@ -661,7 +685,7 @@ if get_env('MINIO_STORAGE_ENDPOINT') and not get_bool_env('MINIO_SKIP', False):
 
 if get_env('STORAGE_TYPE') == 's3':
     CLOUD_FILE_STORAGE_ENABLED = True
-    DEFAULT_FILE_STORAGE = 'core.storage.CustomS3Boto3Storage'
+    STORAGES['default']['BACKEND'] = 'core.storage.CustomS3Boto3Storage'
     if get_env('STORAGE_AWS_ACCESS_KEY_ID'):
         AWS_ACCESS_KEY_ID = get_env('STORAGE_AWS_ACCESS_KEY_ID')
     if get_env('STORAGE_AWS_SECRET_ACCESS_KEY'):
@@ -681,7 +705,7 @@ if get_env('STORAGE_TYPE') == 's3':
 
 if get_env('STORAGE_TYPE') == 'azure':
     CLOUD_FILE_STORAGE_ENABLED = True
-    DEFAULT_FILE_STORAGE = 'core.storage.CustomAzureStorage'
+    STORAGES['default']['BACKEND'] = 'core.storage.CustomAzureStorage'
     AZURE_ACCOUNT_NAME = get_env('STORAGE_AZURE_ACCOUNT_NAME')
     AZURE_ACCOUNT_KEY = get_env('STORAGE_AZURE_ACCOUNT_KEY')
     AZURE_CONTAINER = get_env('STORAGE_AZURE_CONTAINER_NAME')
@@ -690,8 +714,7 @@ if get_env('STORAGE_TYPE') == 'azure':
 
 if get_env('STORAGE_TYPE') == 'gcs':
     CLOUD_FILE_STORAGE_ENABLED = True
-    # DEFAULT_FILE_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
-    DEFAULT_FILE_STORAGE = 'core.storage.AlternativeGoogleCloudStorage'
+    STORAGES['default']['BACKEND'] = 'core.storage.AlternativeGoogleCloudStorage'
     GS_PROJECT_ID = get_env('STORAGE_GCS_PROJECT_ID')
     GS_BUCKET_NAME = get_env('STORAGE_GCS_BUCKET_NAME')
     GS_EXPIRATION = timedelta(seconds=int(get_env('STORAGE_GCS_EXPIRATION_SECS', '86400')))
@@ -701,6 +724,24 @@ if get_env('STORAGE_TYPE') == 'gcs':
 CSRF_TRUSTED_ORIGINS = get_env('CSRF_TRUSTED_ORIGINS', [])
 if CSRF_TRUSTED_ORIGINS:
     CSRF_TRUSTED_ORIGINS = CSRF_TRUSTED_ORIGINS.split(',')
+
+# Custom S3 endpoints on these domains will get detailed error reporting
+S3_TRUSTED_STORAGE_DOMAINS = get_env_list(
+    'S3_TRUSTED_STORAGE_DOMAINS',
+    [
+        'amazonaws.com',
+        'scw.cloud',
+        'yandexcloud.net',
+        'digitaloceanspaces.com',
+        'orange-business.com',
+        'computecanada.ca',
+        'cloudflarestorage.com',
+        'wasabisys.com',
+        'oracle.com',
+        'amazon.com',
+        'appdomain.cloud',
+    ],
+)
 
 REAL_HOSTNAME = os.getenv('HOSTNAME')  # we have to use getenv, because we don't use LABEL_STUDIO_ prefix
 GCS_CLOUD_STORAGE_FORCE_DEFAULT_CREDENTIALS = get_bool_env('GCS_CLOUD_STORAGE_FORCE_DEFAULT_CREDENTIALS', False)
@@ -777,3 +818,18 @@ if CI:
         'ignore_name': '0002_auto_20210304_1457',
         'sql-analyser': 'postgresql',
     }
+
+LOGOUT_REDIRECT_URL = get_env('LOGOUT_REDIRECT_URL', None)
+
+# Enable legacy tokens (useful for running with a pre-existing token via `LABEL_STUDIO_USER_TOKEN`)
+LABEL_STUDIO_ENABLE_LEGACY_API_TOKEN = get_bool_env('LABEL_STUDIO_ENABLE_LEGACY_API_TOKEN', False)
+RESOLVER_PROXY_BUFFER_SIZE = int(get_env('RESOLVER_PROXY_BUFFER_SIZE', 512 * 1024))
+RESOLVER_PROXY_TIMEOUT = int(get_env('RESOLVER_PROXY_TIMEOUT', 20))
+RESOLVER_PROXY_MAX_RANGE_SIZE = int(get_env('RESOLVER_PROXY_MAX_RANGE_SIZE', 8 * 1024 * 1024))
+RESOLVER_PROXY_GCS_DOWNLOAD_URL = get_env(
+    'RESOLVER_PROXY_GCS_DOWNLOAD_URL',
+    'https://storage.googleapis.com/download/storage/v1/b/{bucket_name}/o/{blob_name}?alt=media',
+)
+RESOLVER_PROXY_GCS_HTTP_TIMEOUT = int(get_env('RESOLVER_PROXY_GCS_HTTP_TIMEOUT', 5))
+RESOLVER_PROXY_ENABLE_ETAG_CACHE = get_bool_env('RESOLVER_PROXY_ENABLE_ETAG_CACHE', True)
+RESOLVER_PROXY_CACHE_TIMEOUT = int(get_env('RESOLVER_PROXY_CACHE_TIMEOUT', 3600))

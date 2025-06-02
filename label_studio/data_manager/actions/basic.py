@@ -44,6 +44,7 @@ def delete_tasks(project, queryset, **kwargs):
     # delete all project tasks
     if count == project_count:
         start_job_async_or_sync(Task.delete_tasks_without_signals_from_task_ids, tasks_ids_list)
+        logger.info(f'calling reset project_id={project.id} delete_tasks()')
         project.summary.reset()
 
     # delete only specific tasks
@@ -64,7 +65,7 @@ def delete_tasks(project, queryset, **kwargs):
         reload = True
 
     # Execute actions after delete tasks
-    Task.after_bulk_delete_actions(tasks_ids_list)
+    Task.after_bulk_delete_actions(tasks_ids_list, project)
 
     return {'processed_items': count, 'reload': reload, 'detail': 'Deleted ' + str(count) + ' tasks'}
 

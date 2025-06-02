@@ -5,8 +5,7 @@ import { PanelBase, type PanelProps } from "../PanelBase";
 import { OutlinerTree } from "./OutlinerTree";
 import { ViewControls } from "./ViewControls";
 import "./OutlinerPanel.scss";
-import { IconInfo } from "../../../assets/icons/outliner";
-import { FF_LSDV_4992, FF_OUTLINER_OPTIM, isFF } from "../../../utils/feature-flags";
+import { IconInfo } from "@humansignal/icons";
 
 interface OutlinerPanelProps extends PanelProps {
   regions: any;
@@ -18,12 +17,7 @@ interface OutlinerTreeComponentProps {
 
 const OutlinerFFClasses: string[] = [];
 
-if (isFF(FF_LSDV_4992)) {
-  OutlinerFFClasses.push("ff_hide_all_regions");
-}
-if (isFF(FF_OUTLINER_OPTIM)) {
-  OutlinerFFClasses.push("ff_outliner_optim");
-}
+OutlinerFFClasses.push("ff_hide_all_regions");
 
 const OutlinerPanelComponent: FC<OutlinerPanelProps> = ({ regions, ...props }) => {
   const [group, setGroup] = useState();

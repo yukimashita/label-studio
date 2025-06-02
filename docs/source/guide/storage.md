@@ -24,9 +24,10 @@ Set up the following cloud and other storage systems with Label Studio:
 
 When working with an external cloud storage connection, keep the following in mind:
 
-* Label Studio doesn’t import the data stored in the bucket, but instead creates *references* to the objects. Therefore, you must have full access control on the data to be synced and shown on the labeling screen.
-* Sync operations with external buckets only goes one way. It either creates tasks from objects on the bucket (Source storage) or pushes annotations to the output bucket (Target storage). Changing something on the bucket side doesn’t guarantee consistency in results.
+* Label Studio doesn't import the data stored in the bucket, but instead creates *references* to the objects. Therefore, you must have full access control on the data to be synced and shown on the labeling screen.
+* Sync operations with external buckets only goes one way. It either creates tasks from objects on the bucket (Source storage) or pushes annotations to the output bucket (Target storage). Changing something on the bucket side doesn't guarantee consistency in results.
 * We recommend using a separate bucket folder for each Label Studio project. 
+* Storage Regions: To minimize latency and improve efficiency, store data in cloud storage buckets that are geographically closer to your team rather than near the Label Studio server.
 
 <div class="opensource-only">
 
@@ -280,7 +281,15 @@ After you [configure access to your S3 bucket](#Configure-access-to-your-S3-buck
     - <div class="enterprise-only">(Optional) Enable **Can delete objects from storage** if you want to delete annotations stored in the S3 bucket when they are deleted in Label Studio. The storage credentials associated with the bucket must include the ability to delete bucket objects. Leave disabled to not take any action on annotations if they are deleted in Label Studio. </div>
 8. Click **Add Storage**.
 
-After adding the storage, click **Sync** to collect tasks from the bucket, or make an API call to [sync export storage](https://api.labelstud.io/api-reference/api-reference/export-storage/s-3/sync).
+After adding the storage, click **Sync** to collect tasks from the bucket, or make an API call to [sync export storage](https://api.labelstud.io/api-reference/api-reference/export-storage/s-3/sync)
+
+<div class="opensource-only">
+
+### S3 connection with IAM role access 
+
+In Label Studio Enterprise, you can use an IAM role configured with an external ID to access S3 bucket contents securely. An 'external ID' is a unique identifier that enhances security by ensuring that only trusted entities can assume the role, reducing the risk of unauthorized access. See how to [Set up an S3 connection with IAM role access](https://docs.humansignal.com/guide/storage#Set-up-an-S3-connection-with-IAM-role-access)</span> in the Enterprise documentation.
+
+</div>
 
 <div class="enterprise-only">
 
@@ -289,11 +298,34 @@ After adding the storage, click **Sync** to collect tasks from the bucket, or ma
 If you want to use a revocable method to grant Label Studio access to your Amazon S3 bucket, use an IAM role and its temporary security credentials instead of an access key ID and secret. This added layer of security is only available in Label Studio Enterprise. For more details about security in Label Studio and Label Studio Enterprise, see [Secure Label Studio](security.html).
 
 #### Set up an IAM role in Amazon AWS
+
+!!! note "Notice for Label Studio Cloud users"
+    <ul><li><p>On <strong>April 7th 2025</strong>, new storage connections will require an update to the AWS principal in your IAM role policy.</p>
+
+    <p>If you set up your IAM role prior to April 7th, 2025 and you have already been using it with Label Studio, you must <b>add</b> the following to your principal list before you can set up new storage connection in Label Studio projects: 
+        
+    <p><code>"arn:aws:iam::490065312183:role/label-studio-app-production"</code></p>
+
+    <p>For example:</p>
+
+    <p><img src="/images/storages/s3-trust-policy.png" alt="screenshot"></p>
+
+    <p>(See step 3 below.)</p>
+        
+    <p>Adding the new principal ensures you can create new connections. <b>Keeping the old principal ensures that pre-existing storage connections can continue to load data.</b> </p>
+        
+    <p>Existing S3 IAM role-based-access storages added to Label Studio will continue to work as is without any changes necessary. This change is only required if you are setting up new connections.</p></li>
+    
+    <li><p>On <strong>July 7th 2025</strong>, we will no longer support the legacy IAM user, and all policies should be updated to the new IAM role.</p></li></ul> 
+
 Set up an IAM role in Amazon AWS to use with Label Studio.
 
-1. In the Label Studio UI, open the **Organization** page to get an `External ID` to use for the IAM role creation in Amazon AWS. You must be an administrator to view the Organization page.
-2. Follow the [Amazon AWS documentation to create an IAM role](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user.html) in your AWS account. <br/>Make sure to require an external ID and do not require multi-factor authentication when you set up the role. Select an existing permissions policy, or create one that allows programmatic access to the bucket.
+1. From Label Studio, go to **Organization** page to retrieve your organization's `External ID`. You must be an Owner or Admin to view the Organization page.
+2. Follow the [Amazon AWS documentation to create an IAM role](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user.html) in your AWS account. 
+
+    Make sure to require an external ID and do not require multi-factor authentication when you set up the role. Select an existing permissions policy, or create one that allows programmatic access to the bucket.
 3. Create a trust policy using the external ID. Use the following example: 
+
 ```json
 {
   "Version": "2012-10-17",
@@ -302,7 +334,7 @@ Set up an IAM role in Amazon AWS to use with Label Studio.
       "Effect": "Allow",
       "Principal": {
         "AWS": [
-          "arn:aws:iam::490065312183:user/rw_bucket"
+          "arn:aws:iam::490065312183:role/label-studio-app-production"
         ]
       },
       "Action": "sts:AssumeRole",
@@ -317,6 +349,10 @@ Set up an IAM role in Amazon AWS to use with Label Studio.
   ]
 }
 ```
+
+!!! attention
+    If your bucket is already connected to a Label Studio project, and that connection was created before April 7, 2025,  you will need to add the new role (listed above) along with your old user to continue using your existing project. You also must maintain the old role so that pre-existing projects can continue to load data from AWS. 
+
 4. After you create the IAM role, note the Amazon Resource Name (ARN) of the role. You need it to set up the S3 source storage in Label Studio.
 5. Assign role policies to the role to allow it to access your S3 bucket. Replace `<your_bucket_name>` with your S3 bucket name. Use the following role policy for S3 source storage:
 ```json
@@ -416,6 +452,72 @@ You can also create a storage connection using the Label Studio API.
 - See [Create new import storage](/api#operation/api_storages_s3_create) then [sync the import storage](/api#operation/api_storages_s3_sync_create).
 - See [Create export storage](/api#operation/api_storages_export_s3_create) and after annotating, [sync the export storage](/api#operation/api_storages_export_s3_sync_create).
 
+### IP Filtering and VPN for Enhanced Security for S3 storage
+
+To maximize security and data isolation behind a VPC, restrict access to the Label Studio backend and internal network users by setting IP restrictions for storage, allowing only trusted networks to perform task synchronization and generate pre-signed URLs. Additionally, establish a secure connection between storage and users' browsers by configuring a VPC private endpoint or limiting storage access to specific IPs or VPCs. 
+
+Read more about [Source storage behind your VPC](security.html#Source-storage-behind-your-VPC).
+
+<details>
+<summary>Bucket Policy Example for S3 storage</summary>
+<br>
+
+!!! warning
+    These example bucket policies explicitly deny access to any requests outside the allowed IP addresses. Even the user that entered the bucket policy can be denied access to the bucket if the user doesn't meet the conditions. Therefore, make sure to review the bucket policy carefully before saving it. If you get accidentally locked out, see [How to regain access to an Amazon S3 bucket](https://repost.aws/knowledge-center/s3-accidentally-denied-access).
+
+ **Helpful Resources**:
+   - [AWS Documentation: VPC Endpoints for Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/privatelink-interface-endpoints.html)
+   - [AWS Documentation: How to Configure VPC Endpoints](https://docs.aws.amazon.com/vpc/latest/privatelink/endpoint-services-overview.html)
+
+Go to your S3 bucket and then **Permissions > Bucket Policy** in the AWS management console. Add the following policy:
+
+```json
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "DenyAccessUnlessFromSaaSIPsForListAndGet",
+            "Effect": "Deny",
+            "Principal": {
+                "AWS": "arn:aws:iam::490065312183:role/label-studio-app-production"
+            },
+            "Action": [
+                "s3:ListBucket",
+                "s3:GetObject"
+            ],
+            "Resource": [
+                "arn:aws:s3:::YOUR_BUCKET_NAME",
+                "arn:aws:s3:::YOUR_BUCKET_NAME/*"
+            ],
+            "Condition": {
+                "NotIpAddress": {
+                    "aws:SourceIp": [
+                      //// IP ranges for app.humansignal.com from the documentation
+                        "x.x.x.x/32",
+                        "x.x.x.x/32",
+                        "x.x.x.x/32"
+                    ]
+                }
+            }
+        },
+//// Optional
+        {
+            "Sid": "DenyAccessUnlessFromVPNForGetObject",
+            "Effect": "Deny",
+            "Principal": "*",
+            "Action": "s3:GetObject",
+            "Resource": "arn:aws:s3:::YOUR_BUCKET_NAME/*",
+            "Condition": {
+                "NotIpAddress": {
+                    "aws:SourceIp": "YOUR_VPN_SUBNET/32"
+                }
+            }
+        }
+    ]
+}
+```
+</details>
+
 ## Google Cloud Storage
 
 Dynamically import tasks and export annotations to Google Cloud Storage (GCS) buckets in Label Studio. For details about how Label Studio secures access to cloud storage, see [Secure access to cloud storage](security.html/#Secure-access-to-cloud-storage).
@@ -443,7 +545,9 @@ Replace `YOUR_BUCKET_NAME` with your actual bucket name in the following command
 gsutil cors set cors-config.json gs://YOUR_BUCKET_NAME
 ```
 
-### Set up connection in the Label Studio UI
+### Google Cloud Storage with application credentials 
+
+#### Set up connection in the Label Studio UI
 In the Label Studio UI, do the following to set up the connection:
 
 1. Open Label Studio in your web browser.
@@ -457,19 +561,430 @@ In the Label Studio UI, do the following to set up the connection:
     - Enable **Treat every bucket object as a source file** if your bucket contains BLOB storage files such as JPG, MP3, or similar file types. This setting creates a URL for each bucket object to use for labeling, such as `gs://my-gcs-bucket/image.jpg`. Leave this option disabled if you have multiple JSON files in the bucket with one task per JSON file.
     - Choose whether to disable **Use pre-signed URLs**. If your tasks contain gs://... links, they must be pre-signed in order to be displayed in the browser.
     - Adjust the counter for how many minutes the pre-signed URLs are valid.
-8. In the **Google Application Credentials** field, add a JSON file with the GCS credentials you created to manage authentication for your bucket. You can also use the `GOOGLE_APPLICATION_CREDENTIALS` environment variable to specify this file. For example:
-```bash
-  export GOOGLE_APPLICATION_CREDENTIALS=json-file-with-GCP-creds-23441-8f8sd99vsd115a.json
-  ```
+8. In the **Google Application Credentials** field, add a JSON file with the GCS credentials you created to manage authentication for your bucket. 
+
+    **On-prem users:** Alternatively, you can use the `GOOGLE_APPLICATION_CREDENTIALS` environment variable and/or set up Application Default Credentials, so that users do not need to configure credentials manually. See [Application Default Credentials for enhanced security](#Application-Default-Credentials-for-enhanced-security-for-GCS) below.
 9. Click **Add Storage**.
-10. Repeat these steps for **Target Storage** to sync completed data annotations to a bucket.
+10.  Repeat these steps for **Target Storage** to sync completed data annotations to a bucket.
 
 After adding the storage, click **Sync** to collect tasks from the bucket, or make an API call to [sync import storage](/api#operation/api_storages_gcs_sync_create).
 
+#### Application Default Credentials for enhanced security for GCS
+
+If you use Label Studio on-premises with Google Cloud Storage, you can set up [Application Default Credentials](https://cloud.google.com/docs/authentication/provide-credentials-adc) to provide cloud storage authentication globally for all projects, so users do not need to configure credentials manually.
+
+The recommended way to to do this is by using the `GOOGLE_APPLICATION_CREDENTIALS` environment variable. For example:
+
+```bash
+  export GOOGLE_APPLICATION_CREDENTIALS=json-file-with-GCP-creds-23441-8f8sd99vsd115a.json
+  ```
+
+<div class="enterprise-only">
+
+### Google Cloud Storage with Workload Identity Federation (WIF)
+
+You can also use Workload Identity Federation (WIF) pools with Google Cloud Storage. 
+
+Unlike with application credentials, WIF allows you to use temporary credentials. Each time you make a request to GCS, Label Studio connects to your identity pool to request temporary credentials. 
+
+For more information about WIF, see [Google Cloud - Workload Identity Federation](https://cloud.google.com/iam/docs/workload-identity-federation).
+
+#### Service account permissions
+
+Before you begin, you will need a service account that has the following permissions
+
+- Bucket: **Storage Admin** (`roles/storage.admin`)
+- Project: **Service Account Token Creator** (`roles/iam.serviceAccountTokenCreator`)
+- Project: **Storage Object Viewer** (`roles/storage.viewer`)
+  
+See [Create service accounts](https://cloud.google.com/iam/docs/service-accounts-create?hl=en) in the Google Cloud documentation.
+
+#### Create a Workload Identity Pool
+
+There are several methods you can use to create a WIF pool. 
+
+<details>
+<summary>Using Terraform</summary>
+<br>
+
+An example script is provided below. Ensure all required variables are set: 
+
+* GCP project variables:
+
+  * `var.gcp_project_name`
+
+  * `var.gcp_region`
+
+* SaaS provided by HumanSignal:
+
+  * `var.aws_account_id` = `490065312183`
+
+  * `var.aws_role_name` = `label-studio-app-production` 
+
+Then run:
+    
+```bash
+terraform init
+terraform plan
+terraform apply
+```
+    
+Once applied, you will have a functioning Workload Identity Pool that trusts the Label Studio AWS IAM Role.
+
+```json
+## Variables
+/* AWS variables are so that AWS-hosted Label Studio resources can reach out to request credentials */
+
+variable "gcp_project_name" {
+  type        = string
+  description = "GCP Project name"
+}
+
+variable "gcp_region" {
+  type        = string
+  description = "GCP Region"
+}
+
+variable "label_studio_gcp_sa_name" {
+  type        = string
+  description = "GCP Label Studio Service Account Name"
+}
+
+variable "aws_account_id" {
+  type        = string
+  description = "AWS Project ID"
+}
+
+variable "aws_role_name" {
+  type        = string
+  description = "AWS Role name"
+}
+
+variable "external_ids" {
+  type        = list(string)
+  default = []
+  description = "List of external ids"
+}
+
+## Outputs
+
+output "GCP_WORKLOAD_ID" {
+  value = google_iam_workload_identity_pool_provider.label-studio-provider-jwt.workload_identity_pool_id
+}
+
+output "GCP_WORKLOAD_PROVIDER" {
+  value = google_iam_workload_identity_pool_provider.label-studio-provider-jwt.workload_identity_pool_provider_id
+}
+
+## Main
+
+provider "google" {
+  project = var.gcp_project_name
+  region  = var.gcp_region
+}
+
+resource "random_id" "random" {
+  byte_length = 4
+}
+
+locals {
+  aws_assumed_role = "arn:aws:sts::${var.aws_account_id}:assumed-role/${var.aws_role_name}"
+
+  external_id_condition = (
+    length(var.external_ids) > 0
+    ? format("(attribute.aws_role == \"%s\") && (attribute.external_id in [%s])",
+      local.aws_assumed_role,
+      join(", ", formatlist("\"%s\"", var.external_ids))
+    )
+    : format("(attribute.aws_role == \"%s\")", local.aws_assumed_role)
+  )
+}
+
+resource "google_iam_workload_identity_pool" "label-studio-pool" {
+  workload_identity_pool_id = "label-studio-pool-${random_id.random.hex}"
+  project                   = var.gcp_project_name
+}
+
+resource "google_iam_workload_identity_pool_provider" "label-studio-provider-jwt" {
+  workload_identity_pool_id          = google_iam_workload_identity_pool.label-studio-pool.workload_identity_pool_id
+  workload_identity_pool_provider_id = "label-studio-jwt-${random_id.random.hex}"
+
+  attribute_condition = local.external_id_condition
+
+  attribute_mapping = {
+    "google.subject"        = "assertion.arn"
+    "attribute.aws_account" = "assertion.account"
+    "attribute.aws_role"    = "assertion.arn.contains('assumed-role') ? assertion.arn.extract('{account_arn}assumed-role/') + 'assumed-role/' + assertion.arn.extract('assumed-role/{role_name}/') : assertion.arn"
+    "attribute.external_id" = "assertion.external_id"
+  }
+
+  aws {
+    account_id = var.aws_account_id
+  }
+}
+
+data "google_service_account" "existing_sa" {
+  account_id = var.label_studio_gcp_sa_name
+}
+
+resource "google_service_account_iam_binding" "label-studio-sa-oidc" {
+  service_account_id = data.google_service_account.existing_sa.name
+  role               = "roles/iam.workloadIdentityUser"
+
+  members = [
+    "principalSet://iam.googleapis.com/${google_iam_workload_identity_pool.label-studio-pool.name}/attribute.aws_role/${local.aws_assumed_role}"
+  ]
+}
+```
+
+</details>
+
+<details>
+<summary>Using the gcloud command line</summary>
+<br>
+
+Replace the bracketed variables (`[PROJECT_ID]`, `[POOL_ID]`, `[PROVIDER_ID]`, etc.) with your own values.
+
+Make sure you escape quotes or use single quotes when necessary.
+
+1. Create the Workload Identity pool:
+   
+   ```shell
+   gcloud iam workload-identity-pools create [POOL_ID] \
+  --project=[PROJECT_ID] \
+  --location="global" \
+  --display-name="[POOL_DISPLAY_NAME]"
+   ```
+   Where:
+
+   * `[POOL_ID]` is the ID that you want to assign to your WIF pool (for example, `label-studio-pool-abc123`). Note this because you will need to reuse it later. 
+   * `[PROJECT_ID]` is the ID of your Google Cloud project. 
+   * `[POOL_DISPLAY_NAME]` is a human-readable name for your pool (optional, but recommended).
+
+1. Create the provider for AWS.
+
+    This allows AWS principals that have the correct external ID and AWS role configured to impersonate the Google Cloud service account. This is necessary because the Label Studio resources making the request are hosted in AWS. 
+
+    ```shell
+    gcloud iam workload-identity-pools providers create-aws [PROVIDER_ID] \
+    --workload-identity-pool="[POOL_ID]" \
+    --account-id="490065312183" \
+    --attribute-condition="attribute.aws_role==\"arn:aws:sts::490065312183:assumed-role/label-studio-app-production\"" \
+    --attribute-mapping="google.subject=assertion.arn,attribute.aws_account=assertion.account,attribute.aws_role=assertion.arn,attribute.external_id=assertion.external_id"
+
+    ```
+    Where: 
+
+    * `[PROVIDER_ID]` is a provider ID (for example, `label-studio-app-production`).  
+    * `[POOL_ID]`: The pool ID you provided in step 1. 
+
+2. Grant the [service account](#Service-account-permissions) that you created earlier the `iam.workloadIdentityUser` role.
+
+    ```shell
+    gcloud iam service-accounts add-iam-policy-binding [SERVICE_ACCOUNT_EMAIL] \
+    --role="roles/iam.workloadIdentityUser" \
+    --member="principalSet://iam.googleapis.com/projects/[PROJECT_NUMBER]/locations/global/workloadIdentityPools/[POOL_ID]/attribute.aws_role/arn:aws:sts::490065312183:assumed-role/label-studio-app-production"
+    ```
+
+    Where: 
+
+    * `[SERVICE_ACCOUNT_EMAIL]` is the email associated with you GCS service account (for example, `my-service-account@[PROJECT_ID].iam.gserviceaccount.com`).
+    * `[PROJECT_NUMBER]`: Your Google project number. This is different than the project ID. You can find the project number with the following command:
+
+        `gcloud projects describe $PROJECT_ID --format="value(projectNumber)"`
+    * `[POOL_ID]`: The pool ID you provided in step 1. 
+
+Before setting up your connection in Label Studio, note what you provided for the following variables (you will be asked to provide them):
+
+* `[POOL_ID]` 
+* `[PROVIDER_ID]` 
+* `[SERVICE_ACCOUNT_EMAIL]`
+* `[PROJECT_NUMBER]`
+* `[PROJECT_ID]` 
+
+</details>
+
+<details>
+<summary>Using the Google Cloud Console</summary>
+<br>
+
+Before you begin, ensure you are in the correct project:
+
+![Screenshot of the GCS console with project highlighted](/images/storages/gcs-project.png)
+
+1. From the Google Cloud Console, navigate to [**IAM & Admin > Workload Identity Pools**](https://console.cloud.google.com/iam-admin/workload-identity-pools). 
+
+2. Click **Get Started** to enable the APIs. 
+
+3. Under **Create an identity pool**, complete the following fields: 
+
+    * **Name**: This is the pool ID (for example, `label-studio-pool-abc123`). Note this ID because you will need it again later. 
+    * **Description**: This is the display name for the pool (for example, "Label Studio Pool"). 
+
+4. Under **Add a provider pool**, complete the following fields:
+
+    * **Select a provider**: Select AWS. This is the location where the Label Studio components responsible for issuing requests are stored. 
+    * **Provider name**: Enter `Label Studio Production` or another display name. 
+    * **Provider ID**: Enter `label-studio-app-production`.
+    * **AWS Account ID**: Enter `490065312183`.
+
+5. Under **Configure provider attributes**, enter the following: 
+
+    * Click **Add condition** and then enter the following: 
+
+        `attribute.aws_role=="arn:aws:sts::490065312183:assumed-role/label-studio-app-production"`
+
+    * Click **Edit mapping** and then add the following: 
+
+        - `google.subject = assertion.arn`
+        - `attribute.aws_role = assertion.arn`
+        - `attribute.aws_account = assertion.account`
+        - `attribute.external_id = assertion.external_id`
+
+6. Click **Save**. 
+
+7. Go to **IAM & Admin > Service Accounts** and find the service account you want to allow AWS (Label Studio) to impersonate. See [Service account permissions](#Service-account-permissions) above. 
+
+8. From the **Permissions** tab, click **Grant Access**. 
+
+    ![Screenshot of grant access button](/images/storages/gcs-grant-access.png)
+
+9. In the **New principals** field, add the following:
+
+    `principalSet://iam.googleapis.com/projects/[PROJECT_NUMBER]/locations/global/workloadIdentityPools/[POOL_ID]/attribute.aws_role/arn:aws:sts::490065312183:assumed-role/label-studio-app-production`
+
+    Where:
+
+    * `[PROJECT_NUMBER]` - Replace this with your Google project number. This is different than the project ID. To find the project number, go to **IAM & Admin > Settings**.
+    * `[POOL_ID]` - Replace this with the pool ID (the **Name** you entered in step 3 above, e.g. `label-studio-pool-abc123`).
+
+9. Under **Assign Roles**, use the search field in the **Role** drop-down menu to find the **Workload Identity User** role. 
+
+    ![Screenshot of principal window](/images/storages/gcs-principal.png)
+
+10. Click **Save**
+
+Before setting up your connection in Label Studio, note the following (you will be asked to provide them)
+
+* Your pool ID - available from **IAM & Admin > Workload Identity Pools** 
+* Your provider ID - available from **IAM & Admin > Workload Identity Pools** 
+* Your service account email - available from **IAM & Admin > Service Accounts**. Select the service account and the email is listed under **Details**.  
+* Your Google project number - available from **IAM & Admin > Settings**. 
+* Your Google project ID - available from **IAM & Admin > Settings**. 
+
+</details>
+
+#### Set up the connection in Label Studio
+
+From your Label Studio project, go to **Settings > Storage** to add your source or target storage. 
+
+Select the **GCS (WIF auth)** storage type and then complete the following fields:
+
+<div class="noheader rowheader">
+
+| | |
+| ------------------------------------------ | ------------------------------------------------- |
+| Bucket Name                                | Enter the name of the Google Cloud bucket. |
+| Bucket Prefix                              | Optionally, enter the folder name within the bucket that you would like to use.  For example, `data-set-1` or `data-set-1/subfolder-2`.  |
+| File Name Filter                           | Specify a regular expression to filter bucket objects. Use `.*` to collect all objects. |
+| Treat every bucket object as a source file | Enable this option if your bucket contains BLOB storage files such as JPG, MP3, or similar file types. This setting creates a URL for each bucket object to use for labeling, such as `gs://my-gcs-bucket/image.jpg`. Leave this option disabled if you have multiple JSON files in the bucket with one task per JSON file. |
+| Use pre-signed URLs                        | If your tasks contain `gs://…` links, they must be pre-signed in order to be displayed in the browser. |
+| Pre-signed URL counter                     | Adjust the counter for how many minutes the pre-signed URLs are valid. |
+| Workload Identity Pool ID                  | This is the ID you specified when creating the Work Identity Pool. You can find this in Google Cloud Console under **IAM & Admin > Workload Identity Pools**. |
+| Workload Identity Provider ID              | This is the ID you specified when setting up the provider. You can find this in Google Cloud Console under **IAM & Admin > Workload Identity Pools**. |
+| Service Account Email | This is the email associated with the service account you set up as part of the prerequisites. You can find it in the **Details** page of the service account under **IAM & Admin > Service Accounts**. For example, `labelstudio@random-string-382222.iam.gserviceaccount.com`.  |
+| Google Project ID | Your Google project ID. You can find this in Google Cloud Console under **IAM & Admin > Settings**.  |
+| Google Project Number | Your Google project number. You can find this in Google Cloud Console under **IAM & Admin > Settings**. |
+
+</div>
+
+After adding the storage, click **Sync** to collect tasks from the bucket, or make an API call to [sync import storage](/api#operation/api_storages_gcs_sync_create).
+
+</div>
+
+
 ### Add storage with the Label Studio API
-You can also create a storage connection using the Label Studio API. 
-- See [Create new import storage](/api#operation/api_storages_gcs_create) then [sync the import storage](/api#operation/api_storages_gcs_sync_create). 
-- See [Create export storage](/api#operation/api_storages_export_gcs_create) and after annotating, [sync the export storage](/api#operation/api_storages_export_gcs_sync_create).
+
+[See our API documentation.](/api/#tag/Storage:-GCS)
+
+
+### IP filtering for enhanced security for GCS
+
+Google Cloud Storage offers [bucket IP filtering](https://cloud.google.com/storage/docs/ip-filtering-overview) as a powerful security mechanism to restrict access to your data based on source IP addresses. This feature helps prevent unauthorized access and provides fine-grained control over who can interact with your storage buckets.
+
+Read more about [Source storage behind your VPC](security.html#Source-storage-behind-your-VPC).
+
+**Common Use Cases:**
+- Restrict bucket access to only your organization's IP ranges
+- Allow access only from specific VPC networks in your infrastructure
+- Secure sensitive data by limiting access to known IP addresses
+- Control access for third-party integrations by whitelisting their IPs
+
+<details>
+<summary>How to Set Up IP Filtering</summary>
+<br>
+
+1. First, create your GCS bucket through the console or CLI
+2. Create a JSON configuration file to define IP filtering rules. You have two options:
+   For public IP ranges:
+```json
+{
+  "mode": "Enabled", 
+  "publicNetworkSource": {
+    "allowedIpCidrRanges": [
+      "xxx.xxx.xxx.xxx", // Your first IP address
+      "xxx.xxx.xxx.xxx", // Your second IP address
+      "xxx.xxx.xxx.xxx/xx" // Your IP range in CIDR notation
+    ]
+  }
+}
+```
+
+<div class="enterprise-only">
+
+!!! note
+    If you're using Label Studio Enterprise at app.humansignal.com and accessing it from your office network:
+    - Add Label Studio Enterprise outgoing IP addresses (see [IP ranges](saas.html#IP-range))
+    - Add your office network IP range (e.g. 192.168.1.0/24)
+    - If both Label Studio Enterprise and your office are on the same VPN network (e.g. 10.0.0.0/16), you only need to add that VPN subnet
+
+</div>
+
+For VPC network sources:
+```json
+{
+  "mode": "Enabled",
+  "vpcNetworkSources": [
+    {
+      "network": "projects/PROJECT_ID/global/networks/NETWORK_NAME",
+      "allowedIpCidrRanges": [
+        RANGE_CIDR
+      ]
+    }
+  ]
+}
+```
+
+3. Apply the IP filtering rules to your bucket using the following command:
+```bash
+gcloud alpha storage buckets update gs://BUCKET_NAME --ip-filter-file=IP_FILTER_CONFIG_FILE
+```
+
+4. To remove IP filtering rules when no longer needed:
+```bash
+gcloud alpha storage buckets update gs://BUCKET_NAME --clear-ip-filter
+```
+
+#### Limitations to Consider
+- Maximum of 200 IP CIDR blocks across all rules
+- Maximum of 25 VPC networks in the IP filter rules
+- Not supported for dual-regional buckets
+- May affect access from certain Google Cloud services
+
+[Read more about GCS IP filtering](https://cloud.google.com/storage/docs/ip-filtering-overview)
+
+</details>
+
 
 ##  Microsoft Azure Blob storage
 

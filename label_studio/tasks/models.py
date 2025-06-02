@@ -29,7 +29,8 @@ from data_import.models import FileUpload
 from data_manager.managers import PreparedTaskManager, TaskManager
 from django.conf import settings
 from django.db import OperationalError, models, transaction
-from django.db.models import CheckConstraint, JSONField, Q
+from django.db.models import CheckConstraint, F, JSONField, Q
+from django.db.models.lookups import GreaterThanOrEqual
 from django.db.models.signals import post_delete, post_save, pre_delete, pre_save
 from django.dispatch import Signal, receiver
 from django.urls import reverse
@@ -275,6 +276,15 @@ class Task(TaskMixin, models.Model):
         """
         from projects.functions.next_task import get_next_task_logging_level
 
+        if self.project.show_ground_truth_first and flag_set(
+            'fflag_feat_all_leap_1825_annotator_evaluation_short', user='auto'
+        ):
+            # in show_ground_truth_first mode(onboarding)
+            # we ignore overlap setting for ground_truth tasks
+            # https://humansignal.atlassian.net/browse/LEAP-1963
+            if self.annotations.filter(ground_truth=True).exists():
+                return False
+
         q = self.get_lock_exclude_query(user)
 
         num_locks = self.num_locks_user(user=user)
@@ -414,7 +424,7 @@ class Task(TaskMixin, models.Model):
         project = self.project
 
         if not storage:
-            storage_objects = project.get_all_storage_objects(type_='import')
+            storage_objects = project.get_all_import_storage_objects
             storage = get_storage_by_url(url, storage_objects)
 
         if storage:
@@ -439,7 +449,7 @@ class Task(TaskMixin, models.Model):
                 protected_data[key] = value
             return protected_data
         else:
-            storage_objects = project.get_all_storage_objects(type_='import')
+            storage_objects = project.get_all_import_storage_objects
 
             # try resolve URLs via storage associated with that task
             for field in task_data:
@@ -464,14 +474,7 @@ class Task(TaskMixin, models.Model):
                 storage = self.storage or get_storage_by_url(task_data[field], storage_objects)
                 if storage:
                     try:
-                        proxy_task = None
-                        if flag_set(
-                            'fflag_fix_all_lsdv_4711_cors_errors_accessing_task_data_short',
-                            user='auto',
-                        ):
-                            proxy_task = self
-
-                        resolved_uri = storage.resolve_uri(task_data[field], proxy_task)
+                        resolved_uri = storage.resolve_uri(task_data[field], self)
                     except Exception as exc:
                         logger.debug(exc, exc_info=True)
                         resolved_uri = None
@@ -482,6 +485,9 @@ class Task(TaskMixin, models.Model):
     @property
     def storage(self):
         # maybe task has storage link
+        # TODO: this is bad idea to use storage from storage_link,
+        # because storage resolver will be limited to this storage,
+        # however, we may need to use other storages to resolve the uri.
         storage_link = self.get_storage_link()
         if storage_link:
             return storage_link.storage
@@ -682,6 +688,13 @@ class Annotation(AnnotationMixin, models.Model):
         help_text='User who created the last annotation history item',
         default=None,
         null=True,
+    )
+    bulk_created = models.BooleanField(
+        _('bulk created'),
+        default=False,
+        db_default=False,
+        null=True,
+        help_text='Annotation was created in bulk mode',
     )
 
     class Meta:
@@ -925,15 +938,8 @@ class Prediction(models.Model):
         return timesince(self.created_at)
 
     def has_permission(self, user):
-        if flag_set(
-            'fflag_perf_back_lsdv_4695_update_prediction_query_to_use_direct_project_relation',
-            user='auto',
-        ):
-            user.project = self.project  # link for activity log
-            return self.project.has_permission(user)
-        else:
-            user.project = self.task.project  # link for activity log
-            return self.task.project.has_permission(user)
+        user.project = self.project  # link for activity log
+        return self.project.has_permission(user)
 
     @classmethod
     def prepare_prediction_result(cls, result, project):
@@ -1001,13 +1007,8 @@ class Prediction(models.Model):
                 update_fields = {'project_id'}.union(update_fields)
 
         # "result" data can come in different forms - normalize them to JSON
-        if flag_set(
-            'fflag_perf_back_lsdv_4695_update_prediction_query_to_use_direct_project_relation',
-            user='auto',
-        ):
-            self.result = self.prepare_prediction_result(self.result, self.project)
-        else:
-            self.result = self.prepare_prediction_result(self.result, self.task.project)
+        self.result = self.prepare_prediction_result(self.result, self.project)
+
         if update_fields is not None:
             update_fields = {'result'}.union(update_fields)
         # set updated_at field of task to now()
@@ -1184,6 +1185,9 @@ class PredictionMeta(models.Model):
                 completion_tokens_count=data.get('completion_tokens'),
                 total_tokens_count=data.get('prompt_tokens', 0) + data.get('completion_tokens', 0),
                 inference_time=data.get('inference_time'),
+                extra={
+                    'message_counts': data.get('message_counts', {}),
+                },
             )
             if isinstance(prediction, Prediction):
                 prediction_meta.prediction = prediction
@@ -1397,10 +1401,15 @@ def bulk_update_stats_project_tasks(tasks, project=None):
         maximum_annotations = project.maximum_annotations
         # update filters if we can use overlap
         if use_overlap:
-            # finished tasks
-            finished_tasks = tasks.filter(
-                Q(total_annotations__gte=maximum_annotations) | Q(total_annotations__gte=1, overlap=1)
+            # following definition of `completed_annotations` above, count cancelled annotations
+            # as completed if project is in IGNORE_SKIPPED mode
+            completed_annotations_f_expr = F('total_annotations')
+            if project.skip_queue == project.SkipQueue.IGNORE_SKIPPED:
+                completed_annotations_f_expr += F('cancelled_annotations')
+            finished_q = Q(GreaterThanOrEqual(completed_annotations_f_expr, maximum_annotations)) | Q(
+                GreaterThanOrEqual(completed_annotations_f_expr, 1), overlap=1
             )
+            finished_tasks = tasks.filter(finished_q)
             finished_tasks_ids = finished_tasks.values_list('id', flat=True)
             tasks.update(is_labeled=Q(id__in=finished_tasks_ids))
 

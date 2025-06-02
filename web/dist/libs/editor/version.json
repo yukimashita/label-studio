@@ -1,6 +1,6 @@
 {
-  "message": "docs: rename github org",
-  "commit": "ca8611b063fbb1015cb79d9f3b754ae251297e14",
-  "date": "2024-12-03T11:44:20.000Z",
-  "branch": "develop"
+  "message": "fix: FIT-42: LSO-1.18.0: Screen Goes Blank When Filtering by Predicted Model Version in Label Studio Projects (#7518)",
+  "commit": "a055e9d641cf5c2675703535cdb6997bf825966e",
+  "date": "2025-05-13T12:26:13.000Z",
+  "branch": "ls-release/1.18.0"
 }

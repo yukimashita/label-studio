@@ -1,3 +1,4 @@
+import { ff } from "@humansignal/core";
 import { inject } from "mobx-react";
 import { destroy, getRoot, getType, types } from "mobx-state-tree";
 
@@ -16,7 +17,7 @@ import ToolsManager from "../../../tools/Manager";
 import { parseValue } from "../../../utils/data";
 import {
   FF_DEV_3377,
-  FF_DEV_3666,
+  FF_DEV_3391,
   FF_DEV_3793,
   FF_LSDV_4583,
   FF_LSDV_4583_6,
@@ -568,7 +569,9 @@ const Model = types
       };
     },
   }))
-
+  .volatile((self) => ({
+    manager: null,
+  }))
   // actions for the tools
   .actions((self) => {
     const manager = ToolsManager.getInstance({ name: self.name });
@@ -578,18 +581,19 @@ const Model = types
       if (!self.store.task) return;
 
       const parsedValue = self.multiImage ? self.parsedValueList : self.parsedValue;
+      const idPostfix = self.annotation ? `@${self.annotation.id}` : "";
 
       if (Array.isArray(parsedValue)) {
         parsedValue.forEach((src, index) => {
           self.imageEntities.push({
-            id: `${self.name}#${index}`,
+            id: `${self.name}#${index}${idPostfix}`,
             src,
             index,
           });
         });
       } else {
         self.imageEntities.push({
-          id: `${self.name}#0`,
+          id: `${self.name}#0${idPostfix}`,
           src: parsedValue,
           index: 0,
         });
@@ -599,6 +603,9 @@ const Model = types
     }
 
     function afterAttach() {
+      if (ff.isActive(FF_DEV_3391) && !self.annotation) {
+        return;
+      }
       if (self.selectioncontrol) manager.addTool("MoveTool", Tools.Selection.create({}, env));
 
       if (self.zoomcontrol) manager.addTool("ZoomPanTool", Tools.Zoom.create({}, env));
@@ -1106,15 +1113,8 @@ const Model = types
     },
 
     checkLabels() {
-      let labelStates;
-
-      if (isFF(FF_DEV_3666)) {
-        // there should be at least one available label or none of them should be selected
-        labelStates = self.activeStates() || [];
-      } else {
-        // there is should be at least one state selected for *labels object
-        labelStates = (self.states() || []).filter((s) => s.type.includes("labels"));
-      }
+      // there should be at least one available label or none of them should be selected
+      const labelStates = self.activeStates() || [];
       const selectedStates = self.getAvailableStates();
 
       return selectedStates.length !== 0 || labelStates.length === 0;

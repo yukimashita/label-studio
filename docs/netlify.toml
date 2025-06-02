@@ -23,6 +23,42 @@ status = 301
 force = true
 
 [[redirects]]
+from = "/guide/dataset_create"
+to = "/guide"
+status = 301
+force = true
+
+[[redirects]]
+from = "/guide/dataset_manage"
+to = "/guide"
+status = 301
+force = true
+
+[[redirects]]
+from = "/guide/dataset_overview"
+to = "/guide"
+status = 301
+force = true
+
+[[redirects]]
+from = "/guide/dataset_search"
+to = "/guide"
+status = 301
+force = true
+
+[[redirects]]
+from = "/guide/scripts"
+to = "/guide/plugins"
+status = 301
+force = true
+
+[[redirects]]
+from = "/guide/script_examples"
+to = "/plugins"
+status = 301
+force = true
+
+[[redirects]]
 from = "/"
 to = "/guide"
 status = 301

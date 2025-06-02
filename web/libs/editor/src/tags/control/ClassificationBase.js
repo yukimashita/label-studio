@@ -58,6 +58,11 @@ const ClassificationBase = types
       getRegionElement() {
         return self.elementRef.current;
       },
+
+      // Indicates that it could exist without information about objects, taskData and regions
+      get isIndependent() {
+        return self.isClassificationTag && !self.perregion && !self.peritem && !self.value;
+      },
     };
   })
   .actions((self) => {
@@ -128,6 +133,7 @@ const ClassificationBase = types
       // update result in the store with current set value
       updateResult() {
         if (self.result) {
+          self.result.area.updateOriginOnEdit();
           self.result.area.setValue(self);
         } else {
           if (self.perregion) {

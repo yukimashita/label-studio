@@ -1,11 +1,11 @@
 import { inject } from "mobx-react";
-import { LsCheckAlt, LsCrossAlt } from "../../../assets/icons";
+import clsx from "clsx";
 import { useSDK } from "../../../providers/SDKProvider";
-import { Block, Elem } from "../../../utils/bem";
+import { cn } from "../../../utils/bem";
 import { isDefined } from "../../../utils/utils";
 import { Space } from "../../Common/Space/Space";
-import { Tooltip } from "../../Common/Tooltip/Tooltip";
-import { Userpic } from "../../Common/Userpic/Userpic";
+import { IconCheckAlt, IconCrossAlt } from "@humansignal/icons";
+import { Tooltip, Userpic } from "@humansignal/ui";
 import { Common } from "../../Filters/types";
 import { VariantSelect } from "../../Filters/types/List";
 import "./Annotators.scss";
@@ -16,10 +16,12 @@ export const Annotators = (cell) => {
   const userList = Array.from(value);
   const renderable = userList.slice(0, 10);
   const extra = userList.length - renderable.length;
+  const userPickBadge = cn("userpic-badge");
+  const annotatorsCN = cn("annotators");
 
   return (
-    <Block name="annotators">
-      {renderable.map((item) => {
+    <div className={annotatorsCN.toString()}>
+      {renderable.map((item, index) => {
         const user = item.user ?? item;
         const { annotated, reviewed, review } = item;
 
@@ -28,9 +30,9 @@ export const Annotators = (cell) => {
         const suppressStats = column.alias === "comment_authors";
 
         return (
-          <Elem
-            key={`user-${user.id}`}
-            name="item"
+          <div
+            key={`user-${user.id}-${index}`}
+            className={annotatorsCN.elem("item").toString()}
             onClick={(e) => {
               e.preventDefault();
               e.stopPropagation();
@@ -43,19 +45,19 @@ export const Annotators = (cell) => {
                 faded={userpicIsFaded}
                 badge={{
                   bottomRight: review && (
-                    <Block name="userpic-badge" mod={{ [review]: true }}>
-                      {review === "rejected" ? <LsCrossAlt /> : <LsCheckAlt />}
-                    </Block>
+                    <div className={clsx(userPickBadge.toString(), userPickBadge.mod({ [review]: true }).toString())}>
+                      {review === "rejected" ? <IconCrossAlt /> : <IconCheckAlt />}
+                    </div>
                   ),
                 }}
               />
             </Tooltip>
-          </Elem>
+          </div>
         );
       })}
       {extra > 0 && (
-        <Elem
-          name="item"
+        <div
+          className={annotatorsCN.elem("item").toString()}
           onClick={(e) => {
             e.preventDefault();
             e.stopPropagation();
@@ -63,9 +65,9 @@ export const Annotators = (cell) => {
           }}
         >
           <Userpic username={`+${extra}`} />
-        </Elem>
+        </div>
       )}
-    </Block>
+    </div>
   );
 };
 
@@ -85,6 +87,15 @@ Annotators.FilterItem = UsersInjector(({ users, item }) => {
     </Space>
   ) : null;
 });
+
+Annotators.searchFilter = (option, queryString) => {
+  const user = DM.users.find((u) => u.id === option?.value);
+  return (
+    user.id?.toString().toLowerCase().includes(queryString.toLowerCase()) ||
+    user.email.toLowerCase().includes(queryString.toLowerCase()) ||
+    user.displayName.toLowerCase().includes(queryString.toLowerCase())
+  );
+};
 
 Annotators.filterable = true;
 Annotators.customOperators = [

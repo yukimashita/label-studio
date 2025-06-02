@@ -2,7 +2,7 @@ import { inject, observer } from "mobx-react";
 import { getType, types } from "mobx-state-tree";
 import ColorScheme from "pleasejs";
 
-import { Tooltip } from "../../common/Tooltip/Tooltip";
+import { Tooltip } from "@humansignal/ui";
 import InfoModal from "../../components/Infomodal/Infomodal";
 import { Label } from "../../components/Label/Label";
 import Constants from "../../core/Constants";
@@ -16,7 +16,6 @@ import { TagParentMixin } from "../../mixins/TagParentMixin";
 import ToolsManager from "../../tools/Manager";
 import Utils from "../../utils";
 import { parseValue } from "../../utils/data";
-import { FF_DEV_2128, isFF } from "../../utils/feature-flags";
 import { sanitizeHtml } from "../../utils/html";
 
 /**
@@ -64,7 +63,7 @@ const TagAttrs = types.model({
   granularity: types.maybeNull(types.enumeration(["symbol", "word", "sentence", "paragraph"])),
   groupcancontain: types.maybeNull(types.string),
   // childrencheck: types.optional(types.enumeration(["any", "all"]), "any")
-  ...(isFF(FF_DEV_2128) ? { html: types.maybeNull(types.string) } : {}),
+  html: types.maybeNull(types.string),
 });
 
 const Model = types

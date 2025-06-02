@@ -1,8 +1,7 @@
 import { useCallback } from "react";
-import { LsPencil } from "../../assets/icons";
-import { IconCross } from "@humansignal/ui";
 import { Button } from "../../components";
-import { Toggle } from "../../components/Form";
+import { IconCross, IconPencil } from "@humansignal/icons";
+import { Toggle } from "@humansignal/ui";
 import { Block, Elem } from "../../utils/bem";
 import "./WebhookPage.scss";
 import { format } from "date-fns";
@@ -51,7 +50,7 @@ const WebhookList = ({ onSelectActive, onAddWebhook, webhooks, fetchWebhooks }) 
                   <Elem name="item-date">Created {format(new Date(obj.created_at), "dd MMM yyyy, HH:mm")}</Elem>
                 </Elem>
                 <Elem name="item-control">
-                  <Button onClick={() => onSelectActive(obj.id)} icon={<LsPencil />}>
+                  <Button onClick={() => onSelectActive(obj.id)} icon={<IconPencil />}>
                     Edit
                   </Button>
                   <Button

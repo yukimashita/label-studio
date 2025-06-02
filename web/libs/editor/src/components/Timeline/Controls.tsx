@@ -10,13 +10,14 @@ import {
   IconFullscreen,
   IconFullscreenExit,
   IconNext,
-  IconPause,
-  IconPlay,
   IconPrev,
   IconRewind,
-} from "../../assets/icons/timeline";
+  IconTimelinePause,
+  IconTimelinePlay,
+} from "@humansignal/icons";
 import { Button, type ButtonProps } from "../../common/Button/Button";
 import { Space } from "../../common/Space/Space";
+import { Hotkey } from "../../core/Hotkey";
 import { Block, Elem } from "../../utils/bem";
 import { isDefined } from "../../utils/utilities";
 import { TimelineContext } from "./Context";
@@ -247,8 +248,9 @@ export const Controls: FC<TimelineControlsProps> = memo(
               data-testid={`playback-button:${playing ? "pause" : "play"}`}
               onClick={handlePlay}
               hotkey={settings?.playpauseHotkey}
+              hotkeyScope={Hotkey.ALL_SCOPES}
             >
-              {playing ? <IconPause /> : <IconPlay />}
+              {playing ? <IconTimelinePause /> : <IconTimelinePlay />}
             </ControlButton>
             <AltControls
               showAlterantive={altControlsMode && !disableFrames}

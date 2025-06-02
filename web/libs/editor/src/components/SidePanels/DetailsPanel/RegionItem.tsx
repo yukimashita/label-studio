@@ -1,8 +1,7 @@
 import chroma from "chroma-js";
 import { observer } from "mobx-react";
 import { type FC, useMemo, useState } from "react";
-import { IconLink, IconPlusAlt, IconTrash, IconWarning } from "../../../assets/icons";
-import { IconEyeClosed, IconEyeOpened } from "../../../assets/icons/timeline";
+import { IconRelationLink, IconPlus, IconTrash, IconWarning, IconEyeClosed, IconEyeOpened } from "@humansignal/icons";
 import { Button, type ButtonProps } from "../../../common/Button/Button";
 import { CREATE_RELATION_MODE } from "../../../stores/Annotation/LinkingModes";
 import { Block, Elem } from "../../../utils/bem";
@@ -49,6 +48,11 @@ export const RegionItem: FC<RegionItemProps> = observer(
             <Elem name="icon">
               <NodeIcon node={region} />
             </Elem>
+            <Elem name="index">
+              <Elem tag="span" name="index_value">
+                {region.region_index}
+              </Elem>
+            </Elem>
             <RegionLabels region={region} />
           </Elem>
           {withIds && <span>{region.cleanId}</span>}
@@ -94,7 +98,7 @@ const RegionAction: FC<any> = observer(({ region, annotation, editMode, onEditMo
   entityButtons.push(
     <RegionActionButton
       key="relation"
-      icon={<IconLink />}
+      icon={<IconRelationLink />}
       primary={annotation.isLinkingMode}
       onClick={(_e: any, hotkey?: any) => {
         // If this is triggered by a hotkey, defer to the global bound handler for relations to avoid contention.
@@ -113,7 +117,7 @@ const RegionAction: FC<any> = observer(({ region, annotation, editMode, onEditMo
   entityButtons.push(
     <RegionActionButton
       key="meta"
-      icon={<IconPlusAlt />}
+      icon={<IconPlus />}
       primary={editMode}
       onClick={() => onEditModeChange(!editMode)}
       hotkey="region:meta"
@@ -140,12 +144,16 @@ const RegionAction: FC<any> = observer(({ region, annotation, editMode, onEditMo
         <RegionActionButton
           icon={region.hidden ? <IconEyeClosed /> : <IconEyeOpened />}
           onClick={region.toggleHidden}
+          displayedHotkey="region:visibility"
+          aria-label={`${region.hidden ? "Show" : "Hide"} selected region`}
         />
         <RegionActionButton
           danger
           disabled={region.isReadOnly()}
           icon={<IconTrash />}
           onClick={() => annotation.deleteRegion(region)}
+          displayedHotkey="region:delete"
+          aria-label="Delete selected region"
         />
       </Elem>
     </Block>

@@ -169,7 +169,7 @@ module.exports = composePlugins(
 
           // we also don't need css modules as these are used directly
           // in the code and don't need prefixing
-          if (testString.match(/module/)) return false;
+          if (testString.match(/module|raw/)) return false;
 
           // we only target pre-processors that has 'css-loader included'
           return testString.match(/scss|sass/) && r.use.some((u) => u.loader && u.loader.includes("css-loader"));
@@ -193,6 +193,10 @@ module.exports = composePlugins(
             };
           }
         });
+      }
+
+      if (testString.includes(".css")) {
+        rule.exclude = /tailwind\.css/;
       }
     });
 
@@ -223,6 +227,21 @@ module.exports = composePlugins(
           name: "[name].[ext]",
         },
       },
+      // tailwindcss
+      {
+        test: /tailwind\.css/,
+        exclude: /node_modules/,
+        use: [
+          "style-loader",
+          {
+            loader: "css-loader",
+            options: {
+              importLoaders: 1,
+            },
+          },
+          "postcss-loader",
+        ],
+      },
     );
 
     if (isDevelopment) {
@@ -236,7 +255,9 @@ module.exports = composePlugins(
       // Common dependencies across at least two sub-packages
       react: path.resolve(__dirname, "node_modules/react"),
       "react-dom": path.resolve(__dirname, "node_modules/react-dom"),
+      "react-joyride": path.resolve(__dirname, "node_modules/react-joyride"),
       "@humansignal/ui": path.resolve(__dirname, "libs/ui"),
+      "@humansignal/core": path.resolve(__dirname, "libs/core"),
     };
 
     return merge(config, {
@@ -262,13 +283,19 @@ module.exports = composePlugins(
                 publicPath: `${FRONTEND_HOSTNAME}/react-app/`,
               },
               allowedHosts: "all", // Allow access from Django's server
-              proxy: [
-                {
-                  router: {
-                    "/api": `${DJANGO_HOSTNAME}/api`, // Proxy api requests to Django's server
-                  },
+              proxy: {
+                "/api": {
+                  target: `${DJANGO_HOSTNAME}/api`,
+                  changeOrigin: true,
+                  pathRewrite: { "^/api": "" },
+                  secure: false,
                 },
-              ],
+                "/": {
+                  target: `${DJANGO_HOSTNAME}`,
+                  changeOrigin: true,
+                  secure: false,
+                },
+              },
             },
     });
   },

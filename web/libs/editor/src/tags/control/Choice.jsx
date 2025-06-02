@@ -15,7 +15,7 @@ import { TagParentMixin } from "../../mixins/TagParentMixin";
 import { FF_DEV_3391, isFF } from "../../utils/feature-flags";
 import { Block, Elem } from "../../utils/bem";
 import "./Choice/Choice.scss";
-import { LsChevron } from "../../assets/icons";
+import { IconChevron } from "@humansignal/ui";
 import { HintTooltip } from "../../components/Taxonomy/Taxonomy";
 import { sanitizeHtml } from "../../utils/html";
 
@@ -125,6 +125,10 @@ const Model = types
     isReadOnly() {
       return self.readonly || self.parent?.isReadOnly();
     },
+    // Indicates that it could exist without information about objects, taskData and regions
+    get isIndependent() {
+      return true;
+    },
   }))
   .volatile(() => ({
     // `selected` is a predefined parameter, we cannot use it for state, so use `sel`
@@ -214,7 +218,7 @@ const HtxNewChoiceView = ({ item, store }) => {
         </Elem>
         {!item.isLeaf ? (
           <Elem name="toggle" mod={{ collapsed }} component={Button} type="text" onClick={toogleCollapsed}>
-            <LsChevron />
+            <IconChevron />
           </Elem>
         ) : (
           false

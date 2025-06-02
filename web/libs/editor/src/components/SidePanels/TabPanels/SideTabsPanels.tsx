@@ -215,7 +215,7 @@ const SideTabsPanelsComponent: FC<SidePanelsProps> = ({
     (key: string, top: number, left: number, visible?: boolean) => {
       const panel = panelData[key];
       const parentWidth = rootRef.current?.clientWidth ?? 0;
-      const visibleHeight = visible ?? panel.visible ? panel.height : PANEL_HEADER_HEIGHT;
+      const visibleHeight = (visible ?? panel.visible) ? panel.height : PANEL_HEADER_HEIGHT;
       const detachedHeight = panel.detached ? visibleHeight : panel.height;
       const adjustedHeight =
         panel.height === rootRef.current?.clientHeight || !panel.detached ? DEFAULT_PANEL_HEIGHT : detachedHeight;
@@ -316,6 +316,7 @@ const SideTabsPanelsComponent: FC<SidePanelsProps> = ({
               ? clamp(h, DEFAULT_PANEL_HEIGHT, DEFAULT_PANEL_MAX_HEIGHT)
               : panelData[panelKey].height,
           });
+          setSnap(undefined);
         });
       });
     },
@@ -577,7 +578,11 @@ const SideTabsPanelsComponent: FC<SidePanelsProps> = ({
                     return <Fragment key={panelType}>{content}</Fragment>;
                   }
                   return (
-                    <Elem key={panelType} name="wrapper" mod={{ align: panelType, snap: snap === panelType }}>
+                    <Elem
+                      key={panelType}
+                      name="wrapper"
+                      mod={{ align: panelType, snap: !lockPanelContents && snap === panelType && snap !== undefined }}
+                    >
                       {content}
                     </Elem>
                   );

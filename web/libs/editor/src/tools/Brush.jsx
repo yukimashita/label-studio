@@ -9,7 +9,6 @@ import { DrawingTool } from "../mixins/DrawingTool";
 import { Tool } from "../components/Toolbar/Tool";
 import { Range } from "../common/Range/Range";
 import { NodeViews } from "../components/Node/Node";
-import { FF_DEV_3666, isFF } from "../utils/feature-flags";
 
 const MIN_SIZE = 1;
 const MAX_SIZE = 50;
@@ -147,7 +146,7 @@ const _Tool = types
         brush.addPoint(Math.floor(x), Math.floor(y));
       },
 
-      mouseupEv(ev, _, [x, y]) {
+      mouseupEv(_ev, _, [x, y]) {
         if (self.mode !== "drawing") return;
         self.addPoint(x, y);
         self.mode = "viewing";
@@ -168,6 +167,7 @@ const _Tool = types
       },
 
       mousemoveEv(ev, _, [x, y]) {
+        if (!self.isAllowedInteraction(ev)) return;
         if (self.mode !== "drawing") return;
         if (
           !findClosestParent(
@@ -182,6 +182,7 @@ const _Tool = types
       },
 
       mousedownEv(ev, _, [x, y]) {
+        if (!self.isAllowedInteraction(ev)) return;
         if (
           !findClosestParent(
             ev.target,
@@ -213,7 +214,7 @@ const _Tool = types
 
           self.addPoint(x, y);
         } else {
-          if (isFF(FF_DEV_3666) && !self.canStartDrawing()) return;
+          if (!self.canStartDrawing()) return;
           if (self.tagTypes.stateTypes === self.control.type && !self.control.isSelected) return;
           self.annotation.history.freeze();
           self.mode = "drawing";

@@ -5,7 +5,6 @@ import logging
 from typing import Any, Mapping, Optional
 
 from annoying.fields import AutoOneToOneField
-from core.feature_flags import flag_set
 from core.label_config import (
     check_control_in_config_by_regex,
     check_toname_in_config_by_regex,
@@ -27,11 +26,11 @@ from core.utils.common import (
     merge_labels_counters,
 )
 from core.utils.db import fast_first
-from core.utils.exceptions import LabelStudioValidationErrorSentryIgnored
 from django.conf import settings
 from django.core.validators import MaxLengthValidator, MinLengthValidator
 from django.db import models, transaction
 from django.db.models import Avg, BooleanField, Case, Count, JSONField, Max, Q, Sum, Value, When
+from django.utils.functional import cached_property
 from django.utils.translation import gettext_lazy as _
 from label_studio_sdk._extensions.label_studio_tools.core.label_config import parse_config
 from labels_manager.models import Label
@@ -46,6 +45,8 @@ from projects.functions import (
     annotate_useful_annotation_number,
 )
 from projects.functions.utils import make_queryset_from_iterable
+from projects.signals import ProjectSignals
+from rest_framework.exceptions import ValidationError
 from tasks.models import (
     Annotation,
     AnnotationDraft,
@@ -326,13 +327,7 @@ class Project(ProjectMixin, models.Model):
 
     @property
     def has_any_predictions(self):
-        if flag_set(
-            'fflag_perf_back_lsdv_4695_update_prediction_query_to_use_direct_project_relation',
-            user='auto',
-        ):
-            return Prediction.objects.filter(Q(project=self.id)).exists()
-        else:
-            return Prediction.objects.filter(Q(task__project=self.id)).exists()
+        return Prediction.objects.filter(Q(project=self.id)).exists()
 
     @property
     def business(self):
@@ -530,34 +525,42 @@ class Project(ProjectMixin, models.Model):
         if not hasattr(self, 'summary'):
             return
 
-        if self.num_tasks == 0:
-            logger.debug(f'Project {self} has no tasks: nothing to validate here. Ensure project summary is empty')
-            self.summary.reset()
-            return
+        with transaction.atomic():
+            # Lock summary for update to avoid race conditions
+            summary = ProjectSummary.objects.select_for_update().get(project=self)
 
-        # validate data columns consistency
-        fields_from_config = get_all_object_tag_names(config_string)
-        if not fields_from_config:
-            logger.debug('Data fields not found in labeling config')
-            return
+            if self.num_tasks == 0:
+                logger.debug(f'Project {self} has no tasks: nothing to validate here. Ensure project summary is empty')
+                logger.info(f'calling reset project_id={self.id} validate_config() num_tasks={self.num_tasks}')
+                summary.reset()
+                return
 
-        # TODO: DEV-2939 Add validation for fields addition in label config
-        """fields_from_config = {field.split('[')[0] for field in fields_from_config}  # Repeater tag support
-        fields_from_data = set(self.summary.common_data_columns)
-        fields_from_data.discard(settings.DATA_UNDEFINED_NAME)
-        if fields_from_data and not fields_from_config.issubset(fields_from_data):
-            different_fields = list(fields_from_config.difference(fields_from_data))
-            raise LabelStudioValidationErrorSentryIgnored(
-                f'These fields are not present in the data: {",".join(different_fields)}'
-            )"""
+            # validate data columns consistency
+            fields_from_config = get_all_object_tag_names(config_string)
+            if not fields_from_config:
+                logger.debug('Data fields not found in labeling config')
+                return
 
-        if self.num_annotations == 0 and self.num_drafts == 0:
-            logger.debug(
-                f'Project {self} has no annotations and drafts: nothing to validate here. '
-                f'Ensure annotations-related project summary is empty'
-            )
-            self.summary.reset(tasks_data_based=False)
-            return
+            # TODO: DEV-2939 Add validation for fields addition in label config
+            """fields_from_config = {field.split('[')[0] for field in fields_from_config}  # Repeater tag support
+            fields_from_data = set(self.summary.common_data_columns)
+            fields_from_data.discard(settings.DATA_UNDEFINED_NAME)
+            if fields_from_data and not fields_from_config.issubset(fields_from_data):
+                different_fields = list(fields_from_config.difference(fields_from_data))
+                raise ValidationError(
+                    f'These fields are not present in the data: {",".join(different_fields)}'
+                )"""
+
+            if self.num_annotations == 0 and self.num_drafts == 0:
+                logger.debug(
+                    f'Project {self} has no annotations and drafts: nothing to validate here. '
+                    f'Ensure annotations-related project summary is empty'
+                )
+                logger.info(
+                    f'calling reset project_id={self.id} validate_config() num_annotations={self.num_annotations} num_drafts={self.num_drafts}'
+                )
+                summary.reset(tasks_data_based=False)
+                return
 
         # validate annotations consistency
         annotations_from_config = set(get_all_control_tag_tuples(config_string))
@@ -583,7 +586,7 @@ class Project(ProjectMixin, models.Model):
                     )
             if len(diff_str) > 0:
                 diff_str = '\n'.join(diff_str)
-                raise LabelStudioValidationErrorSentryIgnored(
+                raise ValidationError(
                     f'Created annotations are incompatible with provided labeling schema, we found:\n{diff_str}'
                 )
 
@@ -609,7 +612,7 @@ class Project(ProjectMixin, models.Model):
                 )
                 and not check_control_in_config_by_regex(config_string, control_tag_from_data)
             ):
-                raise LabelStudioValidationErrorSentryIgnored(
+                raise ValidationError(
                     f'There are {sum(labels_from_data.values(), 0)} annotation(s) created with tag '
                     f'"{control_tag_from_data}", you can\'t remove it'
                 )
@@ -649,7 +652,7 @@ class Project(ProjectMixin, models.Model):
                     )
                 ):
                     # raise error if labels not dynamic and not in regex rules
-                    raise LabelStudioValidationErrorSentryIgnored(
+                    raise ValidationError(
                         f'These labels still exist in annotations or drafts:\n{diff_str}'
                         f'Please add labels to tag with name="{str(control_tag_from_data)}".'
                     )
@@ -658,6 +661,10 @@ class Project(ProjectMixin, models.Model):
 
     def _label_config_has_changed(self):
         return self.label_config != self.__original_label_config
+
+    @property
+    def label_config_is_not_default(self):
+        return self.label_config != Project._meta.get_field('label_config').default
 
     def should_none_model_version(self, model_version):
         """
@@ -728,7 +735,12 @@ class Project(ProjectMixin, models.Model):
         exists = True if self.pk else False
         project_with_config_just_created = not exists and self.label_config
 
-        if self._label_config_has_changed() or project_with_config_just_created:
+        label_config_has_changed = self._label_config_has_changed()
+        logger.debug(
+            f'Label config has changed: {label_config_has_changed}, original: {self.__original_label_config}, new: {self.label_config}'
+        )
+
+        if label_config_has_changed or project_with_config_just_created:
             self.data_types = extract_data_types(self.label_config)
             self.parsed_label_config = parse_config(self.label_config)
             self.label_config_hash = hash(str(self.parsed_label_config))
@@ -740,10 +752,19 @@ class Project(ProjectMixin, models.Model):
             if update_fields is not None:
                 update_fields = {'control_weights'}.union(update_fields)
 
-        if self._label_config_has_changed():
-            self.__original_label_config = self.label_config
-
         super(Project, self).save(*args, update_fields=update_fields, **kwargs)
+
+        if label_config_has_changed:
+            # save the new label config for future comparison
+            self.__original_label_config = self.label_config
+            # if tasks are already imported, emit signal that project is configured and ready for labeling
+            if self.num_tasks > 0:
+                logger.debug(f'Sending post_label_config_and_import_tasks signal for project {self.id}')
+                ProjectSignals.post_label_config_and_import_tasks.send(sender=Project, project=self)
+            else:
+                logger.debug(
+                    f'No tasks imported for project {self.id}, skipping post_label_config_and_import_tasks signal'
+                )
 
         if not exists:
             steps = ProjectOnboardingSteps.objects.all()
@@ -766,11 +787,18 @@ class Project(ProjectMixin, models.Model):
             )
 
         if hasattr(self, 'summary'):
-            # Ensure project.summary is consistent with current tasks / annotations
-            if self.num_tasks == 0:
-                self.summary.reset()
-            elif self.num_annotations == 0 and self.num_drafts == 0:
-                self.summary.reset(tasks_data_based=False)
+            with transaction.atomic():
+                # Lock summary for update to avoid race conditions
+                summary = ProjectSummary.objects.select_for_update().get(project=self)
+                # Ensure project.summary is consistent with current tasks / annotations
+                if self.num_tasks == 0:
+                    logger.info(f'calling reset project_id={self.id} Project.save() num_tasks={self.num_tasks}')
+                    summary.reset()
+                elif self.num_annotations == 0 and self.num_drafts == 0:
+                    logger.info(
+                        f'calling reset project_id={self.id} Project.save() num_annotations={self.num_annotations} num_drafts={self.num_drafts}'
+                    )
+                    summary.reset(tasks_data_based=False)
 
     def get_member_ids(self):
         if hasattr(self, 'team_link'):
@@ -914,14 +942,7 @@ class Project(ProjectMixin, models.Model):
         :param extended: Boolean, if True, returns additional information. Default is False.
         :return: Dict or list containing model versions and their count predictions.
         """
-        if flag_set(
-            'fflag_perf_back_lsdv_4695_update_prediction_query_to_use_direct_project_relation',
-            user='auto',
-        ):
-            predictions = Prediction.objects.filter(project=self)
-        else:
-            predictions = Prediction.objects.filter(task__project=self)
-        # model_versions = set(predictions.values_list('model_version', flat=True).distinct())
+        predictions = Prediction.objects.filter(project=self)
 
         if extended:
             model_versions = list(
@@ -977,23 +998,45 @@ class Project(ProjectMixin, models.Model):
 
         return self.get_ml_backends(state=MLBackendState.CONNECTED)
 
-    def get_all_storage_objects(self, type_='import'):
+    @cached_property
+    def get_all_import_storage_objects(self):
         from io_storages.models import get_storage_classes
 
-        if hasattr(self, '_storage_objects'):
-            return self._storage_objects
-
         storage_objects = []
-        for storage_class in get_storage_classes(type_):
+        for storage_class in get_storage_classes('import'):
             storage_objects += list(storage_class.objects.filter(project=self))
 
-        self._storage_objects = storage_objects
         return storage_objects
+
+    @cached_property
+    def get_all_export_storage_objects(self):
+        from io_storages.models import get_storage_classes
+
+        storage_objects = []
+        for storage_class in get_storage_classes('export'):
+            storage_objects += list(storage_class.objects.filter(project=self))
+
+        return storage_objects
+
+    @cached_property
+    def multipage_labeling_values(self):
+        """
+        Check if the project's label config contains an Image tag with a valueList attribute,
+        which indicates multipage labeling.
+        """
+        config = self.get_parsed_config()
+        values = []
+        for tag in config.values():
+            for object_tag in tag.get('inputs', []):
+                if object_tag.get('type') == 'Image':
+                    if object_tag.get('valueList') is not None:
+                        values.append(object_tag.get('valueList'))
+        return values
 
     def resolve_storage_uri(self, url: str) -> Optional[Mapping[str, Any]]:
         from io_storages.functions import get_storage_by_url
 
-        storage_objects = self.get_all_storage_objects()
+        storage_objects = self.get_all_import_storage_objects
         storage = get_storage_by_url(url, storage_objects)
 
         if storage:
@@ -1160,6 +1203,11 @@ class ProjectSummary(models.Model):
         return self.project.has_permission(user)
 
     def reset(self, tasks_data_based=True):
+        import traceback
+
+        logger.info(
+            f'reset summary project_id={self.project_id} {tasks_data_based=} {self.all_data_columns=} {traceback.format_stack(limit=4)=}'
+        )
         if tasks_data_based:
             self.all_data_columns = {}
             self.common_data_columns = []
@@ -1189,8 +1237,8 @@ class ProjectSummary(models.Model):
             self.common_data_columns = list(sorted(common_data_columns))
         else:
             self.common_data_columns = list(sorted(set(self.common_data_columns) & common_data_columns))
-        logger.debug(f'summary.all_data_columns = {self.all_data_columns}')
-        logger.debug(f'summary.common_data_columns = {self.common_data_columns}')
+        logger.info(f'update summary.all_data_columns project_id={self.project_id} {self.all_data_columns=}')
+        logger.info(f'update summary.common_data_columns project_id={self.project_id} {self.common_data_columns=}')
         self.save(update_fields=['all_data_columns', 'common_data_columns'])
 
     def remove_data_columns(self, tasks):
@@ -1213,8 +1261,8 @@ class ProjectSummary(models.Model):
                 if key in common_data_columns:
                     common_data_columns.remove(key)
             self.common_data_columns = common_data_columns
-        logger.debug(f'summary.all_data_columns = {self.all_data_columns}')
-        logger.debug(f'summary.common_data_columns = {self.common_data_columns}')
+        logger.info(f'remove summary.all_data_columns project_id={self.project_id} {self.all_data_columns=}')
+        logger.info(f'remove summary.common_data_columns project_id={self.project_id} {self.common_data_columns=}')
         self.save(
             update_fields=[
                 'all_data_columns',

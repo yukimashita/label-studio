@@ -28,10 +28,13 @@ docker-dev-override:
 docker-dev-setup: env-dev-setup docker-dev-override
 
 docker-run-dev:
-	docker-compose up --build
+	docker compose up --build
 
 docker-migrate-dev:
-	docker-compose run app python3 /label-studio/label_studio/manage.py migrate
+	docker compose run app python3 /label-studio/label_studio/manage.py migrate
+
+docker-collectstatic-dev:
+	docker compose run app python3 /label-studio/label_studio/manage.py collectstatic
 
 # Install modules
 frontend-install:

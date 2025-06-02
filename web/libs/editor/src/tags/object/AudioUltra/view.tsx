@@ -1,15 +1,19 @@
 import { observer } from "mobx-react";
-import { type FC, useEffect, useRef } from "react";
+import { type FC, useCallback, useEffect, useMemo, useRef } from "react";
+import { usePersistentJSONState } from "@humansignal/core/lib/hooks/usePersistentState";
+import { TimelineContextProvider } from "../../../components/Timeline/Context";
+import { ErrorMessage } from "../../../components/ErrorMessage/ErrorMessage";
+import { Controls } from "../../../components/Timeline/Controls";
+import type { TimelineSettings } from "../../../components/Timeline/Types";
 import { Hotkey } from "../../../core/Hotkey";
 import { useWaveform } from "../../../lib/AudioUltra/react";
-import { Controls } from "../../../components/Timeline/Controls";
 import type { Region } from "../../../lib/AudioUltra/Regions/Region";
 import type { Segment } from "../../../lib/AudioUltra/Regions/Segment";
 import type { Regions } from "../../../lib/AudioUltra/Regions/Regions";
 import { Block } from "../../../utils/bem";
-import { ErrorMessage } from "../../../components/ErrorMessage/ErrorMessage";
 
 import "./view.scss";
+import { getCurrentTheme } from "@humansignal/ui";
 
 interface AudioUltraProps {
   item: any;
@@ -19,14 +23,15 @@ const NORMALIZED_STEP = 0.1;
 
 const AudioUltraView: FC<AudioUltraProps> = ({ item }) => {
   const rootRef = useRef<HTMLElement | null>();
+  const isDarkMode = getCurrentTheme() === "Dark";
 
   const { waveform, ...controls } = useWaveform(rootRef, {
     src: item._value,
     autoLoad: false,
-    waveColor: "#BEB9C5",
-    gridColor: "#BEB9C5",
+    waveColor: isDarkMode ? "rgba(150,150,150,0.8)" : "rgba(150,150,150,0.8)",
+    gridColor: isDarkMode ? "rgba(150,150,150,0.8)" : "rgba(150,150,150,0.9)",
     gridWidth: 1,
-    backgroundColor: "#fafafa",
+    backgroundColor: isDarkMode ? "rgba(150,150,150,0.8)" : "rgba(255,255,255,0.8)",
     autoCenter: true,
     zoomToCursor: true,
     height: item.height && !isNaN(Number(item.height)) ? Number(item.height) : 96,
@@ -51,13 +56,12 @@ const AudioUltraView: FC<AudioUltraProps> = ({ item }) => {
       deleteable: !item.readonly,
     },
     timeline: {
-      backgroundColor: "#ffffff",
+      backgroundColor: isDarkMode ? "rgb(38, 37, 34)" : "rgba(255,255,255,0.8)",
     },
     experimental: {
       backgroundCompute: true,
       denoize: true,
     },
-    autoPlayNewSegments: true,
     onFrameChanged: (frameState) => {
       item.setWFFrame(frameState);
     },
@@ -206,4 +210,39 @@ const AudioUltraView: FC<AudioUltraProps> = ({ item }) => {
   );
 };
 
-export const AudioUltra = observer(AudioUltraView);
+const AudioUltraWithSettings: FC<AudioUltraProps> = ({ item }) => {
+  const [settings, setSettings] = usePersistentJSONState<TimelineSettings>("ls:audio-tag:settings", {
+    // @todo this hotkey should be moved from these settings for a more appropriate place;
+    // @todo we are planning to have a central hotkeys management, that would be a better option.
+    playpauseHotkey: "audio:playpause",
+    loopRegion: false,
+    autoPlayNewSegments: true,
+  });
+  const changeSetting = useCallback((key: string, value: any) => {
+    setSettings((prev) => ({ ...prev, [key]: value }));
+  }, []);
+
+  // @todo seems like this context is not used at all; and its values are static; better to check and remove
+  const contextValue = useMemo(() => {
+    return {
+      position: 0,
+      length: 0,
+      regions: [],
+      step: 10,
+      playing: false,
+      visibleWidth: 0,
+      seekOffset: 0,
+      data: undefined,
+      settings,
+      changeSetting,
+    };
+  }, [settings]);
+
+  return (
+    <TimelineContextProvider value={contextValue}>
+      <AudioUltraView item={item} />
+    </TimelineContextProvider>
+  );
+};
+
+export const AudioUltra = observer(AudioUltraWithSettings);
