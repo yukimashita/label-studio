@@ -1,15 +1,12 @@
 import { observer } from "mobx-react";
 import { createContext, forwardRef, useCallback, useEffect, useMemo, useRef, useState } from "react";
-import AutoSizer from "react-virtualized-auto-sizer";
-import { VariableSizeList } from "react-window";
-import InfiniteLoader from "react-window-infinite-loader";
 import { useSDK } from "../../../providers/SDKProvider";
 import { isDefined } from "../../../utils/utils";
-import { Button } from "../Button/Button";
 import { Icon } from "../Icon/Icon";
 import { modal } from "../Modal/Modal";
-import { IconCode, IconGear, IconGearNewUI } from "@humansignal/icons";
-import { Tooltip } from "@humansignal/ui";
+import { IconCode, IconGear, IconGearNewUI, IconCopyOutline } from "@humansignal/icons";
+import { AutoSizerTable, Tooltip, Button } from "@humansignal/ui";
+import { useCopyText } from "@humansignal/core/lib/hooks/useCopyText";
 import "./Table.scss";
 import { TableCheckboxCell } from "./TableCheckbox";
 import { tableCN, TableContext } from "./TableContext";
@@ -135,8 +132,8 @@ export const Table = observer(
         return (
           <Tooltip title="Show task source">
             <Button
-              type="link"
-              style={{ width: 32, height: 32, padding: 0 }}
+              look="string"
+              className="w-6 h-6 p-0 text-primary-content hover:text-primary-content-hover"
               onClick={() => {
                 modal({
                   title: `Source for task ${out?.id}`,
@@ -144,7 +141,7 @@ export const Table = observer(
                   body: <TaskSourceView content={out} onTaskLoad={onTaskLoad} sdkType={type} />,
                 });
               }}
-              icon={<Icon icon={IconCode} />}
+              leading={<Icon icon={IconCode} />}
             />
           </Tooltip>
         );
@@ -386,34 +383,19 @@ const StickyList = observer(
 
     return (
       <StickyListContext.Provider value={itemData}>
-        <AutoSizer className={tableCN.elem("auto-size")}>
-          {({ width, height }) => (
-            <InfiniteLoader
-              ref={listRef}
-              itemCount={totalCount}
-              loadMoreItems={loadMore}
-              isItemLoaded={isItemLoaded}
-              threshold={5}
-              minimumBatchSize={30}
-            >
-              {({ onItemsRendered, ref }) => (
-                <VariableSizeList
-                  className={tableCN.elem("virual").toString()}
-                  {...rest}
-                  ref={ref}
-                  width={width}
-                  height={height}
-                  itemData={itemData}
-                  itemSize={itemSize}
-                  onItemsRendered={onItemsRendered}
-                  initialScrollOffset={initialScrollOffset?.(height) ?? 0}
-                >
-                  {ItemWrapper}
-                </VariableSizeList>
-              )}
-            </InfiniteLoader>
-          )}
-        </AutoSizer>
+        <AutoSizerTable
+          ref={listRef}
+          totalCount={totalCount}
+          loadMore={loadMore}
+          isItemLoaded={isItemLoaded}
+          itemData={itemData}
+          itemSize={itemSize}
+          initialScrollOffset={initialScrollOffset}
+          className={tableCN.elem("auto-size").toString()}
+          {...rest}
+        >
+          {ItemWrapper}
+        </AutoSizerTable>
       </StickyListContext.Provider>
     );
   }),
@@ -463,5 +445,40 @@ const TaskSourceView = ({ content, onTaskLoad, sdkType }) => {
     });
   }, []);
 
-  return <pre>{source ? JSON.stringify(source, null, "  ") : null}</pre>;
+  const jsonString = useMemo(() => {
+    return source ? JSON.stringify(source, null, 2) : "";
+  }, [source]);
+
+  const [handleCopy, copied] = useCopyText(jsonString);
+
+  return (
+    <div
+      className="bg-neutral-surface rounded-small font-mono text-body-small leading-body-small overflow-auto max-h-[500px]"
+      style={{ position: "relative" }}
+    >
+      <div style={{ padding: "16px", paddingTop: "16px" }}>
+        <Tooltip title={copied ? "Copied!" : "Copy JSON"}>
+          <Button
+            look="string"
+            variant="neutral"
+            style={{
+              position: "absolute",
+              top: "8px",
+              right: "8px",
+              width: 32,
+              height: 32,
+              padding: 0,
+              zIndex: 10,
+              color: "var(--color-neutral-content-subtle)",
+            }}
+            onClick={handleCopy}
+            leading={<Icon icon={IconCopyOutline} style={{ color: "var(--color-neutral-content-subtle)" }} />}
+          />
+        </Tooltip>
+        <pre className="m-0 whitespace-pre-wrap break-words max-w-full" style={{ marginRight: "40px" }}>
+          {jsonString}
+        </pre>
+      </div>
+    </div>
+  );
 };

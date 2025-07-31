@@ -25,11 +25,11 @@ export const Minimap: FC<any> = () => {
     const bottom = Math.min(top + displayEntries, regions.length - 1);
     return regions
       .slice(top, bottom)
-      .map(({ id, color, sequence }) => {
+      .map(({ id, color, sequence, locked }) => {
       return {
         id,
         color,
-        lifespans: visualizeLifespans(sequence, step),
+        lifespans: visualizeLifespans(sequence, step, locked),
       };
     });
   }, [step, regions, displayEntries]);

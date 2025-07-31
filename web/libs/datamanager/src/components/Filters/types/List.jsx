@@ -21,7 +21,7 @@ export const VariantSelect = observer(({ filter, schema, onChange, multiple, val
   const FilterItem = filter.cellView?.FilterItem;
   return (
     <FilterDropdown
-      items={items?.toJSON ? items.toJSON() : items}
+      items={filterItems(items)}
       value={selectedValue}
       multiple={multiple}
       optionRender={FilterItem}

@@ -468,6 +468,7 @@ const HtxVideoView = ({ item, store }) => {
       selected: reg.selected || reg.inSelection,
       sequence,
       timeline,
+      locked: reg.locked,
     };
   });
 

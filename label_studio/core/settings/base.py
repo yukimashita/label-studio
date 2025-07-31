@@ -231,6 +231,7 @@ INSTALLED_APPS = [
     'ml_models',
     'ml_model_providers',
     'jwt_auth',
+    'session_policy',
 ]
 
 MIDDLEWARE = [
@@ -275,7 +276,15 @@ INTERNAL_IPS = [  # django debug toolbar for django==2.2 requirement
     '127.0.0.1',
     'localhost',
 ]
-CORS_ORIGIN_ALLOW_ALL = True
+
+# Typical secure configuration is simply set CORS_ALLOW_ALL_ORIGINS = False in the env
+if allowed_origins := get_env_list('CORS_ALLOWED_ORIGINS'):
+    CORS_ALLOWED_ORIGINS = allowed_origins
+elif allowed_origin_regexes := get_env_list('CORS_ALLOWED_ORIGIN_REGEXES'):
+    CORS_ALLOWED_ORIGIN_REGEXES = allowed_origin_regexes
+else:
+    CORS_ALLOW_ALL_ORIGINS = get_bool_env('CORS_ALLOW_ALL_ORIGINS', True)
+
 CORS_ALLOW_METHODS = [
     'DELETE',
     'GET',
@@ -486,6 +495,7 @@ SUPPORTED_EXTENSIONS = set(
         '.mp4',
         '.webm',
         '.webp',
+        '.pdf',
     ]
 )
 
@@ -589,6 +599,7 @@ ORGANIZATION_MEMBER_MIXIN = 'organizations.mixins.OrganizationMemberMixin'
 MEMBER_PERM = 'core.api_permissions.MemberHasOwnerPermission'
 RECALCULATE_ALL_STATS = None
 GET_STORAGE_LIST = 'io_storages.functions.get_storage_list'
+STORAGE_LOAD_TASKS_JSON = 'io_storages.utils.load_tasks_json_lso'
 STORAGE_ANNOTATION_SERIALIZER = 'io_storages.serializers.StorageAnnotationSerializer'
 TASK_SERIALIZER_BULK = 'tasks.serializers.BaseTaskSerializerBulk'
 PREPROCESS_FIELD_NAME = 'data_manager.functions.preprocess_field_name'
@@ -597,6 +608,11 @@ STORAGE_PERMISSION = 'io_storages.permissions.StoragePermission'
 PROJECT_IMPORT_PERMISSION = 'projects.permissions.ProjectImportPermission'
 DELETE_TASKS_ANNOTATIONS_POSTPROCESS = None
 FEATURE_FLAGS_GET_USER_REPR = 'core.feature_flags.utils.get_user_repr'
+
+# Test factories
+ORGANIZATION_FACTORY = 'organizations.tests.factories.OrganizationFactory'
+PROJECT_FACTORY = 'projects.tests.factories.ProjectFactory'
+USER_FACTORY = 'users.tests.factories.UserFactory'
 
 
 def project_delete(project):
@@ -669,6 +685,7 @@ STORAGE_IN_PROGRESS_TIMER = float(get_env('STORAGE_IN_PROGRESS_TIMER', 5.0))
 STORAGE_EXPORT_CHUNK_SIZE = int(get_env('STORAGE_EXPORT_CHUNK_SIZE', 100))
 
 USE_NGINX_FOR_EXPORT_DOWNLOADS = get_bool_env('USE_NGINX_FOR_EXPORT_DOWNLOADS', False)
+USE_NGINX_FOR_UPLOADS = get_bool_env('USE_NGINX_FOR_UPLOADS', True)
 
 if get_env('MINIO_STORAGE_ENDPOINT') and not get_bool_env('MINIO_SKIP', False):
     CLOUD_FILE_STORAGE_ENABLED = True
@@ -833,3 +850,6 @@ RESOLVER_PROXY_GCS_DOWNLOAD_URL = get_env(
 RESOLVER_PROXY_GCS_HTTP_TIMEOUT = int(get_env('RESOLVER_PROXY_GCS_HTTP_TIMEOUT', 5))
 RESOLVER_PROXY_ENABLE_ETAG_CACHE = get_bool_env('RESOLVER_PROXY_ENABLE_ETAG_CACHE', True)
 RESOLVER_PROXY_CACHE_TIMEOUT = int(get_env('RESOLVER_PROXY_CACHE_TIMEOUT', 3600))
+
+# Advanced validator for ImportStorageSerializer in enterprise
+IMPORT_STORAGE_SERIALIZER_VALIDATE = None

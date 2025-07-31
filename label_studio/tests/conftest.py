@@ -51,18 +51,26 @@ from .utils import (
 boto3.set_stream_logger('botocore.credentials', logging.DEBUG)
 
 
+@pytest.fixture(autouse=True)
+def set_test_password_hasher(settings):
+    """
+    Set the password hasher to less expensive MD5 for testing purposes.
+    """
+    settings.PASSWORD_HASHERS = ['django.contrib.auth.hashers.MD5PasswordHasher']
+
+
 @pytest.fixture(autouse=False)
-def enable_csrf():
+def enable_csrf(settings):
     settings.USE_ENFORCE_CSRF_CHECKS = True
 
 
 @pytest.fixture(autouse=False)
-def label_stream_history_limit():
+def label_stream_history_limit(settings):
     settings.LABEL_STREAM_HISTORY_LIMIT = 1
 
 
 @pytest.fixture(autouse=True)
-def disable_sentry():
+def disable_sentry(settings):
     settings.SENTRY_RATE = 0
     settings.SENTRY_DSN = None
 
@@ -88,7 +96,7 @@ def aws_credentials():
     os.environ['AWS_SESSION_TOKEN'] = 'testing'
 
 
-@pytest.fixture(autouse=True)
+@pytest.fixture(autouse=True, scope='session')
 def azure_credentials():
     """Mocked Azure credentials"""
     os.environ['AZURE_BLOB_ACCOUNT_NAME'] = 'testing'
@@ -680,7 +688,7 @@ def async_import_off():
         yield
 
 
-@pytest.fixture(autouse=True)
+@pytest.fixture(autouse=True, scope='session')
 def set_feature_flag_envvar():
     """
     Automatically set the environment variable for all tests, including Tavern tests.
@@ -724,6 +732,32 @@ def ff_back_dev_4664_remove_storage_file_on_export_delete_29032023_short_on():
         return flag_set(*args, **kwargs)
 
     with mock.patch('data_export.api.flag_set', wraps=fake_flag_set):
+        yield
+
+
+@pytest.fixture(name='fflag_feat_utc_46_session_timeout_policy_off')
+def fflag_feat_utc_46_session_timeout_policy_off():
+    from core.feature_flags import flag_set
+
+    def fake_flag_set(*args, **kwargs):
+        if args[0] == 'fflag_feat_utc_46_session_timeout_policy':
+            return False
+        return flag_set(*args, **kwargs)
+
+    with mock.patch('core.middleware.flag_set', wraps=fake_flag_set):
+        yield
+
+
+@pytest.fixture(name='fflag_feat_utc_46_session_timeout_policy_on')
+def fflag_feat_utc_46_session_timeout_policy_on():
+    from core.feature_flags import flag_set
+
+    def fake_flag_set(*args, **kwargs):
+        if args[0] == 'fflag_feat_utc_46_session_timeout_policy':
+            return True
+        return flag_set(*args, **kwargs)
+
+    with mock.patch('core.middleware.flag_set', wraps=fake_flag_set):
         yield
 
 
