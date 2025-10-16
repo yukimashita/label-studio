@@ -5,6 +5,7 @@ import json
 import logging
 import os
 import re
+from datetime import datetime, timezone
 from pathlib import Path
 from urllib.parse import quote
 
@@ -66,18 +67,39 @@ class LocalFilesImportStorageBase(LocalFilesMixin, ImportStorage):
     def can_resolve_url(self, url):
         return False
 
-    def iterkeys(self):
+    recursive_scan = models.BooleanField(
+        _('recursive scan'),
+        default=False,
+        db_default=False,
+        null=True,
+        help_text=_('Perform recursive scan over the directory content'),
+    )
+
+    def iter_objects(self):
         path = Path(self.path)
         regex = re.compile(str(self.regex_filter)) if self.regex_filter else None
         # For better control of imported tasks, file reading has been changed to ascending order of filenames.
         # In other words, the task IDs are sorted by filename order.
-        for file in sorted(path.rglob('*'), key=os.path.basename):
+        iterator = path.rglob('*') if self.recursive_scan else path.glob('*')
+        for file in sorted(iterator, key=os.path.basename):
             if file.is_file():
                 key = file.name
                 if regex and not regex.match(key):
                     logger.debug(key + ' is skipped by regex filter')
                     continue
-                yield str(file)
+                yield file
+
+    def iter_keys(self):
+        for obj in self.iter_objects():
+            yield str(obj)
+
+    def get_unified_metadata(self, obj):
+        stat = obj.stat()
+        return {
+            'key': str(obj),
+            'last_modified': datetime.fromtimestamp(stat.st_mtime, tz=timezone.utc),
+            'size': stat.st_size,
+        }
 
     def get_data(self, key) -> list[StorageObject]:
         path = Path(key)

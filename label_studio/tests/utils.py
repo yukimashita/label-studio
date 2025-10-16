@@ -83,18 +83,20 @@ def email_mock():
 
 
 @contextmanager
-def gcs_client_mock():
+def gcs_client_mock(sample_blob_names=None):
     from collections import namedtuple
 
     from google.cloud import storage as google_storage
 
     File = namedtuple('File', ['name'])
+    sample_blob_names = sample_blob_names or ['abc', 'def', 'ghi']
 
     class DummyGCSBlob:
         def __init__(self, bucket_name, key, is_json, is_multitask):
             self.key = key
             self.bucket_name = bucket_name
-            self.name = f'{bucket_name}/{key}'
+            # Align with google-cloud-storage: Blob.name is the object key within the bucket
+            self.name = key
             self.is_json = is_json
             self.sample_json_contents = (
                 [
@@ -129,29 +131,69 @@ def gcs_client_mock():
             self.name = bucket_name
             self.is_json = is_json
             self.is_multitask = is_multitask
+            # Share the outer sample names for bucket-scoped listing
+            self.sample_blob_names = sample_blob_names
 
         def list_blobs(self, prefix, **kwargs):
             if 'fake' in prefix:
                 return []
-            return [File(name) for name in self.sample_blob_names]
+
+            # Handle delimiter for non-recursive listing (only direct children)
+            if 'delimiter' in kwargs and kwargs['delimiter']:
+                delimiter = kwargs['delimiter']
+                pref = prefix or ''
+                if pref:
+                    search_prefix = pref if pref.endswith(delimiter) else pref + delimiter
+                    filtered_names = []
+                    for name in self.sample_blob_names:
+                        if name.startswith(search_prefix):
+                            remaining_path = name[len(search_prefix) :]
+                            if delimiter not in remaining_path:
+                                filtered_names.append(name)
+                else:
+                    # Root-level: only keys without delimiter are direct children
+                    filtered_names = [name for name in self.sample_blob_names if delimiter not in name]
+                return [File(name) for name in filtered_names]
+            return [File(name) for name in self.sample_blob_names if prefix is None or name.startswith(prefix)]
 
         def blob(self, key):
             return DummyGCSBlob(self.name, key, self.is_json, self.is_multitask)
 
     class DummyGCSClient:
-        def __init__(self, sample_json_contents=None, sample_blob_names=None):
-            self.sample_blob_names = sample_blob_names or ['abc', 'def', 'ghi']
+        def __init__(self, sample_json_contents=None):
+            self.sample_blob_names = sample_blob_names
 
         def get_bucket(self, bucket_name):
             is_json = bucket_name.endswith('_JSON')
             is_multitask = bucket_name.startswith('multitask_')
             return DummyGCSBucket(bucket_name, is_json, is_multitask)
 
-        def list_blobs(self, bucket_name, prefix):
+        def list_blobs(self, bucket_name, prefix, delimiter=None):
             is_json = bucket_name.endswith('_JSON')
             is_multitask = bucket_name.startswith('multitask_')
-            sample_blob_names = ['test.json'] if is_multitask else ['abc', 'def', 'ghi']
-            return [DummyGCSBlob(bucket_name, name, is_json, is_multitask) for name in sample_blob_names]
+            sample_blob_names = ['test.json'] if is_multitask else self.sample_blob_names
+
+            # Handle delimiter for non-recursive listing (only direct children)
+            if delimiter:
+                pref = prefix or ''
+                if pref:
+                    search_prefix = pref if pref.endswith(delimiter) else pref + delimiter
+                    filtered_names = []
+                    for name in sample_blob_names:
+                        if name.startswith(search_prefix):
+                            remaining_path = name[len(search_prefix) :]
+                            if delimiter not in remaining_path:
+                                filtered_names.append(name)
+                else:
+                    # Root-level: only keys without delimiter are direct children
+                    filtered_names = [name for name in sample_blob_names if delimiter not in name]
+                return [DummyGCSBlob(bucket_name, name, is_json, is_multitask) for name in filtered_names]
+
+            return [
+                DummyGCSBlob(bucket_name, name, is_json, is_multitask)
+                for name in sample_blob_names
+                if prefix is None or name.startswith(prefix)
+            ]
 
     with mock.patch.object(google_storage, 'Client', return_value=DummyGCSClient()):
         yield google_storage
@@ -199,6 +241,9 @@ def azure_client_mock(sample_json_contents=None, sample_blob_names=None):
         def list_blobs(self, name_starts_with):
             return [File(name) for name in sample_blob_names]
 
+        def walk_blobs(self, name_starts_with, delimiter):
+            return [File(name) for name in sample_blob_names]
+
         def get_blob_client(self, key):
             return DummyAzureBlob(self.name, key)
 
@@ -238,7 +283,7 @@ def redis_client_mock():
     from fakeredis import FakeRedis
     from io_storages.redis.models import RedisStorageMixin
 
-    redis = FakeRedis()
+    redis = FakeRedis(decode_responses=True)
     # TODO: add mocked redis data
 
     with mock.patch.object(RedisStorageMixin, 'get_redis_connection', return_value=redis):
@@ -264,7 +309,10 @@ def make_project(config, user, use_ml_backend=True, team_id=None, org=None):
 @pytest.fixture
 @pytest.mark.django_db
 def project_id(business_client):
-    payload = dict(title='test_project')
+    payload = dict(
+        title='test_project',
+        label_config='<View><Text name="text" value="$text"/><Choices name="test_batch_predictions" toName="text"><Choice value="class_A"/><Choice value="class_B"/></Choices></View>',
+    )
     response = business_client.post(
         '/api/projects/',
         data=json.dumps(payload),

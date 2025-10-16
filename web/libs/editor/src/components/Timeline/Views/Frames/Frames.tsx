@@ -1,4 +1,5 @@
-import { clamp } from "lodash";
+import { useResizeObserver } from "@humansignal/core/hooks/useResizeObserver";
+import clamp from "lodash/clamp";
 import { type FC, type MouseEvent, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useMemoizedHandlers } from "../../../../hooks/useMemoizedHandlers";
 import { Block, Elem } from "../../../../utils/bem";
@@ -63,9 +64,10 @@ export const Frames: FC<TimelineViewProps> = ({
     return length * step;
   }, [length, step]);
 
+  const { width: scrollableWidth } = useResizeObserver(scrollable.current || []);
   const framesInView = useMemo(
-    () => toSteps(roundToStep((scrollable.current?.clientWidth ?? 0) - timelineStartOffset, step), step),
-    [scrollable.current, step, timelineStartOffset],
+    () => toSteps(roundToStep((scrollableWidth ?? 0) - timelineStartOffset, step), step),
+    [step, timelineStartOffset, scrollableWidth],
   );
 
   const handlers = useMemoizedHandlers({
@@ -333,8 +335,8 @@ export const Frames: FC<TimelineViewProps> = ({
   }, []);
 
   useEffect(() => {
-    onResize?.(toSteps(scrollable.current!.clientWidth, step));
-  }, [viewWidth, step]);
+    onResize?.(toSteps(scrollableWidth || 0, step));
+  }, [viewWidth, step, scrollableWidth]);
 
   useEffect(() => {
     const scroll = scrollable.current;
@@ -346,7 +348,7 @@ export const Frames: FC<TimelineViewProps> = ({
 
       setOffsetX(nextScrollOffset);
     }
-  }, [offset, step]);
+  }, [offset, step, scrollableWidth]);
 
   useEffect(() => {
     const scroll = scrollable.current;
